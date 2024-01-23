@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c6c89813026b5d4899041cc06e2ea32, type: 3}
+  m_Name: CurrentGameTime
+  m_EditorClassIdentifier: 
+  <ID>k__BackingField:
+    guidString: 071d17ed-cc33-46c3-9f43-ff6146ab1b26
+  <Name>k__BackingField: Current Game Time
+  <Months>k__BackingField:
+  - {fileID: 11400000, guid: ae07a07d049f44940a0baa25d79ceb68, type: 2}
+  - {fileID: 11400000, guid: 5bc678327ecb88146ae710681c60679d, type: 2}
+  - {fileID: 11400000, guid: 396af43cbdf079c41a49efdaa4d29d3a, type: 2}
+  - {fileID: 11400000, guid: 65da47bd4bb6f814ab7d9219f7445d15, type: 2}
+  - {fileID: 11400000, guid: e80d3111363a7824c852659006505b1d, type: 2}
+  - {fileID: 11400000, guid: 4d8e29e379083e54baf84dfe89c68384, type: 2}
+  - {fileID: 11400000, guid: 9cd3b013ebb7bcc43a6ec624a4a4af83, type: 2}
+  - {fileID: 11400000, guid: 3350b320317a4a9408733e21ba2785d8, type: 2}
+  - {fileID: 11400000, guid: 7974ea409a6c9d24a910f5e4aed61cfa, type: 2}
+  - {fileID: 11400000, guid: d8cfa8ec891e0444dab412ce51feb1d3, type: 2}
+  - {fileID: 11400000, guid: 5cbbcd2472807cd4090b0b2ba168f84a, type: 2}
+  - {fileID: 11400000, guid: 6adba21ced63ae34abf105646e36e2e8, type: 2}
+  <Days>k__BackingField:
+  - {fileID: 11400000, guid: cbe8895d8dd62a64dbd9585b78cc6ed2, type: 2}
+  - {fileID: 11400000, guid: 073cf02e5e87b1d4faf8796d25d5dcab, type: 2}
+  - {fileID: 11400000, guid: 9b39e441495fe524facccf175da676e7, type: 2}
+  - {fileID: 11400000, guid: 46a4a62f8553b8b409ddbaf53b412b0e, type: 2}
+  - {fileID: 11400000, guid: b06b0f6e6273e7547b4d9f06d0326657, type: 2}
+  - {fileID: 11400000, guid: 6df12acd2b0335e4dabf21875864e1a1, type: 2}
+  - {fileID: 11400000, guid: d59014cae0456a64487f80192e419b17, type: 2}
+  <CurrentMonth>k__BackingField: {fileID: 11400000, guid: ae07a07d049f44940a0baa25d79ceb68, type: 2}
+  <CurrentDay>k__BackingField: {fileID: 11400000, guid: 073cf02e5e87b1d4faf8796d25d5dcab, type: 2}
+  <Year>k__BackingField: 1
+  <Month>k__BackingField: 1
+  <Week>k__BackingField: 1
+  <Day>k__BackingField: 1
+  <Hour>k__BackingField: 0
+  <Minute>k__BackingField: 0
+  <Second>k__BackingField: 0
+  <MilliSecond>k__BackingField: 0
+  <TimeScale>k__BackingField: 1
+  <MilliSecondsInSecond>k__BackingField: 1000
+  <SecondsInMinute>k__BackingField: 60
+  <MinutesInHour>k__BackingField: 60
