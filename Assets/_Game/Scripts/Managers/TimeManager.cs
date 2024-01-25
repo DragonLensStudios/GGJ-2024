@@ -51,7 +51,6 @@ namespace Managers
         {
             MessageSystem.MessageManager.RegisterForChannel<TimeMessage>(MessageChannels.Time, HandleTimeMessage);
             MessageSystem.MessageManager.RegisterForChannel<PauseMessage>(MessageChannels.GameFlow, PauseMessageHandler);
-            
         }
             
         /// <summary>
