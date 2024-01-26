@@ -6,24 +6,28 @@ namespace Player
     public class FPSController : FirstPersonBasicController
     {
         [field:Header("FPS Settings")]
-        [field: SerializeField] public GameObject Weapon { get; set; }
+        [field: SerializeField] public GameObject CurrentWeapon { get; set; }
 
         protected override void Update()
         {
             base.Update();
-            if(_input.Fire)
+
+            if (_input.Reload)
             {
-                Fire();
+                Debug.Log("Reloading");
             }
-        }
-        
-        public virtual void Fire()
-        {
-            Debug.Log("Fire");
-            // if(Weapon != null)
-            // {
-            //     Weapon.GetComponent<Weapon>().Fire();
-            // }
+            if (_input.SwitchWeapon > 0)
+            {
+                Debug.Log("Switching to next weapon");
+            }
+            else if (_input.SwitchWeapon < 0)
+            {
+                Debug.Log("Switching to previous weapon");
+            }
+            else
+            {
+                Debug.Log("No input detected");
+            }
         }
     }
 }

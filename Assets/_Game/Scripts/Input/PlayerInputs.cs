@@ -13,6 +13,8 @@ namespace Input
         [field: SerializeField] public bool Jump { get; set; }
         [field: SerializeField] public bool Sprint { get; set; }
         [field: SerializeField] public bool Fire { get; set; }
+        [field: SerializeField] public bool Reload { get; set; }
+        [field: SerializeField] public float SwitchWeapon { get; set; }
         
         [field:Header("Movement Settings")]
         [field: SerializeField] public bool AnalogMovement { get; set; }
@@ -49,6 +51,16 @@ namespace Input
         {
             FireInput(value.isPressed);
         }
+        
+        public void OnReload(InputValue value)
+        {
+            Reload = value.isPressed;
+        }
+        
+        public void OnWeaponSwitch(InputValue value)
+        {
+            SwitchWeapon = value.Get<float>();
+        }
 #endif
             public void MoveInput(Vector2 newMoveDirection)
             {
@@ -73,6 +85,16 @@ namespace Input
             public void FireInput(bool newFireState)
             {
                 Fire = newFireState;
+            }
+            
+            public void ReloadInput(bool newReloadState)
+            {
+                Reload = newReloadState;
+            }
+            
+            public void SwitchWeaponInput(float newWeaponIndex)
+            {
+                SwitchWeapon = newWeaponIndex;
             }
         
             private void OnApplicationFocus(bool hasFocus)
