@@ -16,7 +16,7 @@ namespace Input
         [field:SerializeField] public InputActionReference SprintInputAction { get; set; }
         [field:SerializeField] public InputActionReference FireInputAction { get; set; }
         [field:SerializeField] public InputActionReference ReloadInputAction { get; set; }
-        [field:SerializeField] public InputActionReference NextWeaponInputAction { get; set; }
+        [field:SerializeField] public InputActionReference SwitchWeaponInputAction { get; set; }
         [field:SerializeField] public InputActionReference AimInputAction { get; set; }
 #endif
         
@@ -29,7 +29,7 @@ namespace Input
         [field: SerializeField] public bool FireHeld { get; set; }
         [field: SerializeField] public bool FireReleased { get; set; }
         [field: SerializeField] public bool Reload { get; set; }
-        [field: SerializeField] public bool NextWeapon { get; set; }
+        [field: SerializeField] public float SwitchWeapon { get; set; }
         [field: SerializeField] public int SelectWeapon { get; set; }
         [field: SerializeField] public bool Aim { get; set; }
         
@@ -50,7 +50,7 @@ namespace Input
         SprintInputAction.action.Enable();
         FireInputAction.action.Enable();
         ReloadInputAction.action.Enable();
-        NextWeaponInputAction.action.Enable();
+        SwitchWeaponInputAction.action.Enable();
         AimInputAction.action.Enable();
         MoveInputAction.action.performed += ctx => MoveInput(ctx.ReadValue<Vector2>());
         MoveInputAction.action.canceled += ctx => MoveInput(ctx.ReadValue<Vector2>());
@@ -73,7 +73,8 @@ namespace Input
         };
         FireInputAction.action.canceled += ctx => FirePressedInput(false);
         ReloadInputAction.action.performed += ctx => ReloadInput(ctx.ReadValueAsButton());
-        NextWeaponInputAction.action.performed += ctx => NextWeaponInput(ctx.ReadValueAsButton());
+        SwitchWeaponInputAction.action.performed += ctx => SwitchWeaponInput(ctx.ReadValue<float>());
+        SwitchWeaponInputAction.action.canceled += ctx => SwitchWeaponInput(0f);
         AimInputAction.action.performed += ctx => AimInput(ctx.ReadValueAsButton());
         AimInputAction.action.canceled += ctx => AimInput(false);
 #endif
@@ -88,7 +89,7 @@ namespace Input
             SprintInputAction.action.Disable();
             FireInputAction.action.Disable();
             ReloadInputAction.action.Disable();
-            NextWeaponInputAction.action.Disable();
+            SwitchWeaponInputAction.action.Disable();
             AimInputAction.action.Disable();
 #endif
         }
@@ -181,9 +182,9 @@ namespace Input
             }
             
             
-            public void NextWeaponInput(bool nextWeaponState)
+            public void SwitchWeaponInput(float nextWeaponState)
             {
-                NextWeapon = nextWeaponState;
+                SwitchWeapon = nextWeaponState;
             }
             
             public void AimInput(bool newAimState)

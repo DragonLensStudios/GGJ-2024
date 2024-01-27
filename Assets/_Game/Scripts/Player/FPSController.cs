@@ -153,11 +153,16 @@ namespace Player
                 (activeWeapon == null || !activeWeapon.IsCharging) &&
                 (WeaponSwitchState == WeaponSwitchState.Up || WeaponSwitchState == WeaponSwitchState.Down))
             {
-                if (_input.NextWeapon)
+                switch (_input.SwitchWeapon)
                 {
-                    SwitchWeapon(true);
+                    case < 0:
+                        SwitchWeapon(false);
+                        break;
+                    case > 0:
+                        SwitchWeapon(true);
+                        break;
                 }
-                
+
                 if (_input.SelectWeapon > 0)
                 {
                     if (GetWeaponAtSlotIndex(_input.SelectWeapon - 1) != null)
