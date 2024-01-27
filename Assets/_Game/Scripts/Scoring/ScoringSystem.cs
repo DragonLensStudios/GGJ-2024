@@ -1,13 +1,25 @@
 using Enums;
 using Messaging;
 using Messaging.Messages;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [System.Serializable]
 public class ScoringSystem : MonoBehaviour
 {
-    [field: SerializeField] public long PlayerScore { get; set; } = 0;
+    [field: SerializeField] public int PlayerScore { get; set; } = 0;
+    [field: SerializeField] public int PlayerHighScore { get; set; } = 0;
+    [field: SerializeField] public virtual TMP_Text ScoreText { get; set; }
+    [field: SerializeField] public virtual TMP_Text HighScoreText { get; set; }
+
+    protected void Start()
+    {
+        ScoreText.text = $"Score: {PlayerScore}";
+        PlayerHighScore = PlayerPrefs.GetInt("PlayerHighScore");
+        HighScoreText.text = $"High Score: {PlayerHighScore}";
+    }
+
     protected void OnEnable()
     {
         MessageSystem.MessageManager.RegisterForChannel<ScoreMessage>(MessageChannels.UI, ScoreMessageHandler);
@@ -20,7 +32,7 @@ public class ScoringSystem : MonoBehaviour
 
     public virtual void ScoreMessageHandler(MessageSystem.IMessageEnvelope message)
     {
-        if(!message.Message<ScoreMessage>().HasValue) return;
+        if (!message.Message<ScoreMessage>().HasValue) return;
         var data = message.Message<ScoreMessage>().GetValueOrDefault();
         switch (data.Operation)
         {
@@ -37,11 +49,22 @@ public class ScoringSystem : MonoBehaviour
                 PlayerScore *= data.Value;
                 break;
             case MathOperation.Divide:
-                if(data.Value != 0)
+                if (data.Value != 0)
                 {
                     PlayerScore /= data.Value;
                 }
                 break;
+        }
+        ScoreText.text = $"Score: {PlayerScore}";
+        if (PlayerScore > PlayerHighScore)
+        {
+            PlayerHighScore = PlayerScore;
+            PlayerPrefs.SetInt("PlayerHighScore", PlayerHighScore);
+            HighScoreText.text = $"New High Score: {PlayerHighScore}";
+        }
+        else
+        {
+            HighScoreText.text = $"High Score: {PlayerHighScore}";
         }
     }
 }
