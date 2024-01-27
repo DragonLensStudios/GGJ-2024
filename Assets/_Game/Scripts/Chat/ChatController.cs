@@ -18,4 +18,5 @@ public class ChatController : MonoBehaviour
         ChatMessages.Add(chatMessage);
         MessageSystem.MessageManager.SendImmediate(MessageChannels.UI, new AddChatMessage(chatMessage.Sender, chatMessage.Message));
     }
+    
 }
