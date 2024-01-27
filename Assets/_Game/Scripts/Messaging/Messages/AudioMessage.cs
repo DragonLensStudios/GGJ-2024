@@ -1,5 +1,6 @@
 using Audio;
 using Enums;
+using Unity.FPS.Game;
 
 namespace Messaging.Messages
 {

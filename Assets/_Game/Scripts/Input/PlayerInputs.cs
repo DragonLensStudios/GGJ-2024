@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -7,14 +8,30 @@ namespace Input
 {
     public class PlayerInputs : MonoBehaviour
     {
+#if ENABLE_INPUT_SYSTEM
+        [field:Header("Input References")]
+        [field:SerializeField] public InputActionReference MoveInputAction { get; set; }
+        [field:SerializeField] public InputActionReference LookInputAction { get; set; }
+        [field:SerializeField] public InputActionReference JumpInputAction { get; set; }
+        [field:SerializeField] public InputActionReference SprintInputAction { get; set; }
+        [field:SerializeField] public InputActionReference FireInputAction { get; set; }
+        [field:SerializeField] public InputActionReference ReloadInputAction { get; set; }
+        [field:SerializeField] public InputActionReference NextWeaponInputAction { get; set; }
+        [field:SerializeField] public InputActionReference AimInputAction { get; set; }
+#endif
+        
         [field:Header("Character Input Values")]
         [field: SerializeField] public Vector2 Move { get; set; }
         [field: SerializeField] public Vector2 Look { get; set; }
         [field: SerializeField] public bool Jump { get; set; }
         [field: SerializeField] public bool Sprint { get; set; }
-        [field: SerializeField] public bool Fire { get; set; }
+        [field: SerializeField] public bool FirePressed { get; set; }
+        [field: SerializeField] public bool FireHeld { get; set; }
+        [field: SerializeField] public bool FireReleased { get; set; }
         [field: SerializeField] public bool Reload { get; set; }
-        [field: SerializeField] public float SwitchWeapon { get; set; }
+        [field: SerializeField] public bool NextWeapon { get; set; }
+        [field: SerializeField] public int SelectWeapon { get; set; }
+        [field: SerializeField] public bool Aim { get; set; }
         
         [field:Header("Movement Settings")]
         [field: SerializeField] public bool AnalogMovement { get; set; }
@@ -22,46 +39,111 @@ namespace Input
         [field:Header("Mouse Cursor Settings")]
         [field: SerializeField] public bool CursorLocked { get; set; } = true;
         [field: SerializeField] public bool CursorInputForLook { get; set; } = true;
-        
+
+
+        protected virtual void OnEnable()
+        {
 #if ENABLE_INPUT_SYSTEM
-        public void OnMove(InputValue value)
+        MoveInputAction.action.Enable();
+        LookInputAction.action.Enable();
+        JumpInputAction.action.Enable();
+        SprintInputAction.action.Enable();
+        FireInputAction.action.Enable();
+        ReloadInputAction.action.Enable();
+        NextWeaponInputAction.action.Enable();
+        AimInputAction.action.Enable();
+        MoveInputAction.action.performed += ctx => MoveInput(ctx.ReadValue<Vector2>());
+        MoveInputAction.action.canceled += ctx => MoveInput(ctx.ReadValue<Vector2>());
+        LookInputAction.action.performed += ctx => LookInput(ctx.ReadValue<Vector2>());
+        LookInputAction.action.canceled += ctx => LookInput(Vector2.zero);
+        JumpInputAction.action.performed += ctx => JumpInput(ctx.ReadValueAsButton());
+        SprintInputAction.action.performed += ctx => SprintInput(ctx.ReadValueAsButton());
+        SprintInputAction.action.canceled += ctx => SprintInput(false);
+        FireInputAction.action.performed += ctx =>
         {
-            MoveInput(value.Get<Vector2>());
-        }
-
-        public void OnLook(InputValue value)
-        {
-            if(CursorInputForLook)
+            if (ctx.action.WasPressedThisFrame())
             {
-                LookInput(value.Get<Vector2>());
+                FirePressedInput(true);
             }
-        }
-
-        public void OnJump(InputValue value)
-        {
-            JumpInput(value.isPressed);
-        }
-
-        public void OnSprint(InputValue value)
-        {
-            SprintInput(value.isPressed);
-        }
-        
-        public void OnFire(InputValue value)
-        {
-            FireInput(value.isPressed);
-        }
-        
-        public void OnReload(InputValue value)
-        {
-            Reload = value.isPressed;
-        }
-        
-        public void OnWeaponSwitch(InputValue value)
-        {
-            SwitchWeapon = value.Get<float>();
-        }
+            else if (ctx.action.WasReleasedThisFrame())
+            {
+                FirePressedInput(false);
+            }
+            FireHeldInput(ctx.ReadValueAsButton());
+        };
+        FireInputAction.action.canceled += ctx => FirePressedInput(false);
+        ReloadInputAction.action.performed += ctx => ReloadInput(ctx.ReadValueAsButton());
+        NextWeaponInputAction.action.performed += ctx => NextWeaponInput(ctx.ReadValueAsButton());
+        AimInputAction.action.performed += ctx => AimInput(ctx.ReadValueAsButton());
+        AimInputAction.action.canceled += ctx => AimInput(false);
 #endif
+        }
+
+        protected virtual void OnDisable()
+        {
+#if ENABLE_INPUT_SYSTEM
+            MoveInputAction.action.Disable();
+            LookInputAction.action.Disable();
+            JumpInputAction.action.Disable();
+            SprintInputAction.action.Disable();
+            FireInputAction.action.Disable();
+            ReloadInputAction.action.Disable();
+            NextWeaponInputAction.action.Disable();
+            AimInputAction.action.Disable();
+#endif
+        }
+
+        protected virtual void Update()
+        {
+#if ENABLE_INPUT_SYSTEM
+            if (Keyboard.current.numpad1Key.wasPressedThisFrame)
+            {
+                SelectWeapon = 1;
+            }
+            else if (Keyboard.current.numpad2Key.wasPressedThisFrame)
+            {
+                SelectWeapon = 2;
+            }
+            else if (Keyboard.current.numpad3Key.wasPressedThisFrame)
+            {
+                SelectWeapon = 3;
+            }
+            else if (Keyboard.current.numpad4Key.wasPressedThisFrame)
+            {
+                SelectWeapon = 4;
+            }
+            else if (Keyboard.current.numpad5Key.wasPressedThisFrame)
+            {
+                SelectWeapon = 5;
+            }
+            else if (Keyboard.current.numpad6Key.wasPressedThisFrame)
+            {
+                SelectWeapon = 6;
+            }
+            else if (Keyboard.current.numpad7Key.wasPressedThisFrame)
+            {
+                SelectWeapon = 7;
+            }
+            else if (Keyboard.current.numpad8Key.wasPressedThisFrame)
+            {
+                SelectWeapon = 8;
+            }
+            else if (Keyboard.current.numpad9Key.wasPressedThisFrame)
+            {
+                SelectWeapon = 9;
+            }
+            else if (Keyboard.current.numpad0Key.wasPressedThisFrame)
+            {
+                SelectWeapon = 0;
+            }
+            else
+            {
+                SelectWeapon = -1;
+            }
+#endif
+        }
+
+
             public void MoveInput(Vector2 newMoveDirection)
             {
                 Move = newMoveDirection;
@@ -82,9 +164,15 @@ namespace Input
                 Sprint = newSprintState;
             }
             
-            public void FireInput(bool newFireState)
+            public void FirePressedInput(bool newFireState)
             {
-                Fire = newFireState;
+                FireReleased = !newFireState;
+                FirePressed = newFireState;
+            }
+            
+            public void FireHeldInput(bool newFireState)
+            {
+                FireHeld = newFireState;
             }
             
             public void ReloadInput(bool newReloadState)
@@ -92,9 +180,15 @@ namespace Input
                 Reload = newReloadState;
             }
             
-            public void SwitchWeaponInput(float newWeaponIndex)
+            
+            public void NextWeaponInput(bool nextWeaponState)
             {
-                SwitchWeapon = newWeaponIndex;
+                NextWeapon = nextWeaponState;
+            }
+            
+            public void AimInput(bool newAimState)
+            {
+                Aim = newAimState;
             }
         
             private void OnApplicationFocus(bool hasFocus)

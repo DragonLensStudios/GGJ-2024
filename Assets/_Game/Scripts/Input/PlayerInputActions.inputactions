@@ -51,7 +51,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "WeaponSwitch",
+                    "name": "NextWeapon",
                     "type": "PassThrough",
                     "id": "a7c71f02-169e-4694-af79-a705e4f323e1",
                     "expectedControlType": "Axis",
@@ -63,6 +63,15 @@
                     "name": "Reload",
                     "type": "PassThrough",
                     "id": "fd91905f-aef7-4d8b-8530-ab670339a71f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Aim",
+                    "type": "PassThrough",
+                    "id": "fffe8112-331b-45c2-b424-2bee4203ad8b",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -238,7 +247,7 @@
                 {
                     "name": "",
                     "id": "eeda6967-04fd-4c14-83ee-da39657d7a04",
-                    "path": "<Gamepad>/leftTrigger",
+                    "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
@@ -325,47 +334,25 @@
                 },
                 {
                     "name": "",
-                    "id": "e46ba647-e10c-448d-b377-1d8d4ea795e2",
-                    "path": "<Mouse>/scroll/y",
+                    "id": "35fd2b13-906a-4a4b-af5c-2a1bef8ed00e",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "NextWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "78fdfef9-3ef0-45d5-95eb-9d259b23e1b2",
+                    "path": "<Mouse>/middleButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "WeaponSwitch",
+                    "action": "NextWeapon",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "ControllerBumpers",
-                    "id": "d69ab9d1-d0b5-4a25-9bb8-62f6bda020a4",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "WeaponSwitch",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "negative",
-                    "id": "a42a272b-5f7b-49ea-ae7c-80142efa1369",
-                    "path": "<Gamepad>/leftShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "WeaponSwitch",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "positive",
-                    "id": "4df3823d-c4eb-4996-bd32-13719877b4dd",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "WeaponSwitch",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
@@ -386,6 +373,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a4ea0e4f-053c-4ffe-b29d-caaf893f8916",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "76e63aa2-f2b9-4216-a73f-8e1cb02379aa",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

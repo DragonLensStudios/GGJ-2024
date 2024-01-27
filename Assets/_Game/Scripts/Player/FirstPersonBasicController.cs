@@ -1,4 +1,5 @@
 using System;
+using Audio;
 using Input;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
@@ -20,7 +21,7 @@ namespace Player
 
         [field: Tooltip("Sprint speed of the character in m/s")]
         [field: SerializeField] public virtual float SprintSpeed { get; set; } = 8.0f;
-
+        
         [field: Tooltip("Rotation speed of the character")]
         [field: SerializeField] public virtual float RotationSpeed { get; set; } = 1.0f;
 
@@ -30,7 +31,7 @@ namespace Player
         [field: Space(10)]
         [field: Tooltip("The height the player can jump")]
         [field: SerializeField] public virtual float JumpHeight { get; set; } = 1.2f;
-
+        
         [field: Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
         [field: SerializeField] public virtual float Gravity { get; set; } = -15.0f;
 
@@ -63,7 +64,15 @@ namespace Player
 
         [field: Tooltip("How far in degrees can you move the camera down")]
         [field: SerializeField] public virtual float BottomClamp { get; set; } = -90.0f;
-
+        
+        [field: Header("Audio Settings")]
+        [field: Tooltip("The sound played when character moves")]
+        [field: SerializeField] public virtual AudioObject FootstepsAudio { get; set; }
+        [field: Tooltip("The sound played when character leaves the ground")]
+        [field: SerializeField] public virtual AudioObject JumpAudio { get; set; }
+        [field: Tooltip("The sound played when character touches back on ground")]
+        [field: SerializeField] public virtual AudioObject LandAudio { get; set; }
+        
         // cinemachine
         protected float _cinemachineTargetPitch;
 
@@ -80,7 +89,7 @@ namespace Player
         // components
         protected CharacterController _controller;
         protected PlayerInputs _input;
-        protected GameObject _mainCamera;
+        protected Camera _camera;
 
 #if ENABLE_INPUT_SYSTEM
         protected PlayerInput _playerInput;
@@ -104,10 +113,7 @@ namespace Player
         {
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<PlayerInputs>();
-            if (Camera.main != null)
-            {
-                _mainCamera = Camera.main.gameObject;
-            }
+            _camera = Camera.main;
 
 #if ENABLE_INPUT_SYSTEM
             _playerInput = GetComponent<PlayerInput>();

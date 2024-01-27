@@ -19,7 +19,9 @@ namespace Enums
         Time,
         Items,
         Lighting,
-        Object
+        Object,
+        Weapons,
+        Health
     }
 
 }
