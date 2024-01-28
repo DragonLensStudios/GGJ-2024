@@ -10,12 +10,16 @@ public class ScoringSystem : MonoBehaviour
 {
     [field: SerializeField] public int PlayerScore { get; set; } = 0;
     [field: SerializeField] public int PlayerHighScore { get; set; } = 0;
+    [field: SerializeField] public int Viewers { get; set; } = 0;
     [field: SerializeField] public virtual TMP_Text ScoreText { get; set; }
     [field: SerializeField] public virtual TMP_Text HighScoreText { get; set; }
+    [field: SerializeField] public virtual TMP_Text ViewersText { get; set; }
 
     protected void Start()
     {
-        ScoreText.text = $"Score: {PlayerScore}";
+        //ScoreText?.Invoke(ScoreText.text = $"Score: {PlayerScore}"); 
+        ViewersText.text = $"Viewers: {Viewers}";
+        Debug.Log("start");
         PlayerHighScore = PlayerPrefs.GetInt("PlayerHighScore");
         HighScoreText.text = $"High Score: {PlayerHighScore}";
     }
@@ -37,13 +41,55 @@ public class ScoringSystem : MonoBehaviour
         switch (data.Operation)
         {
             case MathOperation.Add:
-                PlayerScore += data.Value;
+                switch (data.ScoreType)
+                {
+                    case ScoreType.None:
+                        PlayerScore += data.Value;
+                        break;
+                    case ScoreType.Viewer:
+                        PlayerScore += data.Value * (int)ScoreType.Viewer;
+                        break;
+                    case ScoreType.Subscriber:
+                        PlayerScore += data.Value * (int)ScoreType.Subscriber;
+                        break;
+                    case ScoreType.Donation:
+                        PlayerScore += data.Value * (int)ScoreType.Donation;
+                        break;
+                }
                 break;
             case MathOperation.Subtract:
-                PlayerScore -= data.Value;
+                switch (data.ScoreType)
+                {
+                    case ScoreType.None:
+                        PlayerScore -= data.Value;
+                        break;
+                    case ScoreType.Viewer:
+                        PlayerScore -= data.Value * (int)ScoreType.Viewer;
+                        break;
+                    case ScoreType.Subscriber:
+                        PlayerScore -= data.Value * (int)ScoreType.Subscriber;
+                        break;
+                    case ScoreType.Donation:
+                        PlayerScore -= data.Value * (int)ScoreType.Donation;
+                        break;
+                }
                 break;
             case MathOperation.Set:
-                PlayerScore = data.Value;
+                switch (data.ScoreType)
+                {
+                    case ScoreType.None:
+                        PlayerScore *= data.Value;
+                        break;
+                    case ScoreType.Viewer:
+                        PlayerScore *= data.Value * (int)ScoreType.Viewer;
+                        break;
+                    case ScoreType.Subscriber:
+                        PlayerScore *= data.Value * (int)ScoreType.Subscriber;
+                        break;
+                    case ScoreType.Donation:
+                        PlayerScore *= data.Value * (int)ScoreType.Donation;
+                        break;
+                }
                 break;
             case MathOperation.Multiply:
                 PlayerScore *= data.Value;
@@ -51,7 +97,21 @@ public class ScoringSystem : MonoBehaviour
             case MathOperation.Divide:
                 if (data.Value != 0)
                 {
-                    PlayerScore /= data.Value;
+                    switch (data.ScoreType)
+                    {
+                        case ScoreType.None:
+                            PlayerScore /= data.Value;
+                            break;
+                        case ScoreType.Viewer:
+                            PlayerScore /= data.Value * (int)ScoreType.Viewer;
+                            break;
+                        case ScoreType.Subscriber:
+                            PlayerScore /= data.Value * (int)ScoreType.Subscriber;
+                            break;
+                        case ScoreType.Donation:
+                            PlayerScore /= data.Value * (int)ScoreType.Donation;
+                            break;
+                    }
                 }
                 break;
         }
@@ -66,5 +126,13 @@ public class ScoringSystem : MonoBehaviour
         {
             HighScoreText.text = $"High Score: {PlayerHighScore}";
         }
+    }
+
+    public virtual void ViewersMessageHandler(MessageSystem.IMessageEnvelope message) {
+
+        if (!message.Message<ViewerMessage>().HasValue) return;
+        var data = message.Message<ViewerMessage>().GetValueOrDefault();
+
+        ViewersText.text = $"test";
     }
 }
