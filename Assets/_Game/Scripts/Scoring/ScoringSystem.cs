@@ -1,3 +1,5 @@
+using DLS.Enums;
+using DLS.Messaging;
 using Enums;
 using Messaging;
 using Messaging.Messages;
@@ -17,7 +19,7 @@ public class ScoringSystem : MonoBehaviour
 
     protected void Start()
     {
-        //ScoreText?.Invoke(ScoreText.text = $"Score: {PlayerScore}"); 
+        ScoreText.text = $"Score: {PlayerScore}";
         ViewersText.text = $"Viewers: {Viewers}";
         Debug.Log("start");
         PlayerHighScore = PlayerPrefs.GetInt("PlayerHighScore");
