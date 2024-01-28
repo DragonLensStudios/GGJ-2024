@@ -76,6 +76,8 @@ namespace DLS.Player
         [field:Tooltip("Is Pointing at the target?")]
         [field:SerializeField] public virtual bool IsPointingAtTarget { get; set; }
 
+        public GameObject GameObject => gameObject;
+
         protected float weaponBobFactor;
         protected Vector3 lastCharacterPosition;
         protected Vector3 weaponMainLocalPosition;

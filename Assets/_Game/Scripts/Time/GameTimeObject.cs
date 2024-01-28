@@ -258,7 +258,7 @@ namespace DLS.Time
                 Second++;
                 MilliSecond -= MilliSecondsInSecond;
             }
-            while (MilliSecond < 0 && Second > 0)
+            while (MilliSecond < 0 && Second >= 0)
             {
                 Second--;
                 MilliSecond += MilliSecondsInSecond;
@@ -270,7 +270,7 @@ namespace DLS.Time
                 Minute++;
                 Second -= SecondsInMinute;
             }
-            while (Second < 0 && Minute > 0)
+            while (Second < 0 && Minute >= 0)
             {
                 Minute--;
                 Second += SecondsInMinute;
@@ -282,7 +282,7 @@ namespace DLS.Time
                 Hour++;
                 Minute -= MinutesInHour;
             }
-            while (Minute < 0 && Hour > 0)
+            while (Minute < 0 && Hour >= 0)
             {
                 Hour--;
                 Minute += MinutesInHour;

@@ -1,7 +1,10 @@
+using System;
 using DLS.Enums;
 using DLS.Messaging;
 using DLS.Messaging.Messages;
 using DLS.Time;
+using FPS.Scripts.Game;
+using FPS.Scripts.Game.Managers;
 using UnityEngine;
 
 namespace DLS.Managers
@@ -21,6 +24,11 @@ namespace DLS.Managers
         [field: Tooltip("The current time object.")]
         [field: SerializeField] public virtual GameTimeObject CurrentTimeObject { get; set; }
         
+        [field: Tooltip("The count down timer")]
+        [field: SerializeField] public virtual GameTimeObject CountDownTimer { get; set; }
+        
+        [field: SerializeField] public virtual float CountDownMinutes { get; set; } = 10f;
+        
         [field: Tooltip("is the game paused?")]
         [field: SerializeField] public virtual bool IsPaused { get; set; }
 
@@ -38,6 +46,26 @@ namespace DLS.Managers
             else
             {
                 Destroy(gameObject);
+            }
+            //TODO:Replace with message system handler.
+            EventManager.AddListener<PlayerDeathEvent>(OnPlayerDeath);
+        }
+
+        private void OnPlayerDeath(PlayerDeathEvent obj)
+        {
+            if(CountDownTimer != null)
+            {
+                CountDownTimer.ResetFullDate();
+                CountDownTimer.Minute = CountDownMinutes;
+            }
+        }
+
+        private void Start()
+        {
+            if(CountDownTimer != null)
+            {
+                CountDownTimer.ResetFullDate();
+                CountDownTimer.Minute = CountDownMinutes;
             }
         }
 
@@ -59,6 +87,9 @@ namespace DLS.Managers
         public virtual void Update()
         {
             CurrentTimeObject.StartTime();
+            if(CountDownTimer.Minute <= 0 && CountDownTimer.Second <= 0)
+                return;
+            CountDownTimer.ReverseTime();
         }
 
         /// <summary>
@@ -69,6 +100,11 @@ namespace DLS.Managers
             if (CurrentTimeObject != null)
             {
                 CurrentTimeObject.ResetFullDate();
+            }
+            if(CountDownTimer != null)
+            {
+                CountDownTimer.ResetFullDate();
+                CountDownTimer.Minute = CountDownMinutes;
             }
         }
         

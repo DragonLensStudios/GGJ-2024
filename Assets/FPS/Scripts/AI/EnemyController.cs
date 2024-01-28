@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using FPS.Scripts.Game;
 using FPS.Scripts.Game.Managers;
 using FPS.Scripts.Game.Shared;
@@ -71,8 +72,10 @@ namespace FPS.Scripts.AI
         [Tooltip("The point at which the death VFX is spawned")]
         public Transform DeathVfxSpawnPoint;
 
+        //TODO: Move new functionality to my own EnemyController.
         [Header("Loot")] [Tooltip("The object this enemy can drop when dying")]
-        public GameObject LootPrefab;
+        public List<GameObject> LootPrefabs = new();
+        public int MaxLootDrops = 3;
 
         [Tooltip("The chance the object has to drop")] [Range(0, 1)]
         public float DropRate = 1f;
@@ -157,10 +160,13 @@ namespace FPS.Scripts.AI
             DebugUtility.HandleWarningIfDuplicateObjects<DetectionModule, EnemyController>(detectionModules.Length,
                 this, gameObject);
             // Initialize detection module
-            DetectionModule = detectionModules[0];
-            DetectionModule.onDetectedTarget += OnDetectedTarget;
-            DetectionModule.onLostTarget += OnLostTarget;
-            onAttack += DetectionModule.OnAttack;
+            DetectionModule = detectionModules.FirstOrDefault();
+            if (DetectionModule != null)
+            {
+                DetectionModule.onDetectedTarget += OnDetectedTarget;
+                DetectionModule.onLostTarget += OnLostTarget;
+                onAttack += DetectionModule.OnAttack;
+            }
 
             var navigationModules = GetComponentsInChildren<NavigationModule>();
             DebugUtility.HandleWarningIfDuplicateObjects<DetectionModule, EnemyController>(detectionModules.Length,
@@ -206,7 +212,11 @@ namespace FPS.Scripts.AI
         {
             EnsureIsWithinLevelBounds();
 
-            DetectionModule.HandleTargetDetection(m_Actor, m_SelfColliders);
+            if(m_Actor == null) return;
+            if (DetectionModule != null)
+            {
+                DetectionModule.HandleTargetDetection(m_Actor, m_SelfColliders);
+            }
 
             Color currentColor = OnHitBodyGradient.Evaluate((Time.time - m_LastTimeDamaged) / FlashOnHitDuration);
             m_BodyFlashMaterialPropertyBlock.SetColor("_EmissionColor", currentColor);
@@ -371,7 +381,10 @@ namespace FPS.Scripts.AI
             // loot an object
             if (TryDropItem())
             {
-                Instantiate(LootPrefab, transform.position, Quaternion.identity);
+                for (int i = 0; i < Random.Range(1, MaxLootDrops); i++)
+                {
+                    Instantiate(LootPrefabs[Random.Range(0, LootPrefabs.Count)], transform.position, Quaternion.identity);
+                }
             }
 
             // this will call the OnDestroy function
@@ -435,7 +448,7 @@ namespace FPS.Scripts.AI
 
         public bool TryDropItem()
         {
-            if (DropRate == 0 || LootPrefab == null)
+            if (DropRate == 0 || LootPrefabs == null)
                 return false;
             else if (DropRate == 1)
                 return true;
