@@ -74,9 +74,13 @@ namespace DLS.Weapons
 
         void OnEnable()
         {
-            MessageSystem.MessageManager.RegisterForChannel<ProjectileShootMessage>(MessageChannels.Weapons, ProjectileShootMessageHandler);
             m_ProjectileBase = GetComponent<ProjectileBase>();
             Destroy(gameObject, MaxLifeTime);
+        }
+
+        public void Init()
+        {
+            MessageSystem.MessageManager.RegisterForChannel<ProjectileShootMessage>(MessageChannels.Weapons, ProjectileShootMessageHandler);
         }
 
         private void OnDisable()
@@ -249,10 +253,10 @@ namespace DLS.Weapons
             else
             {
                 // point damage
-                IDamagable damageable = collider.GetComponent<IDamagable>();
+                IDamagable damageable = collider.GetComponentInParent<IDamagable>();
                 if (damageable != null)
                 {
-                    damageable.TakeDamage(Damage, false, m_ProjectileBase.Owner);
+                    damageable.TakeDamage(Damage, false, m_ProjectileBase.Owner, damageable.GameObject);
                 }
             }
 

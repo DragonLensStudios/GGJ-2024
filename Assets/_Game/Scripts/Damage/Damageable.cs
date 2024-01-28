@@ -8,9 +8,12 @@ namespace Damage
 {
     public class Damageable : MonoBehaviour, IDamagable
     {
+        public GameObject GameObject => gameObject;
+
         [field:SerializeField] public float DamageMultiplier { get; set; }
         [field:Range(0, 1)]
         [field:SerializeField] public float SensibilityToSelfDamage { get; set; }
+
         public virtual void TakeDamage(float damage, bool isExplosionDamage, GameObject source, GameObject target = null)
         {
             if(target != gameObject) return;

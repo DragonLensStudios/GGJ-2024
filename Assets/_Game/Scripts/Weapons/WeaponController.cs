@@ -424,7 +424,8 @@ namespace DLS.Weapons
             for (int i = 0; i < bulletsPerShotFinal; i++)
             {
                 Vector3 shotDirection = GetShotDirectionWithinSpread(WeaponMuzzle);
-                ProjectileBase newProjectile = Instantiate(ProjectilePrefab, WeaponMuzzle.position, Quaternion.LookRotation(shotDirection));
+                ProjectileStandard newProjectile =(ProjectileStandard) Instantiate(ProjectilePrefab, WeaponMuzzle.position, Quaternion.LookRotation(shotDirection));
+                newProjectile.Init();
                 newProjectile.Shoot(this,Owner);
             }
 
@@ -461,7 +462,6 @@ namespace DLS.Weapons
             {
                 WeaponAnimator.SetTrigger(k_AnimAttackParameter);
             }
-            MessageSystem.MessageManager.SendImmediate(MessageChannels.Weapons, new ProjectileShootMessage());
         }
 
         public Vector3 GetShotDirectionWithinSpread(Transform shootTransform)
