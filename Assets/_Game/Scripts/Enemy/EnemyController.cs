@@ -362,7 +362,6 @@ namespace DLS.Enemy
                 // pursue the player
                 DetectionModule.OnDamaged(damageSource);
                 
-                MessageSystem.MessageManager.SendImmediate(MessageChannels.Health, new HealthChangedMessage(HealthChangedOperation.Damaged, damage, gameObject, damageSource));
                 m_LastTimeDamaged = UnityEngine.Time.time;
             
                 // // play the damage tick sound
