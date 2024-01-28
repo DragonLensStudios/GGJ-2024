@@ -39349,7 +39349,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1077902958549437505}
-  - component: {fileID: 8861412190530257059}
+  - component: {fileID: 8861412190530257060}
   - component: {fileID: 4836000647722839991}
   m_Layer: 10
   m_Name: Weapon_EyeLazers
@@ -55819,7 +55819,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8861412190530257059
+--- !u!114 &8861412190530257060
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55828,23 +55828,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 3693422402385624820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ad90ba0b1477764da373f5ec01a8cb5, type: 3}
+  m_Script: {fileID: 11500000, guid: b403327e11ae41058bd6e6160862e106, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WeaponName: 
   WeaponIcon: {fileID: 0}
   CrosshairDataDefault:
-    CrosshairSprite: {fileID: 0}
-    CrosshairSize: 0
-    CrosshairColor: {r: 0, g: 0, b: 0, a: 0}
+    <CrosshairSprite>k__BackingField: {fileID: 0}
+    <CrosshairSize>k__BackingField: 0
+    <CrosshairColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
   CrosshairDataTargetInSight:
-    CrosshairSprite: {fileID: 0}
-    CrosshairSize: 0
-    CrosshairColor: {r: 0, g: 0, b: 0, a: 0}
+    <CrosshairSprite>k__BackingField: {fileID: 0}
+    <CrosshairSize>k__BackingField: 0
+    <CrosshairColor>k__BackingField: {r: 0, g: 0, b: 0, a: 0}
   WeaponRoot: {fileID: 5329152409527057346}
   WeaponMuzzle: {fileID: 5667174961037136454}
   ShootType: 1
-  ProjectilePrefab: {fileID: 8924682559891268397, guid: ec753d54f333bb944b8b04884ad63828,
+  ProjectilePrefab: {fileID: 8138621339630382599, guid: 19370637135e7ba4f8a3453345d44c56,
     type: 3}
   DelayBetweenShots: 0.8
   BulletSpreadAngle: 0
