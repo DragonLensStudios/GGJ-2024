@@ -74,9 +74,13 @@ namespace DLS.Weapons
 
         void OnEnable()
         {
-            MessageSystem.MessageManager.RegisterForChannel<ProjectileShootMessage>(MessageChannels.Weapons, ProjectileShootMessageHandler);
             m_ProjectileBase = GetComponent<ProjectileBase>();
             Destroy(gameObject, MaxLifeTime);
+        }
+
+        public void Init()
+        {
+            MessageSystem.MessageManager.RegisterForChannel<ProjectileShootMessage>(MessageChannels.Weapons, ProjectileShootMessageHandler);
         }
 
         private void OnDisable()
