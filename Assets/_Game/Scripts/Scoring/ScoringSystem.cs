@@ -15,12 +15,12 @@ public class ScoringSystem : MonoBehaviour
     [field: SerializeField] public int Viewers { get; set; } = 0;
     [field: SerializeField] public virtual TMP_Text ScoreText { get; set; }
     [field: SerializeField] public virtual TMP_Text HighScoreText { get; set; }
-    [field: SerializeField] public virtual TMP_Text ViewersText { get; set; }
+    //[field: SerializeField] public virtual TMP_Text ViewersText { get; set; }
 
     protected void Start()
     {
         ScoreText.text = $"Score: {PlayerScore}";
-        ViewersText.text = $"Viewers: {Viewers}";
+        //ViewersText.text = $"Viewers: {Viewers}";
         Debug.Log("start");
         PlayerHighScore = PlayerPrefs.GetInt("PlayerHighScore");
         HighScoreText.text = $"High Score: {PlayerHighScore}";

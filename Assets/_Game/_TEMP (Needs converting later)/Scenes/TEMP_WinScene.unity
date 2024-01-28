@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 705b060d91dd25446a76cfc9640acee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultSelection: {fileID: 129299356}
+  DefaultSelection: {fileID: 2023269197}
 --- !u!4 &60563875
 Transform:
   m_ObjectHideFlags: 0
