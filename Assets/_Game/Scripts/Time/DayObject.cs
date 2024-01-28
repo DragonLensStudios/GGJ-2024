@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Time
+namespace DLS.Time
 {
     /// <summary>
     ///  Represents the DayObject.

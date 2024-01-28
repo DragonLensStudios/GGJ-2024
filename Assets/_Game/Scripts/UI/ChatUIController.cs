@@ -1,12 +1,11 @@
-using System;
-using Enums;
-using Messaging;
-using Messaging.Messages;
+using DLS.Enums;
+using DLS.Messaging;
+using DLS.Messaging.Messages;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace DLS.UI
 {
     
     public class ChatUIController : MonoBehaviour

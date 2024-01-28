@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Audio
+namespace DLS.Audio
 {
     /// <summary>
     /// Represents the Audio.

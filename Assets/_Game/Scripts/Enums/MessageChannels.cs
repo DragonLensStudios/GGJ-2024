@@ -1,4 +1,4 @@
-namespace Enums
+namespace DLS.Enums
 {
 /// <summary>
 /// Specifies the possible values for MessageChannels.
@@ -19,7 +19,13 @@ namespace Enums
         Time,
         Items,
         Lighting,
-        Object
+        Object,
+        Weapons,
+        Health,
+        Actors,
+        AI,
+        Combat,
+        Objective
     }
 
 }

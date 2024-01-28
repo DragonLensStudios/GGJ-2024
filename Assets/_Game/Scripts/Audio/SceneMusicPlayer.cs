@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using Enums;
-using Managers;
-using Messaging;
-using Messaging.Messages;
+using DLS.Enums;
+using DLS.Managers;
+using DLS.Messaging;
+using DLS.Messaging.Messages;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Audio
+namespace DLS.Audio
 {
 /// <summary>
 /// Represents the SceneMusicPlayer.

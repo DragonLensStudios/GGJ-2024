@@ -1,10 +1,10 @@
-using Enums;
-using Messaging;
-using Messaging.Messages;
-using Time;
+using DLS.Enums;
+using DLS.Messaging;
+using DLS.Messaging.Messages;
+using DLS.Time;
 using UnityEngine;
 
-namespace Managers
+namespace DLS.Managers
 {
     /// <summary>
 /// Represents the TimeManager.
@@ -51,7 +51,6 @@ namespace Managers
         {
             MessageSystem.MessageManager.RegisterForChannel<TimeMessage>(MessageChannels.Time, HandleTimeMessage);
             MessageSystem.MessageManager.RegisterForChannel<PauseMessage>(MessageChannels.GameFlow, PauseMessageHandler);
-            
         }
             
         /// <summary>

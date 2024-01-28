@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace GEmojiSharp
+namespace DLS.GEmojiSharp
 {
     /// <summary>
     /// Provides static methods for working with emojis.

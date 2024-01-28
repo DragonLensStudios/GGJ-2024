@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace GEmojiSharp
+namespace DLS.GEmojiSharp
 {
     /// <summary>
     /// Extension methods for working with emojis.
