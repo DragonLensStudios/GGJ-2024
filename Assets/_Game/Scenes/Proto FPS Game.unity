@@ -181,7 +181,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b06de00127b56814e9454c2d7d9f139a, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6579,6 +6578,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2cdafe01dc0a0f49986c7748379ce1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <DamageMultiplier>k__BackingField: 0
+  <SensibilityToSelfDamage>k__BackingField: 0
   <MaxHealth>k__BackingField: 10
   <CriticalHealthRatio>k__BackingField: 0.3
   <CurrentHealth>k__BackingField: 0
@@ -11789,7 +11790,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b06de00127b56814e9454c2d7d9f139a, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -44552,7 +44552,6 @@ GameObject:
   - component: {fileID: 7472236905763132372}
   - component: {fileID: 220660097138225427}
   - component: {fileID: 7364096839768532488}
-  - component: {fileID: 7472236905763132373}
   m_Layer: 0
   m_Name: HitBox
   m_TagString: Untagged
@@ -50645,20 +50644,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7935094532655124554}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7472236905763132373
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4759546469020602717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b86ef56934c40a892f0d59085fb43ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <DamageMultiplier>k__BackingField: 1
-  <SensibilityToSelfDamage>k__BackingField: 0.5
 --- !u!199 &7485080969248082468
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -56063,6 +56048,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2cdafe01dc0a0f49986c7748379ce1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <DamageMultiplier>k__BackingField: 1
+  <SensibilityToSelfDamage>k__BackingField: 0.5
   <MaxHealth>k__BackingField: 100
   <CriticalHealthRatio>k__BackingField: 0.3
   <CurrentHealth>k__BackingField: 0
