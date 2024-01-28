@@ -392,9 +392,14 @@ MonoBehaviour:
   - {fileID: 2015434656898269652, guid: 25a1b0efadb966e44889fce712c8ff8d, type: 3}
   <BossesToSpawn>k__BackingField:
   - {fileID: 2015434656898269652, guid: e29d43f43cc5d82499dd9926e01847d3, type: 3}
+  - {fileID: 2015434656898269652, guid: 15258371177e93745ad14ae7369a24cb, type: 3}
+  - {fileID: 4094116951752829155, guid: 39ef422616f16334f8d6423075cf10c1, type: 3}
+  - {fileID: 4094116951752829155, guid: 340333c285c0686499a16953bdcdee19, type: 3}
+  - {fileID: 6916665431706123982, guid: 7b07e9392d404744184d222ed91907d4, type: 3}
+  - {fileID: 7237852932878766899, guid: b803d286bcaf6da49ae3e33a431346b2, type: 3}
   <EnemiesPerWave>k__BackingField: 2
   <BossesPerWave>k__BackingField: 1
-  <TimeBetweenWaves>k__BackingField: 10
+  <TimeBetweenWaves>k__BackingField: 20
   <TimeBetweenSpawns>k__BackingField: 1
   <TimeBeforeFirstWave>k__BackingField: 5
 --- !u!4 &134448659

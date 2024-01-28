@@ -3,6 +3,8 @@ using DLS.Enums;
 using DLS.Messaging;
 using DLS.Messaging.Messages;
 using DLS.Time;
+using FPS.Scripts.Game;
+using FPS.Scripts.Game.Managers;
 using UnityEngine;
 
 namespace DLS.Managers
@@ -44,6 +46,17 @@ namespace DLS.Managers
             else
             {
                 Destroy(gameObject);
+            }
+            //TODO:Replace with message system handler.
+            EventManager.AddListener<PlayerDeathEvent>(OnPlayerDeath);
+        }
+
+        private void OnPlayerDeath(PlayerDeathEvent obj)
+        {
+            if(CountDownTimer != null)
+            {
+                CountDownTimer.ResetFullDate();
+                CountDownTimer.Minute = CountDownMinutes;
             }
         }
 

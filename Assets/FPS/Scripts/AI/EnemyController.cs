@@ -71,8 +71,10 @@ namespace FPS.Scripts.AI
         [Tooltip("The point at which the death VFX is spawned")]
         public Transform DeathVfxSpawnPoint;
 
+        //TODO: Move new functionality to my own EnemyController.
         [Header("Loot")] [Tooltip("The object this enemy can drop when dying")]
-        public GameObject LootPrefab;
+        public List<GameObject> LootPrefabs = new();
+        public int MaxLootDrops = 3;
 
         [Tooltip("The chance the object has to drop")] [Range(0, 1)]
         public float DropRate = 1f;
@@ -371,7 +373,10 @@ namespace FPS.Scripts.AI
             // loot an object
             if (TryDropItem())
             {
-                Instantiate(LootPrefab, transform.position, Quaternion.identity);
+                for (int i = 0; i < Random.Range(1, MaxLootDrops); i++)
+                {
+                    Instantiate(LootPrefabs[Random.Range(0, LootPrefabs.Count)], transform.position, Quaternion.identity);
+                }
             }
 
             // this will call the OnDestroy function
@@ -435,7 +440,7 @@ namespace FPS.Scripts.AI
 
         public bool TryDropItem()
         {
-            if (DropRate == 0 || LootPrefab == null)
+            if (DropRate == 0 || LootPrefabs == null)
                 return false;
             else if (DropRate == 1)
                 return true;

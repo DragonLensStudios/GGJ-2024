@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using FPS.Scripts.AI;
+using FPS.Scripts.Game;
+using FPS.Scripts.Game.Managers;
 using UnityEngine;
 
 public class WaveSpawnerController : MonoBehaviour
@@ -21,6 +23,8 @@ public class WaveSpawnerController : MonoBehaviour
     
     [field: SerializeField] public float TimeBetweenSpawns { get; set; } = 1f;
     
+    [field: SerializeField] public float TimeAddedBetweenWavesMultiplier { get; set; } = 15f;
+    
     [field: SerializeField] public float TimeBeforeFirstWave { get; set; } = 5f;
     
     //TODO: Remove this and handle with a message instead.
@@ -39,6 +43,10 @@ public class WaveSpawnerController : MonoBehaviour
 
     private void Start()
     {
+        DisplayMessageEvent displayMessage = Events.DisplayMessageEvent;
+        displayMessage.Message = $"Wave {WaveNumber} Incoming!";
+        displayMessage.DelayBeforeDisplay = 0f;
+        EventManager.Broadcast(displayMessage);
         StartCoroutine(SpawnEnemies());
     }
 
@@ -47,10 +55,14 @@ public class WaveSpawnerController : MonoBehaviour
         WaveNumber++;
         EnemiesPerWave++;
         BossesPerWave++;
-        TimeBetweenWaves += 5f;
+        TimeBetweenWaves += TimeAddedBetweenWavesMultiplier;
         StartCoroutine(SpawnEnemies());
         UsedBossSpawnPoints.Clear();
         UsedEnemySpawnPoints.Clear();
+        DisplayMessageEvent displayMessage = Events.DisplayMessageEvent;
+        displayMessage.Message = $"Wave {WaveNumber} Incoming!";
+        displayMessage.DelayBeforeDisplay = 0f;
+        EventManager.Broadcast(displayMessage);
     }
 
     protected virtual IEnumerator SpawnEnemies()
