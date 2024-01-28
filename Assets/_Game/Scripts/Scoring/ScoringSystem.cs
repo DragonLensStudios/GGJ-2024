@@ -135,6 +135,6 @@ public class ScoringSystem : MonoBehaviour
         if (!message.Message<ViewerMessage>().HasValue) return;
         var data = message.Message<ViewerMessage>().GetValueOrDefault();
 
-        ViewersText.text = $"test";
+        //ViewersText.text = $"test";
     }
 }
