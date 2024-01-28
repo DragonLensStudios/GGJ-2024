@@ -3159,6 +3159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2128155040}
   - component: {fileID: 2128155039}
+  - component: {fileID: 2128155041}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -3181,7 +3182,8 @@ MonoBehaviour:
   <VolumeThreshold>k__BackingField: -80
   <Mixer>k__BackingField: {fileID: 24100000, guid: 6694a9547bec7af49b103a2a5d070730,
     type: 2}
-  <Music>k__BackingField: []
+  <Music>k__BackingField:
+  - {fileID: 11400000, guid: e36c6aef42fa62d479ae8dfc0a0ebcc9, type: 2}
   <SoundEffects>k__BackingField: []
   <CurrentlyPlayingSfx>k__BackingField: []
   <CurrentlyPlayingMusic>k__BackingField: []
@@ -3200,6 +3202,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2128155041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128155038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cfba9b5306c733428b42f924718ece2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MusicList>k__BackingField:
+  - {fileID: 11400000, guid: e36c6aef42fa62d479ae8dfc0a0ebcc9, type: 2}
+  <RetryDelay>k__BackingField: 0.1
 --- !u!1001 &3998587050783372578
 PrefabInstance:
   m_ObjectHideFlags: 0

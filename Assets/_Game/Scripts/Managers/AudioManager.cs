@@ -117,7 +117,11 @@ namespace DLS.Managers
         {
             var music = Music.Find(x=> x.Equals(audioObj));
             if(music == null) return;
-            if (CurrentlyPlayingMusic.Contains(music)) return;
+            if (CurrentlyPlayingMusic.Contains(music))
+            {
+                music.Stop();
+                CurrentlyPlayingMusic.Remove(music);
+            }
             CurrentlyPlayingMusic.Add(music);
             music.Play(useRandomVolume, useRandomPitch, volume, pitch);
             StartCoroutine(StopPlayingMusicAfterAudioClipPlays(music.Clip, audioObj.Name));
