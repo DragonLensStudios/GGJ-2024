@@ -122,7 +122,7 @@ namespace DLS.Enemy
         float m_LastTimeWeaponSwapped = Mathf.NegativeInfinity;
         int m_CurrentWeaponIndex;
         WeaponController m_CurrentWeapon;
-        WeaponController[] m_Weapons =  new WeaponController[9];
+        WeaponController[] m_Weapons;
         NavigationModule m_NavigationModule;
 
         void Start()
@@ -431,7 +431,9 @@ namespace DLS.Enemy
                 return false;
 
             // Shoot the weapon
-            bool didFire = GetCurrentWeapon().HandleShootInputs(false, true, false);
+            var weapon = GetCurrentWeapon();
+            if(weapon == null) return false;
+            bool didFire = weapon.HandleShootInputs(false, true, false);
 
             if (didFire)
             {
@@ -474,7 +476,7 @@ namespace DLS.Enemy
         {
             FindAndInitializeAllWeapons();
             // Check if no weapon is currently selected
-            if (m_CurrentWeapon == null)
+            if (m_CurrentWeapon == null && m_Weapons.Length > 0)
             {
                 // Set the first weapon of the weapons list as the current weapon
                 SetCurrentWeapon(0);
