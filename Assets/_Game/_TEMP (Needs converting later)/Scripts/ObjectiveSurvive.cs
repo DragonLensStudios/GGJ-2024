@@ -7,11 +7,13 @@ namespace _TEMP__Needs_converting_later_.Scripts
     public class ObjectiveSurvive : FPS.Scripts.Game.Shared.Objective
     {
         [field: SerializeField] public virtual GameTimeObject CountDownTimer { get; set; }
+        [field: SerializeField] public virtual WaveSpawnerController WaveSpawner { get; set; }
 
         protected override void Start()
         {
             base.Start();
             
+            WaveSpawner = FindObjectOfType<WaveSpawnerController>();
             // set a title and description specific for this type of objective, if it hasn't one
             if (string.IsNullOrEmpty(Title))
                 Title = $"Survive For {CountDownTimer.Minute} Minutes";
@@ -32,7 +34,7 @@ namespace _TEMP__Needs_converting_later_.Scripts
             }
             else
             {
-                UpdateObjective(string.Empty, $"Remaining Time: {CountDownTimer.Minute}:{CountDownTimer.Second:00}", String.Empty);
+                UpdateObjective(string.Empty, $"Wave:{WaveSpawner.WaveNumber} Next Wave IN: {WaveSpawner.TimeSinceLastWave:0}", String.Empty);
             }
 
         }
