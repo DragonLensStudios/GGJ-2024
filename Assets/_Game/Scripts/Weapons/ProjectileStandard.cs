@@ -253,10 +253,10 @@ namespace DLS.Weapons
             else
             {
                 // point damage
-                IDamagable damageable = collider.GetComponent<IDamagable>();
+                IDamagable damageable = collider.GetComponentInParent<IDamagable>();
                 if (damageable != null)
                 {
-                    damageable.TakeDamage(Damage, false, m_ProjectileBase.Owner);
+                    damageable.TakeDamage(Damage, false, m_ProjectileBase.Owner, damageable.GameObject);
                 }
             }
 

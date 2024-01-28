@@ -1,4 +1,5 @@
 using System;
+using Damage;
 using DLS.Enums;
 using DLS.Messaging;
 using DLS.Messaging.Messages;
@@ -6,7 +7,7 @@ using UnityEngine;
 
 namespace DLS.Health
 {
-    public class HealthController : MonoBehaviour
+    public class HealthController : Damageable
     {
         [field:Tooltip("Maximum amount of health")]
         [field:SerializeField] public virtual float MaxHealth { get; set; } = 10f;
