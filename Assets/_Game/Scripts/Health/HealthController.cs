@@ -74,6 +74,7 @@ namespace DLS.Health
             // call OnDie action
             if (CurrentHealth <= 0f)
             {
+                MessageSystem.MessageManager.SendImmediate(MessageChannels.Health, new HealthChangedMessage(HealthChangedOperation.Died, CurrentHealth, null, gameObject));
                 IsDead = true;
             }
         }
