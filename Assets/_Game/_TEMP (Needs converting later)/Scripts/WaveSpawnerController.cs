@@ -20,12 +20,15 @@ public class WaveSpawnerController : MonoBehaviour
     [field: SerializeField] public int BossesPerWave { get; set; } = 1;
     
     [field: SerializeField] public float TimeBetweenWaves { get; set; } = 10f;
+    [field: SerializeField] public float MaxTimeBetweenWaves { get; set; } = 30f;
     
     [field: SerializeField] public float TimeBetweenSpawns { get; set; } = 1f;
     
     [field: SerializeField] public float TimeAddedBetweenWavesMultiplier { get; set; } = 15f;
     
     [field: SerializeField] public float TimeBeforeFirstWave { get; set; } = 5f;
+    
+    [field: SerializeField] public float TimeSinceLastWave { get; set; } = 0f;
     
     //TODO: Remove this and handle with a message instead.
     protected EnemyManager EnemyManager { get; set; }
@@ -34,6 +37,7 @@ public class WaveSpawnerController : MonoBehaviour
     protected List<Transform> UsedBossSpawnPoints { get; set; } = new();
     
     protected PatrolPath PatrolPath { get; set; }
+    
 
     private void Awake()
     {
@@ -50,12 +54,18 @@ public class WaveSpawnerController : MonoBehaviour
         StartCoroutine(SpawnEnemies());
     }
 
+    private void Update()
+    {
+        TimeSinceLastWave += Time.deltaTime;
+    }
+
     private void StartNextWave()
     {
         WaveNumber++;
         EnemiesPerWave++;
         BossesPerWave++;
         TimeBetweenWaves += TimeAddedBetweenWavesMultiplier;
+        TimeBetweenWaves = Mathf.Clamp(TimeBetweenWaves, 0f, MaxTimeBetweenWaves);
         StartCoroutine(SpawnEnemies());
         UsedBossSpawnPoints.Clear();
         UsedEnemySpawnPoints.Clear();
@@ -63,6 +73,7 @@ public class WaveSpawnerController : MonoBehaviour
         displayMessage.Message = $"Wave {WaveNumber} Incoming!";
         displayMessage.DelayBeforeDisplay = 0f;
         EventManager.Broadcast(displayMessage);
+        TimeSinceLastWave = 0f;
     }
 
     protected virtual IEnumerator SpawnEnemies()
@@ -81,10 +92,15 @@ public class WaveSpawnerController : MonoBehaviour
             yield return new WaitForSeconds(TimeBetweenSpawns);
         }
         
-        yield return new WaitForSeconds(TimeBetweenWaves);
-        
-        StartNextWave();
-        
+        if(EnemyManager.Enemies.Count <= 0 && TimeSinceLastWave < MaxTimeBetweenWaves)
+        {
+            StartNextWave();
+        }
+        else
+        {
+            yield return new WaitForSeconds(TimeBetweenWaves);
+            StartNextWave();
+        }
     }
     
     protected virtual bool SpawnEnemy()

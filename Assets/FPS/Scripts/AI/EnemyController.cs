@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using FPS.Scripts.Game;
 using FPS.Scripts.Game.Managers;
 using FPS.Scripts.Game.Shared;
@@ -159,10 +160,13 @@ namespace FPS.Scripts.AI
             DebugUtility.HandleWarningIfDuplicateObjects<DetectionModule, EnemyController>(detectionModules.Length,
                 this, gameObject);
             // Initialize detection module
-            DetectionModule = detectionModules[0];
-            DetectionModule.onDetectedTarget += OnDetectedTarget;
-            DetectionModule.onLostTarget += OnLostTarget;
-            onAttack += DetectionModule.OnAttack;
+            DetectionModule = detectionModules.FirstOrDefault();
+            if (DetectionModule != null)
+            {
+                DetectionModule.onDetectedTarget += OnDetectedTarget;
+                DetectionModule.onLostTarget += OnLostTarget;
+                onAttack += DetectionModule.OnAttack;
+            }
 
             var navigationModules = GetComponentsInChildren<NavigationModule>();
             DebugUtility.HandleWarningIfDuplicateObjects<DetectionModule, EnemyController>(detectionModules.Length,
@@ -208,7 +212,11 @@ namespace FPS.Scripts.AI
         {
             EnsureIsWithinLevelBounds();
 
-            DetectionModule.HandleTargetDetection(m_Actor, m_SelfColliders);
+            if(m_Actor == null) return;
+            if (DetectionModule != null)
+            {
+                DetectionModule.HandleTargetDetection(m_Actor, m_SelfColliders);
+            }
 
             Color currentColor = OnHitBodyGradient.Evaluate((Time.time - m_LastTimeDamaged) / FlashOnHitDuration);
             m_BodyFlashMaterialPropertyBlock.SetColor("_EmissionColor", currentColor);

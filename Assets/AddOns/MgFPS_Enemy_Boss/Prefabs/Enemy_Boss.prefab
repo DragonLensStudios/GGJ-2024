@@ -152,13 +152,10 @@ MonoBehaviour:
     type: 3}
   DeathVfxSpawnPoint: {fileID: 381893446485871685}
   LootPrefabs:
-  - {fileID: 5391986374566301945, guid: 66d579771ab0ab94a92b3411ba179621, type: 3}
-  - {fileID: 7671270577186476446, guid: a7fa348d53593bb42922672c6cf40651, type: 3}
   - {fileID: 1075031795798688835, guid: 5ddffcce15cd25040a328fd2463d95b0, type: 3}
   - {fileID: 1075031795798688835, guid: 8d44090e312988e428eaa7a34fbacd27, type: 3}
   - {fileID: 2087031924536359699, guid: efe90a0b32c55404ba88f1fc43282b98, type: 3}
   - {fileID: 4903129244344236257, guid: 6a4f1bcd9aa220846895336ff0cb1648, type: 3}
-  - {fileID: 5391986374566301945, guid: 875fff87562175c4c8fd5ad104f1672e, type: 3}
   - {fileID: 1541473373682993871, guid: 60bc7ea05d84dd04f9bee83b769e4bec, type: 3}
   MaxLootDrops: 3
   DropRate: 0.5
