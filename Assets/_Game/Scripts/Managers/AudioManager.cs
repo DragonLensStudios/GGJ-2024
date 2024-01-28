@@ -1,14 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Audio;
-using Enums;
-using Messaging;
-using Messaging.Messages;
+using DLS.Audio;
+using DLS.Enums;
+using DLS.Messaging;
+using DLS.Messaging.Messages;
 using UnityEngine;
 using UnityEngine.Audio;
 
-namespace Managers
+namespace DLS.Managers
 {
     /// <summary>
     /// Represents the AudioManager.

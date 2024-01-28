@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class NotificationUI : MonoBehaviour
+namespace DLS.UI.Notifications
 {
+    public class NotificationUI : MonoBehaviour
+    {
+    }
 }

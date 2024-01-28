@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-namespace Unity.FPS.AI
+namespace FPS.Scripts.AI
 {
     public class PatrolPath : MonoBehaviour
     {
@@ -16,7 +17,7 @@ namespace Unity.FPS.AI
             foreach (var enemy in EnemiesToAssign)
             {
                 enemy.PatrolPath = this;
-            }
+            }  
         }
 
         public float GetDistanceToNode(Vector3 origin, int destinationNodeIndex)

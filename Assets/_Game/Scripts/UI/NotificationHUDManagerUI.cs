@@ -1,12 +1,11 @@
-using System;
-using Enums;
-using Messaging;
-using Messaging.Messages;
-using Unity.FPS.UI;
+using DLS.Enums;
+using DLS.Messaging;
+using DLS.Messaging.Messages;
+using FPS.Scripts.UI;
 using UnityEngine;
-using WeaponController = Weapons.WeaponController;
+using WeaponController = DLS.Weapons.WeaponController;
 
-namespace UI
+namespace DLS.UI
 {
     public class NotificationHUDManagerUI : MonoBehaviour
     {
@@ -18,13 +17,13 @@ namespace UI
 
         private void OnEnable()
         {
-            MessageSystem.MessageManager.RegisterForChannel<ObjectiveUpdateMessage>(MessageChannels.Gameplay, ObjectiveUpdateMessageHandler);
+            MessageSystem.MessageManager.RegisterForChannel<ObjectiveMessage>(MessageChannels.Gameplay, ObjectiveUpdateMessageHandler);
             MessageSystem.MessageManager.RegisterForChannel<WeaponMessage>(MessageChannels.Weapons, WeaponMessageHandler);
         }
 
         private void OnDisable()
         {
-            MessageSystem.MessageManager.UnregisterForChannel<ObjectiveUpdateMessage>(MessageChannels.Gameplay, ObjectiveUpdateMessageHandler);
+            MessageSystem.MessageManager.UnregisterForChannel<ObjectiveMessage>(MessageChannels.Gameplay, ObjectiveUpdateMessageHandler);
             MessageSystem.MessageManager.UnregisterForChannel<WeaponMessage>(MessageChannels.Weapons, WeaponMessageHandler);
 
         }
@@ -44,8 +43,8 @@ namespace UI
 
         private void ObjectiveUpdateMessageHandler(MessageSystem.IMessageEnvelope message)
         {
-            if(!message.Message<ObjectiveUpdateMessage>().HasValue) return;
-            var data = message.Message<ObjectiveUpdateMessage>().GetValueOrDefault();
+            if(!message.Message<ObjectiveMessage>().HasValue) return;
+            var data = message.Message<ObjectiveMessage>().GetValueOrDefault();
             if (!string.IsNullOrEmpty(data.NotificationText))
             {
                 CreateNotification(data.NotificationText);

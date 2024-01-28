@@ -1,7 +1,7 @@
+using DLS.Weapons;
 using UnityEngine;
-using Weapons;
 
-namespace Messaging.Messages
+namespace DLS.Messaging.Messages
 {
     public struct ProjectileShootMessage
     {

@@ -1,7 +1,8 @@
-﻿using Unity.FPS.Game;
+﻿using FPS.Scripts.Game;
+using FPS.Scripts.Game.Shared;
 using UnityEngine;
 
-namespace Unity.FPS.Addons
+namespace DLS.AddOns.MgFPS_Enemy_Boss.Scripts
 {
     [RequireComponent(typeof(WeaponController))]
     public class RailgunEffectsHandler : MonoBehaviour

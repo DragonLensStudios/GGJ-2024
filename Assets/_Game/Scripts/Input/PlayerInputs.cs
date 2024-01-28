@@ -1,10 +1,7 @@
-using System;
 using UnityEngine;
-#if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
-#endif
 
-namespace Input
+namespace DLS.Input
 {
     public class PlayerInputs : MonoBehaviour
     {
@@ -97,43 +94,43 @@ namespace Input
         protected virtual void Update()
         {
 #if ENABLE_INPUT_SYSTEM
-            if (Keyboard.current.numpad1Key.wasPressedThisFrame)
+            if (Keyboard.current.numpad1Key.wasPressedThisFrame || Keyboard.current.digit1Key.wasPressedThisFrame)
             {
                 SelectWeapon = 1;
             }
-            else if (Keyboard.current.numpad2Key.wasPressedThisFrame)
+            else if (Keyboard.current.numpad2Key.wasPressedThisFrame|| Keyboard.current.digit2Key.wasPressedThisFrame)
             {
                 SelectWeapon = 2;
             }
-            else if (Keyboard.current.numpad3Key.wasPressedThisFrame)
+            else if (Keyboard.current.numpad3Key.wasPressedThisFrame|| Keyboard.current.digit3Key.wasPressedThisFrame)
             {
                 SelectWeapon = 3;
             }
-            else if (Keyboard.current.numpad4Key.wasPressedThisFrame)
+            else if (Keyboard.current.numpad4Key.wasPressedThisFrame|| Keyboard.current.digit4Key.wasPressedThisFrame)
             {
                 SelectWeapon = 4;
             }
-            else if (Keyboard.current.numpad5Key.wasPressedThisFrame)
+            else if (Keyboard.current.numpad5Key.wasPressedThisFrame|| Keyboard.current.digit5Key.wasPressedThisFrame)
             {
                 SelectWeapon = 5;
             }
-            else if (Keyboard.current.numpad6Key.wasPressedThisFrame)
+            else if (Keyboard.current.numpad6Key.wasPressedThisFrame|| Keyboard.current.digit6Key.wasPressedThisFrame)
             {
                 SelectWeapon = 6;
             }
-            else if (Keyboard.current.numpad7Key.wasPressedThisFrame)
+            else if (Keyboard.current.numpad7Key.wasPressedThisFrame|| Keyboard.current.digit7Key.wasPressedThisFrame)
             {
                 SelectWeapon = 7;
             }
-            else if (Keyboard.current.numpad8Key.wasPressedThisFrame)
+            else if (Keyboard.current.numpad8Key.wasPressedThisFrame|| Keyboard.current.digit8Key.wasPressedThisFrame)
             {
                 SelectWeapon = 8;
             }
-            else if (Keyboard.current.numpad9Key.wasPressedThisFrame)
+            else if (Keyboard.current.numpad9Key.wasPressedThisFrame|| Keyboard.current.digit9Key.wasPressedThisFrame)
             {
                 SelectWeapon = 9;
             }
-            else if (Keyboard.current.numpad0Key.wasPressedThisFrame)
+            else if (Keyboard.current.numpad0Key.wasPressedThisFrame|| Keyboard.current.digit0Key.wasPressedThisFrame)
             {
                 SelectWeapon = 0;
             }

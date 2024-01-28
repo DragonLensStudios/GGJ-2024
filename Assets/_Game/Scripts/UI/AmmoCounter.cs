@@ -1,15 +1,14 @@
-using System;
-using Enums;
-using Messaging;
-using Messaging.Messages;
-using Player;
+using DLS.Enums;
+using DLS.Messaging;
+using DLS.Messaging.Messages;
+using DLS.Player;
+using FPS.Scripts.UI;
 using TMPro;
-using Unity.FPS.UI;
 using UnityEngine;
 using UnityEngine.UI;
-using WeaponController = Weapons.WeaponController;
+using WeaponController = DLS.Weapons.WeaponController;
 
-namespace UI
+namespace DLS.UI
 {
     [RequireComponent(typeof(FillBarColorChange))]
     public class AmmoCounter : MonoBehaviour

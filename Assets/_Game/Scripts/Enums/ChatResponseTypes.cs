@@ -1,4 +1,4 @@
-namespace Enums
+namespace DLS.Enums
 {
     public enum ChatResponseTypes
     {

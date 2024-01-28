@@ -1,11 +1,11 @@
 using System.Collections.Generic;
-using Enums;
-using Messaging;
-using Messaging.Messages;
-using UI;
+using DLS.Enums;
+using DLS.Messaging;
+using DLS.Messaging.Messages;
+using DLS.UI;
 using UnityEngine;
 
-namespace Weapons
+namespace DLS.Weapons
 {
     [RequireComponent(typeof(AudioSource))]
     public class WeaponController : MonoBehaviour
@@ -419,13 +419,13 @@ namespace Weapons
             int bulletsPerShotFinal = ShootType == WeaponShootType.Charge
                 ? Mathf.CeilToInt(CurrentCharge * BulletsPerShot)
                 : BulletsPerShot;
-
+            
             // spawn all bullets with random direction
             for (int i = 0; i < bulletsPerShotFinal; i++)
             {
                 Vector3 shotDirection = GetShotDirectionWithinSpread(WeaponMuzzle);
-                ProjectileBase newProjectile = Instantiate(ProjectilePrefab, WeaponMuzzle.position,
-                    Quaternion.LookRotation(shotDirection));
+                ProjectileStandard newProjectile =(ProjectileStandard) Instantiate(ProjectilePrefab, WeaponMuzzle.position, Quaternion.LookRotation(shotDirection));
+                newProjectile.Init();
                 newProjectile.Shoot(this,Owner);
             }
 
@@ -462,7 +462,6 @@ namespace Weapons
             {
                 WeaponAnimator.SetTrigger(k_AnimAttackParameter);
             }
-            MessageSystem.MessageManager.SendImmediate(MessageChannels.Weapons, new ProjectileShootMessage());
         }
 
         public Vector3 GetShotDirectionWithinSpread(Transform shootTransform)

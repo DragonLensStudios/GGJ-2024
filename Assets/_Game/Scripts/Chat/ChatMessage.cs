@@ -1,17 +1,20 @@
-using Enums;
+using DLS.Enums;
 using UnityEngine;
 
-[System.Serializable]
-public class ChatMessage
+namespace DLS.Chat
 {
-    [field: SerializeField] public string Sender { get; set; }
-    [field: SerializeField] public string Message { get; set; }
-    [field: SerializeField] public ChatResponseTypes ResponseType { get; set; }
-    
-    public ChatMessage(string sender, string message, ChatResponseTypes responseType = ChatResponseTypes.Neutral)
+    [System.Serializable]
+    public class ChatMessage
     {
-        Sender = sender;
-        Message = message;
-        ResponseType = responseType;
+        [field: SerializeField] public string Sender { get; set; }
+        [field: SerializeField] public string Message { get; set; }
+        [field: SerializeField] public ChatResponseTypes ResponseType { get; set; }
+    
+        public ChatMessage(string sender, string message, ChatResponseTypes responseType = ChatResponseTypes.Neutral)
+        {
+            Sender = sender;
+            Message = message;
+            ResponseType = responseType;
+        }
     }
 }

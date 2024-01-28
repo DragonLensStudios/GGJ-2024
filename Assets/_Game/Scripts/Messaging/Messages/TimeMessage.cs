@@ -1,6 +1,6 @@
-using Enums;
+using DLS.Enums;
 
-namespace Messaging.Messages
+namespace DLS.Messaging.Messages
 {
     public struct TimeMessage
     {

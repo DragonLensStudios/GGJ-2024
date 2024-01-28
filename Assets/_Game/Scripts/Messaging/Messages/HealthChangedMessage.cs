@@ -1,8 +1,8 @@
-using Enums;
+using DLS.Enums;
 using JetBrains.Annotations;
 using UnityEngine;
 
-namespace Messaging.Messages
+namespace DLS.Messaging.Messages
 {
     public struct HealthChangedMessage
     {

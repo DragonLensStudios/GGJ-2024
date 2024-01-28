@@ -1,6 +1,6 @@
-using Weapons;
+using DLS.Weapons;
 
-namespace Messaging.Messages
+namespace DLS.Messaging.Messages
 {
     public struct AmmoPickupMessage
     {

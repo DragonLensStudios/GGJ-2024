@@ -1,9 +1,10 @@
 ﻿using System.Linq;
-using Unity.FPS.Game;
+using FPS.Scripts.Game;
+using FPS.Scripts.Game.Managers;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Unity.FPS.AI
+namespace FPS.Scripts.AI
 {
     public class DetectionModule : MonoBehaviour
     {
@@ -40,7 +41,6 @@ namespace Unity.FPS.AI
         protected virtual void Start()
         {
             m_ActorsManager = FindObjectOfType<ActorsManager>();
-            DebugUtility.HandleErrorIfNullFindObject<ActorsManager, DetectionModule>(m_ActorsManager, this);
         }
 
         public virtual void HandleTargetDetection(Actor actor, Collider[] selfColliders)

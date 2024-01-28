@@ -4,11 +4,11 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Enums;
-using UnityEngine;
+using DLS.Enums;
 using Newtonsoft.Json;
+using UnityEngine;
 
-namespace Messaging
+namespace DLS.Messaging
 {
     public static class MessageSystem
     {

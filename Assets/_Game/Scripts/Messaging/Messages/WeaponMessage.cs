@@ -1,7 +1,7 @@
-using Enums;
-using WeaponController = Weapons.WeaponController;
+using DLS.Enums;
+using WeaponController = DLS.Weapons.WeaponController;
 
-namespace Messaging.Messages
+namespace DLS.Messaging.Messages
 {
     public struct WeaponMessage
     {

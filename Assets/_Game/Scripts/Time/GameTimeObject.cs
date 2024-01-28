@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Enums;
+using DLS.Enums;
 using UnityEngine;
 
-namespace Time
+namespace DLS.Time
 {
     /// <summary>
     /// This is the Time class, This class holds time variables and methods used for custom timers and custom clocks.
@@ -258,7 +258,7 @@ namespace Time
                 Second++;
                 MilliSecond -= MilliSecondsInSecond;
             }
-            while (MilliSecond < 0 && Second > 0)
+            while (MilliSecond < 0 && Second >= 0)
             {
                 Second--;
                 MilliSecond += MilliSecondsInSecond;
@@ -270,7 +270,7 @@ namespace Time
                 Minute++;
                 Second -= SecondsInMinute;
             }
-            while (Second < 0 && Minute > 0)
+            while (Second < 0 && Minute >= 0)
             {
                 Minute--;
                 Second += SecondsInMinute;
@@ -282,7 +282,7 @@ namespace Time
                 Hour++;
                 Minute -= MinutesInHour;
             }
-            while (Minute < 0 && Hour > 0)
+            while (Minute < 0 && Hour >= 0)
             {
                 Hour--;
                 Minute += MinutesInHour;

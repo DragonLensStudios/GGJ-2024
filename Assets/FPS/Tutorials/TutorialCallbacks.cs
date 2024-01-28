@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+﻿using NavMeshComponents.Scripts;
 using Unity.Tutorials.Core.Editor;
 using UnityEditor;
-using UnityEngine.AI;
+using UnityEngine;
 
-namespace Unity.Tutorials
+namespace FPS.Tutorials
 {
     /// <summary>
     /// Implement your Tutorial callbacks here.

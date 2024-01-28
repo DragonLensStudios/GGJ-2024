@@ -1,4 +1,4 @@
-namespace GEmojiSharp
+namespace DLS.GEmojiSharp
 {
     /// <summary>
     /// Represents an emoji.

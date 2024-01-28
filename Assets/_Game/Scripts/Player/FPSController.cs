@@ -1,13 +1,13 @@
-using System;
 using System.Collections.Generic;
-using Enums;
-using Health;
-using Messaging;
-using Messaging.Messages;
+using DLS.Enums;
+using DLS.Health;
+using DLS.Interfaces;
+using DLS.Messaging;
+using DLS.Messaging.Messages;
+using DLS.Weapons;
 using UnityEngine;
-using Weapons;
 
-namespace Player
+namespace DLS.Player
 {
     public class FPSController : FirstPersonBasicController, IDamagable
     {
@@ -75,6 +75,8 @@ namespace Player
         [field:SerializeField] public virtual bool IsAiming { get; set; }
         [field:Tooltip("Is Pointing at the target?")]
         [field:SerializeField] public virtual bool IsPointingAtTarget { get; set; }
+
+        public GameObject GameObject => gameObject;
 
         protected float weaponBobFactor;
         protected Vector3 lastCharacterPosition;

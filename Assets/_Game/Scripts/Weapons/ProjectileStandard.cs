@@ -1,12 +1,14 @@
 using System.Collections.Generic;
-using Enums;
-using Messaging;
-using Messaging.Messages;
-using Unity.FPS.Game;
-using Unity.FPS.Gameplay;
+using DLS.Enums;
+using DLS.Interfaces;
+using DLS.Messaging;
+using DLS.Messaging.Messages;
+using FPS.Scripts.Game;
+using FPS.Scripts.Game.Shared;
+using FPS.Scripts.Gameplay.Managers;
 using UnityEngine;
 
-namespace Weapons
+namespace DLS.Weapons
 {
     public class ProjectileStandard : ProjectileBase
     {
@@ -72,9 +74,13 @@ namespace Weapons
 
         void OnEnable()
         {
-            MessageSystem.MessageManager.RegisterForChannel<ProjectileShootMessage>(MessageChannels.Weapons, ProjectileShootMessageHandler);
             m_ProjectileBase = GetComponent<ProjectileBase>();
             Destroy(gameObject, MaxLifeTime);
+        }
+
+        public void Init()
+        {
+            MessageSystem.MessageManager.RegisterForChannel<ProjectileShootMessage>(MessageChannels.Weapons, ProjectileShootMessageHandler);
         }
 
         private void OnDisable()
@@ -247,10 +253,10 @@ namespace Weapons
             else
             {
                 // point damage
-                IDamagable damageable = collider.GetComponent<IDamagable>();
+                IDamagable damageable = collider.GetComponentInParent<IDamagable>();
                 if (damageable != null)
                 {
-                    damageable.TakeDamage(Damage, false, m_ProjectileBase.Owner);
+                    damageable.TakeDamage(Damage, false, m_ProjectileBase.Owner, damageable.GameObject);
                 }
             }
 

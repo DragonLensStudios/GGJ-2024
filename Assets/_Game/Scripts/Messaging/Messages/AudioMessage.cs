@@ -1,8 +1,7 @@
-using Audio;
-using Enums;
-using Unity.FPS.Game;
+using DLS.Audio;
+using DLS.Enums;
 
-namespace Messaging.Messages
+namespace DLS.Messaging.Messages
 {
     public struct AudioMessage
     {

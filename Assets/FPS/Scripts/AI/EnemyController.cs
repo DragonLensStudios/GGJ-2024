@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
-using Unity.FPS.Game;
+using FPS.Scripts.Game;
+using FPS.Scripts.Game.Managers;
+using FPS.Scripts.Game.Shared;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 
-namespace Unity.FPS.AI
+namespace FPS.Scripts.AI
 {
     [RequireComponent(typeof(Health), typeof(Actor), typeof(NavMeshAgent))]
     public class EnemyController : MonoBehaviour
@@ -45,16 +47,16 @@ namespace Unity.FPS.AI
         [Header("Eye color")] [Tooltip("Material for the eye color")]
         public Material EyeColorMaterial;
 
-        [Tooltip("The default color of the bot's eye")] [ColorUsageAttribute(true, true)]
+        [Tooltip("The default color of the bot's eye")] [ColorUsage(true, true)]
         public Color DefaultEyeColor;
 
-        [Tooltip("The attack color of the bot's eye")] [ColorUsageAttribute(true, true)]
+        [Tooltip("The attack color of the bot's eye")] [ColorUsage(true, true)]
         public Color AttackEyeColor;
 
         [Header("Flash on hit")] [Tooltip("The material used for the body of the hoverbot")]
         public Material BodyMaterial;
 
-        [Tooltip("The gradient representing the color of the flash on hit")] [GradientUsageAttribute(true)]
+        [Tooltip("The gradient representing the color of the flash on hit")] [GradientUsage(true)]
         public Gradient OnHitBodyGradient;
 
         [Tooltip("The duration of the flash on hit")]
@@ -69,8 +71,10 @@ namespace Unity.FPS.AI
         [Tooltip("The point at which the death VFX is spawned")]
         public Transform DeathVfxSpawnPoint;
 
+        //TODO: Move new functionality to my own EnemyController.
         [Header("Loot")] [Tooltip("The object this enemy can drop when dying")]
-        public GameObject LootPrefab;
+        public List<GameObject> LootPrefabs = new();
+        public int MaxLootDrops = 3;
 
         [Tooltip("The chance the object has to drop")] [Range(0, 1)]
         public float DropRate = 1f;
@@ -369,7 +373,10 @@ namespace Unity.FPS.AI
             // loot an object
             if (TryDropItem())
             {
-                Instantiate(LootPrefab, transform.position, Quaternion.identity);
+                for (int i = 0; i < Random.Range(1, MaxLootDrops); i++)
+                {
+                    Instantiate(LootPrefabs[Random.Range(0, LootPrefabs.Count)], transform.position, Quaternion.identity);
+                }
             }
 
             // this will call the OnDestroy function
@@ -433,7 +440,7 @@ namespace Unity.FPS.AI
 
         public bool TryDropItem()
         {
-            if (DropRate == 0 || LootPrefab == null)
+            if (DropRate == 0 || LootPrefabs == null)
                 return false;
             else if (DropRate == 1)
                 return true;

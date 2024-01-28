@@ -1,12 +1,9 @@
-using System;
-using Audio;
-using Input;
+using DLS.Audio;
+using DLS.Input;
 using UnityEngine;
-#if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
-#endif
 
-namespace Player
+namespace DLS.Player
 {
     [RequireComponent(typeof(CharacterController))]
     [RequireComponent(typeof(PlayerInputs))]

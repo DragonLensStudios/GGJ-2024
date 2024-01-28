@@ -1,12 +1,13 @@
 using System;
-using Enums;
-using Messaging;
-using Messaging.Messages;
+using Damage;
+using DLS.Enums;
+using DLS.Messaging;
+using DLS.Messaging.Messages;
 using UnityEngine;
 
-namespace Health
+namespace DLS.Health
 {
-    public class HealthController : MonoBehaviour
+    public class HealthController : Damageable
     {
         [field:Tooltip("Maximum amount of health")]
         [field:SerializeField] public virtual float MaxHealth { get; set; } = 10f;
@@ -74,6 +75,7 @@ namespace Health
             if (CurrentHealth <= 0f)
             {
                 IsDead = true;
+                MessageSystem.MessageManager.SendImmediate(MessageChannels.Health, new HealthChangedMessage(HealthChangedOperation.Died, CurrentHealth, null, gameObject));
             }
         }
         
