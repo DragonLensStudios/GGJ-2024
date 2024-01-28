@@ -2,7 +2,7 @@ using System.Linq;
 using Unity.Play.Publisher.Editor;
 using UnityEngine;
 
-namespace Unity.Tutorials
+namespace FPS.Tutorials.BuildAndPublish.Criteria
 {
     /// <summary>
     /// Contaisn all the callbacks needed for the Build And Publish tutorial

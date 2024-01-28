@@ -1,4 +1,4 @@
-namespace GEmojiSharp
+namespace DLS.GEmojiSharp
 {
     /// <summary>
     /// Contains auto-generated regex pattern to match all emojis.

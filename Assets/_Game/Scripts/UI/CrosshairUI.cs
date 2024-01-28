@@ -1,13 +1,12 @@
-using System;
-using Enums;
-using Messaging;
-using Messaging.Messages;
-using Player;
+using DLS.Enums;
+using DLS.Messaging;
+using DLS.Messaging.Messages;
+using DLS.Player;
+using DLS.Weapons;
 using UnityEngine;
 using UnityEngine.UI;
-using Weapons;
 
-namespace UI
+namespace DLS.UI
 {
     public class CrosshairUI : MonoBehaviour
     {

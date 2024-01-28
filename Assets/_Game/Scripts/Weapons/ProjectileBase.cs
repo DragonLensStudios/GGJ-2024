@@ -1,9 +1,8 @@
-using System;
-using Messaging;
-using Messaging.Messages;
+using DLS.Messaging;
+using DLS.Messaging.Messages;
 using UnityEngine;
 
-namespace Weapons
+namespace DLS.Weapons
 {
     public abstract class ProjectileBase : MonoBehaviour
     {

@@ -1,9 +1,8 @@
-﻿using UnityEngine;
-#if ENABLE_INPUT_SYSTEM
+﻿using DLS.StarterAssets.InputSystem;
+using UnityEngine;
 using UnityEngine.InputSystem;
-#endif
 
-namespace StarterAssets
+namespace DLS.StarterAssets.FirstPersonController.Scripts
 {
 	[RequireComponent(typeof(CharacterController))]
 #if ENABLE_INPUT_SYSTEM

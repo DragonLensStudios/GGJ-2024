@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Weapons
+namespace DLS.Weapons
 {
     [RequireComponent(typeof(WeaponController))]
     public class WeaponFuelCellController : MonoBehaviour

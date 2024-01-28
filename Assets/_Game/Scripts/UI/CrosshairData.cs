@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UI
+namespace DLS.UI
 {
     [System.Serializable]
     public struct CrosshairData

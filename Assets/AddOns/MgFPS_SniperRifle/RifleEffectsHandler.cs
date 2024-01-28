@@ -1,8 +1,9 @@
-﻿using Unity.FPS.Game;
-using Unity.FPS.Gameplay;
+﻿using FPS.Scripts.Game;
+using FPS.Scripts.Game.Shared;
+using FPS.Scripts.Gameplay;
 using UnityEngine;
 
-namespace Unity.FPS.Addons
+namespace DLS.AddOns.MgFPS_SniperRifle
 {
     [RequireComponent(typeof(WeaponController))]
     public class RifleEffectsHandler : MonoBehaviour

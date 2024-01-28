@@ -1,4 +1,4 @@
-namespace Messaging.Messages
+namespace DLS.Messaging.Messages
 {
     public struct PauseMessage
     {

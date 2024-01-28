@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Weapons;
 
-namespace Weapons
+namespace DLS.Weapons
 {
     [RequireComponent(typeof(WeaponController))]
     public class WeaponOverheatController : MonoBehaviour

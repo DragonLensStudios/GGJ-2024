@@ -1,13 +1,13 @@
-using System;
 using System.Collections.Generic;
-using Enums;
-using Health;
-using Messaging;
-using Messaging.Messages;
+using DLS.Enums;
+using DLS.Health;
+using DLS.Interfaces;
+using DLS.Messaging;
+using DLS.Messaging.Messages;
+using DLS.Weapons;
 using UnityEngine;
-using Weapons;
 
-namespace Player
+namespace DLS.Player
 {
     public class FPSController : FirstPersonBasicController, IDamagable
     {

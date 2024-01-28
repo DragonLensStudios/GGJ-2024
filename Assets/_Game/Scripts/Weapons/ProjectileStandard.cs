@@ -1,12 +1,14 @@
 using System.Collections.Generic;
-using Enums;
-using Messaging;
-using Messaging.Messages;
-using Unity.FPS.Game;
-using Unity.FPS.Gameplay;
+using DLS.Enums;
+using DLS.Interfaces;
+using DLS.Messaging;
+using DLS.Messaging.Messages;
+using FPS.Scripts.Game;
+using FPS.Scripts.Game.Shared;
+using FPS.Scripts.Gameplay.Managers;
 using UnityEngine;
 
-namespace Weapons
+namespace DLS.Weapons
 {
     public class ProjectileStandard : ProjectileBase
     {

@@ -1,4 +1,4 @@
-namespace Enums
+namespace DLS.Enums
 {
 /// <summary>
 /// Specifies the possible values for AudioOperation.

@@ -1,10 +1,13 @@
 
 using UnityEngine;
 
-public interface IDamagable
+namespace DLS.Interfaces
 {
-    float DamageMultiplier { get; set; }
-    float SensibilityToSelfDamage { get; set; }
-    void TakeDamage(float damage, bool isExplosionDamage, GameObject source, GameObject target = null);
-    void Kill(GameObject source, GameObject target);
+    public interface IDamagable
+    {
+        float DamageMultiplier { get; set; }
+        float SensibilityToSelfDamage { get; set; }
+        void TakeDamage(float damage, bool isExplosionDamage, GameObject source, GameObject target = null);
+        void Kill(GameObject source, GameObject target);
+    }
 }

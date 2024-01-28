@@ -1,8 +1,8 @@
-﻿using Unity.FPS.AI;
-using Unity.FPS.Game;
+﻿using FPS.Scripts.AI;
+using FPS.Scripts.Game;
 using UnityEngine;
 
-namespace Unity.FPS.Addons
+namespace DLS.AddOns.MgFPS_Enemy_Boss.Scripts
 {
     public class TVDetectionModule : DetectionModule
     {

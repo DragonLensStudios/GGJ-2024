@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Enums;
+using DLS.Enums;
 using UnityEngine;
 
-namespace Time
+namespace DLS.Time
 {
     /// <summary>
     /// This is the Time class, This class holds time variables and methods used for custom timers and custom clocks.

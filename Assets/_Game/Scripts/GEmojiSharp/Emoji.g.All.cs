@@ -1,4 +1,4 @@
-namespace GEmojiSharp
+namespace DLS.GEmojiSharp
 {
     /// <summary>
     /// Contains auto-generated array of all emojis.

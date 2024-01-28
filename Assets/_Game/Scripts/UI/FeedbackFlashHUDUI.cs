@@ -1,13 +1,13 @@
-using Enums;
-using Health;
-using Messaging;
-using Messaging.Messages;
-using Player;
-using Unity.FPS.Game;
+using DLS.Enums;
+using DLS.Health;
+using DLS.Messaging;
+using DLS.Messaging.Messages;
+using DLS.Player;
+using FPS.Scripts.Game.Managers;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI
+namespace DLS.UI
 {
     public class FeedbackFlashHUDUI : MonoBehaviour
     {

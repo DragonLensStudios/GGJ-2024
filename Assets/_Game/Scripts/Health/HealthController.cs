@@ -1,10 +1,10 @@
 using System;
-using Enums;
-using Messaging;
-using Messaging.Messages;
+using DLS.Enums;
+using DLS.Messaging;
+using DLS.Messaging.Messages;
 using UnityEngine;
 
-namespace Health
+namespace DLS.Health
 {
     public class HealthController : MonoBehaviour
     {
