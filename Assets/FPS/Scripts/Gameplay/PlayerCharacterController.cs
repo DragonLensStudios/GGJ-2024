@@ -10,6 +10,7 @@ namespace FPS.Scripts.Gameplay
     [RequireComponent(typeof(CharacterController), typeof(PlayerInputHandler), typeof(AudioSource))]
     public class PlayerCharacterController : MonoBehaviour
     {
+        public static PlayerCharacterController Instance;
         [Header("References")] [Tooltip("Reference to the main camera used for the player")]
         public Camera PlayerCamera;
 
@@ -141,6 +142,14 @@ namespace FPS.Scripts.Gameplay
             ActorsManager actorsManager = FindObjectOfType<ActorsManager>();
             if (actorsManager != null)
                 actorsManager.SetPlayer(gameObject);
+
+            //singleton pattern
+            if (Instance == null)
+                Instance = this;
+            else if (Instance != this)
+                Destroy(gameObject);
+            
+            DontDestroyOnLoad(gameObject);
         }
 
         void Start()
