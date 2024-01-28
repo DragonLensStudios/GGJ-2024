@@ -56,7 +56,6 @@ namespace DLS.Audio
         /// <returns></returns>
         public virtual IEnumerator DelayedMessageSend(int index)
         {
-            
             // Wait until AudioManager is initialized
             while (!AudioManager.IsInitialized)
             {
