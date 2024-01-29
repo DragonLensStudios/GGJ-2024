@@ -41,6 +41,7 @@ namespace FPS.Scripts.Game.Managers
 
         void Start()
         {
+            QualitySettings.shadows = PlayerPrefs.GetInt("Shadows", 1) == 1 ? ShadowQuality.All : ShadowQuality.Disable;
             AudioUtility.SetMasterVolume(1);
         }
 

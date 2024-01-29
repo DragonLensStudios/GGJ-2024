@@ -28,6 +28,7 @@ namespace FPS.Scripts.Gameplay.Managers
 
         void Start()
         {
+            LookSensitivity = PlayerPrefs.GetFloat("LookSensitivity", LookSensitivity);
             m_PlayerCharacterController = GetComponent<PlayerCharacterController>();
             DebugUtility.HandleErrorIfNullGetComponent<PlayerCharacterController, PlayerInputHandler>(
                 m_PlayerCharacterController, this, gameObject);

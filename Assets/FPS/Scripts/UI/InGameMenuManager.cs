@@ -130,11 +130,13 @@ namespace FPS.Scripts.UI
         void OnMouseSensitivityChanged(float newValue)
         {
             m_PlayerInputsHandler.LookSensitivity = newValue;
+            PlayerPrefs.SetFloat("LookSensitivity", newValue);
         }
 
         void OnShadowsChanged(bool newValue)
         {
             QualitySettings.shadows = newValue ? ShadowQuality.All : ShadowQuality.Disable;
+            PlayerPrefs.SetInt("Shadows", newValue ? 1 : 0);
         }
 
         void OnInvincibilityChanged(bool newValue)
