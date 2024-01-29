@@ -756,6 +756,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <CurrentTimeObject>k__BackingField: {fileID: 11400000, guid: 62de102bf327ced478dc3aa689c09c58,
     type: 2}
+  <CountDownTimer>k__BackingField: {fileID: 0}
+  <CountDownMinutes>k__BackingField: 10
   <IsPaused>k__BackingField: 0
 --- !u!4 &1463199715
 Transform:
@@ -789,7 +791,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1754104403
 RectTransform:
   m_ObjectHideFlags: 0
