@@ -1,4 +1,5 @@
-﻿using FPS.Scripts.Game;
+﻿using System;
+using FPS.Scripts.Game;
 using FPS.Scripts.Game.Shared;
 using FPS.Scripts.Gameplay.Managers;
 using UnityEngine;
@@ -36,18 +37,20 @@ namespace FPS.Scripts.UI
 
         void Start()
         {
-            m_PlayerInputsHandler = FindObjectOfType<PlayerInputHandler>();
-            DebugUtility.HandleErrorIfNullFindObject<PlayerInputHandler, InGameMenuManager>(m_PlayerInputsHandler,
-                this);
+            
+        }
 
-            m_PlayerHealth = m_PlayerInputsHandler.GetComponent<Health>();
-            DebugUtility.HandleErrorIfNullGetComponent<Health, InGameMenuManager>(m_PlayerHealth, this, gameObject);
+        private void OnEnable()
+        {
+            if(m_PlayerInputsHandler == null)
+                m_PlayerInputsHandler = FindObjectOfType<PlayerInputHandler>();
 
-            m_FramerateCounter = FindObjectOfType<FramerateCounter>();
-            DebugUtility.HandleErrorIfNullFindObject<FramerateCounter, InGameMenuManager>(m_FramerateCounter, this);
+            if(m_PlayerHealth == null)
+                m_PlayerHealth = m_PlayerInputsHandler.GetComponent<Health>();
 
-            MenuRoot.SetActive(false);
-
+            if(m_FramerateCounter == null)
+                m_FramerateCounter = FindObjectOfType<FramerateCounter>();
+            
             LookSensitivitySlider.value = m_PlayerInputsHandler.LookSensitivity;
             LookSensitivitySlider.onValueChanged.AddListener(OnMouseSensitivityChanged);
 
