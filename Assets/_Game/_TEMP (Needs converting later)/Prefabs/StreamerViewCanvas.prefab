@@ -7519,7 +7519,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: ViewersTitleText
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6298629858439513111, guid: e7866ee6884589b4c864a99584912f99, type: 3}
+    - {fileID: 1255193117908877613, guid: e7866ee6884589b4c864a99584912f99, type: 3}
     m_RemovedGameObjects:
     - {fileID: 3784535932873817682, guid: e7866ee6884589b4c864a99584912f99, type: 3}
     m_AddedGameObjects: []
