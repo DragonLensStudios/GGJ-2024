@@ -1,0 +1,71 @@
+{
+    "Id": "0abc0e4b-177d-46d5-bbd2-9d5fef194448",
+    "Username": "IndieGameExplorer",
+    "PersonalityDescription": "IndieGameExplorer is a connoisseur of indie games, always on the lookout for hidden gems and underrated titles. They pride themselves on supporting small studios and love to share their discoveries with the chat. Their commentary is a blend of enthusiastic praise for creative game design and gentle ribbing for mainstream titles. They're passionate about storytelling and unique gameplay mechanics, often engaging in discussions about the artistic aspects of games.",
+    "Country": "Canada",
+    "Age": 27,
+    "UserType": "Subscriber",
+    "ChatMessages": [
+        {
+            "Message": "Just stumbled upon an indie game that might steal the show! \ud83c\udf1f",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Why play AAA titles when indie games have so much heart? \ud83d\udc96",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "This game's art style is breathtaking. Love indie creativity!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Ever thought of doing an indie game marathon stream?",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "I wish more people appreciated these kinds of games.",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "Supporting indie devs is what gaming should be about!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Honestly, some of these graphics beat big studio productions.",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Mainstream games could never come up with this concept.",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "Let's give some love to the small studios making big waves.",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "This game deserves so much more recognition.",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Indie games are where the real innovation is at.",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "Can't wait to see what this dev comes up with next!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "A hidden gem! This is why I follow your streams.",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "AAA titles are overrated. Change my mind.",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "This game's soundtrack is a masterpiece on its own.",
+            "ResponseType": "Positive"
+        }
+    ],
+    "UserGameType": "General"
+}

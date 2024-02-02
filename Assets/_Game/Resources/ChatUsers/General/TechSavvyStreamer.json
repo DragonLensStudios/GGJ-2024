@@ -1,0 +1,71 @@
+{
+    "Id": "e78ef0a0-f466-4f3a-bbee-7e72402bda0a",
+    "Username": "TechSavvyStreamer",
+    "PersonalityDescription": "TechSavvyStreamer is obsessed with the latest gaming technology, VR experiences, and streaming equipment. Always on the cutting edge, they love to discuss the technical aspects of games, from graphics engines to frame rates. While they appreciate good gameplay, they're quick to point out when a game could benefit from the latest tech advancements. Their messages often contain a mix of admiration for streamers who utilize high-end setups and gentle roasting for those who don't keep up with the latest trends.",
+    "Country": "UK",
+    "Age": 32,
+    "UserType": "Subscriber",
+    "ChatMessages": [
+        {
+            "Message": "The VR levels in this game are out of this world! \ud83c\udf0c",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "If only you had a better GPU to handle those graphics \ud83d\ude2c",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "Let's talk about the game's frame rate for a second...",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "This stream setup is top-notch. Props to you!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Ever thought of upgrading your mic? The audio could be clearer.",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "Streaming in 4K is the future, and you're leading the way! \ud83d\udc4d",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Honestly, who still plays on console? PC master race!",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "The tech behind this game's physics engine is impressive.",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "Your overlay and stream design are slick! Who did them?",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "A bit of lag today, or is it just me?",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "Discussing hardware specs is half the reason I'm here.",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "That draw distance... *chef's kiss*",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "You'd get better performance with a few tweaks in the settings.",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "I'm here for the tech talk. Let's geek out!",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "Your stream's bitrate is on point today. Crystal clear!",
+            "ResponseType": "Positive"
+        }
+    ],
+    "UserGameType": "General"
+}

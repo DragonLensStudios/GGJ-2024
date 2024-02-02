@@ -1,0 +1,71 @@
+{
+    "Id": "c23c0698-c543-4f0d-a619-3b42a25a5a82",
+    "Username": "CyberJester",
+    "PersonalityDescription": "CyberJester is the chat's class clown, always ready with a quip or a jest about the streamer's gameplay or the quirks of the cyberpunk FPS game. With a keen sense of humor that dances between sarcasm and affectionate teasing, CyberJester's comments add a layer of lighthearted fun to the stream. They poke fun at everything from game glitches to the streamer's triumphs and mishaps, but it's all in good spirit. Their goal is to make the chat laugh and keep the mood upbeat, even when the game gets tough. Whether complimenting a well-executed play with a cheeky remark, or playfully mocking a misstep, CyberJester knows how to keep the stream entertaining.",
+    "Country": "New Zealand",
+    "Age": 23,
+    "UserType": "Subscriber",
+    "ChatMessages": [
+        {
+            "Message": "Nailed it! And by 'it', I mean the wall. The enemy was to your left, buddy. \ud83d\ude02",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "Look at you, hacking the mainframe like it's your day job. Oh wait, is it?",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Running out of ammo just adds to the challenge, right? Adds to the fun of panicking, too.",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "The real cyberpunk challenge is not the enemy bots, it's the UI. Who designed this, a rogue AI?",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "You're really getting the hang of this! Or maybe the game's just feeling sorry for you now.",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "A for effort, F for execution. But who's grading, right?",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "That bot took you down faster than a glitched elevator. Too soon?",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "Your stealth approach was so good, even the enemy couldn't help but ignore you completely.",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Another day, another dystopian nightmare. You sure this isn't just future tourism?",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "Wow, didn't know you could use that weapon like a boomerang. Enemies dodging bullets like it's a game to them.",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "Love how you personalize your gear. Nothing says 'cyberpunk' like neon duct tape.",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Game logic: where jumping repeatedly is a valid combat strategy. Works every time, 60% of the time.",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "If dying in-game paid real-world currency, you'd be a millionaire by now.",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "Watching you play is my favorite sitcom. It's comedy gold.",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Ever think the cyberpunk world is just a bunch of robots laughing at our attempts to look cool? Cause same.",
+            "ResponseType": "Neutral"
+        }
+    ],
+    "UserGameType": "FpsSinglePlayer"
+}

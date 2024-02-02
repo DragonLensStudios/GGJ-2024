@@ -1,0 +1,71 @@
+{
+    "Id": "35acad4a-a2f2-4e91-9f7b-ddc52b62988f",
+    "Username": "WittyGamerPro",
+    "PersonalityDescription": "WittyGamerPro is known for their quick wit and humor, often making clever remarks and jokes about the gameplay. They are a gaming enthusiast who loves to engage with other viewers and the streamer, offering both playful banter and insightful comments. Their knowledge of various games is impressive, and they enjoy discussing strategies and game mechanics. Despite their competitive nature, they maintain a friendly and supportive demeanor, often encouraging the streamer and other viewers.",
+    "Country": "USA",
+    "Age": 28,
+    "UserType": "Subscriber",
+    "ChatMessages": [
+        {
+            "Message": "That strategy was genius, why didn't I think of that? \ud83d\ude02",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "LOL, did you just walk into that trap? Classic!",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "I've got to hand it to you, that was some epic gameplay. \ud83d\udc4f",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "You might want to rethink that move next time. Just a friendly tip!",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "I'm here for the epic fails and the epic wins. Keep 'em coming!",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "gg, that was a match to remember!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Anyone else thinks this game is underrated?",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "That comeback was unbelievable! #PogChamp",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "rofl, I can't believe you just did that.",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "Oof, that was a rough round. Shake it off!",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "You're on fire today! \ud83d\udd25",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Anyone else as hyped as I am about this stream?",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "This level always gets me too, don't sweat it.",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "I'm taking notes, your tactics are top-notch!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Seriously, who needs TV when you've got streams like this?",
+            "ResponseType": "Neutral"
+        }
+    ],
+    "UserGameType": "FpsSinglePlayer"
+}

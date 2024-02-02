@@ -1,13 +1,15 @@
+using DLS.Chat;
+
 namespace DLS.Messaging.Messages
 {
     public struct AddChatMessage
     {
-        public string Sender { get; }
+        public ViewerUser User { get; }
         public string Message { get; }
         
-        public AddChatMessage(string sender, string message)
+        public AddChatMessage(ViewerUser user, string message)
         {
-            Sender = sender;
+            User = user;
             Message = message;
         }
     }

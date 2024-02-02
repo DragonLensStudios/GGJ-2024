@@ -1,0 +1,71 @@
+{
+    "Id": "5760586b-01e1-4fb5-8211-e64ad7534e23",
+    "Username": "CosplayCrafter",
+    "PersonalityDescription": "CosplayCrafter is all about the intersection of gaming and cosplay, passionately recreating characters from various titles. They're known for their attention to detail and creative takes on character outfits, often sharing progress and tips with the chat. CosplayCrafter loves to discuss the lore behind characters, how it influences their costume choices, and enjoys the camaraderie of fellow gaming enthusiasts. Their chat messages are a mix of cosplay advice, encouragement for fellow cosplayers, and playful banter about bringing game characters to life.",
+    "Country": "Australia",
+    "Age": 29,
+    "UserType": "Subscriber",
+    "ChatMessages": [
+        {
+            "Message": "Working on a new cosplay from [game], can't wait to show it off!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Anyone else here into cosplay? Would love to exchange tips!",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "Just finished crafting [game character]'s armor. So proud!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "I think [streamer] should do a cosplay stream. Who's with me?",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "Finding the right fabric for [game character]'s outfit is a quest on its own!",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "Cosplay isn't just dressing up, it's becoming the character. \ud83d\udc96",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "LOL, imagine cosplaying as the final boss from [game]. Challenge accepted?",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "The detail on [game character]'s costume in the game is incredible. So much to work with!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Who needs Halloween when you cosplay all year round?",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "This community has been so supportive of my cosplay journey. Thanks, everyone!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "A little fabric paint, some crafting foam, and voil\u00e0 - you've got [game character]'s weapon.",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "Cosplay tip: always measure twice, cut once! Learned that the hard way.",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "Debating if I should start on [game]'s new DLC character costume. Thoughts?",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "Seeing everyone's cosplays at gaming cons is the highlight of my year!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Why do I feel like I'm the only one who thinks [game character] is cosplay-worthy? \ud83e\udd14",
+            "ResponseType": "Negative"
+        }
+    ],
+    "UserGameType": "General"
+}

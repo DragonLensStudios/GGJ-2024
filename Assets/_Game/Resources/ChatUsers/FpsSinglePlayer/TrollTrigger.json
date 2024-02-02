@@ -1,0 +1,71 @@
+{
+    "Id": "421377bd-d89c-40b4-b8ec-e15ee2410138",
+    "Username": "TrollTrigger",
+    "PersonalityDescription": "TrollTrigger, with a sharp tongue and a quick wit, is the quintessential FPS game viewer who finds joy in roasting the streamer. While their jests are all in good fun, they aim to add a layer of humor and challenge to the stream. Always armed with a playful comment or a sarcastic remark, especially when the streamer misses a shot or makes a questionable game decision. Despite the roasting, TrollTrigger genuinely enjoys the gameplay and the community, often using the [game] tag to reference specific moments or mechanics. Their comments, although teasing, are meant to entertain and engage rather than offend.",
+    "Country": "UK",
+    "Age": 22,
+    "UserType": "Subscriber",
+    "ChatMessages": [
+        {
+            "Message": "Missed that shot in [game]? Maybe try aiming next time! \ud83d\ude02",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "Wow, didn't know [game] had a 'walk into enemy fire' strategy. Innovative!",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "Watching you play [game] is like a masterclass in what NOT to do.",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "You must be playing [game] on hard mode, right? Or is this normal for you?",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "LOL, even the NPCs in [game] seem embarrassed for you.",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "If missing targets in [game] was an Olympic sport, you'd take gold.",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "I've seen better aiming in vintage arcade shooters. Just saying. #NoShade",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "Did you learn to play [game] by watching blindfolded tutorials?",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "Hey, at least you're consistent... consistently hilarious in [game]!",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "Ever consider that the enemies in [game] might just be dodging out of pity?",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "Remember, in [game], the point is to hit the enemies. Thought you should know.",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "Your strategy in [game] is so unique, it almost looked like you knew what you were doing!",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "I come here for the epic fails in [game]. Never disappointed.",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "The real boss in [game] is not the final enemy, it's your own gameplay. Oof.",
+            "ResponseType": "Negative"
+        },
+        {
+            "Message": "Your gameplay in [game] is the gift that keeps on giving... laughs, that is.",
+            "ResponseType": "Negative"
+        }
+    ],
+    "UserGameType": "FpsSinglePlayer"
+}

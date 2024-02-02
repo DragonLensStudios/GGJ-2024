@@ -1,0 +1,71 @@
+{
+    "Id": "aa5b8892-228e-4d54-96e6-4b65a04af9e6",
+    "Username": "CasualFragger",
+    "PersonalityDescription": "CasualFragger embodies the spirit of a casual yet enthusiastic FPS gamer. They're not necessarily about the win, but more about the fun and camaraderie found in online matches. Always quick to commend a good play and supportive in defeat, CasualFragger is the type of player who keeps the chat light and engaging. They enjoy a wide range of FPS games, from competitive shooters to story-driven single-player titles, and their chat messages often reflect a balance of praise, encouragement, and the occasional light-hearted jest. With a mantra of 'it's just a game,' they remind everyone to have fun above all.",
+    "Country": "Canada",
+    "Age": 24,
+    "UserType": "Subscriber",
+    "ChatMessages": [
+        {
+            "Message": "gg, everyone. That was a solid match!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Nice kill! Didn't see that coming.",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "That was close! Almost had it.",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "LOL, can't believe I walked right into that one.",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "Good game, let's go for another round.",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Teamwork makes the dream work, folks.",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Ouch, that snipe was brutal. Good shot!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Ahh, so close to the win! Next time, for sure.",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "Anyone else new to this map? Still figuring it out.",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "This game's community is awesome. Always a good time.",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Haha, gotta love those panic sprays. We've all been there.",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "Props to the devs, this game keeps getting better.",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Rough match, but it's all good. Just a game, right?",
+            "ResponseType": "Neutral"
+        },
+        {
+            "Message": "That comeback was insane! Well played, team.",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Sometimes you win, sometimes you learn. GGs.",
+            "ResponseType": "Neutral"
+        }
+    ],
+    "UserGameType": "FpsSinglePlayer"
+}

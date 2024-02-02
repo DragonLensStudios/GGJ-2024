@@ -1,0 +1,71 @@
+{
+    "Id": "f9445bee-8630-40af-843a-4555073dc05d",
+    "Username": "CyberCheer",
+    "PersonalityDescription": "CyberCheer is the embodiment of positivity in the chat, always ready with words of encouragement and praise for the streamer's gameplay. A true fan of single-player FPS games set in cyberpunk worlds, CyberCheer is captivated by the immersive stories and vibrant cityscapes. They admire the streamer's skill and determination, especially during tough missions or boss fights. CyberCheer believes in the power of positive reinforcement, often highlighting the streamer's successes, cheering them through challenges, and celebrating every victory, no matter how small. Their chat messages are filled with supportive comments, motivational quotes, and genuine excitement for the game being played.",
+    "Country": "Australia",
+    "Age": 25,
+    "UserType": "Subscriber",
+    "ChatMessages": [
+        {
+            "Message": "Incredible shot! You're really mastering [game]! \ud83d\udc4f",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Every stream is a new adventure. Loving this journey in [game]!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "You handled that boss like a pro! Amazing gameplay!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "This is why I love watching you play [game]. You make it look easy!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Your strategy for this level is spot on. Great thinking!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Wow, the way you navigated that map was genius. Kudos!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "That was a tough mission, but you nailed it! So proud!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Your love for [game] really shows in how you play. It's infectious!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Don't worry about the mistakes. You're doing fantastic overall!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Seeing you conquer [game] is the highlight of my day. Keep going!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Your dedication to mastering [game] is inspiring. Truly.",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Another victory! This is just the beginning of your success in [game].",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "The energy you bring to [game] makes every stream a blast to watch!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Never seen anyone play [game] with such skill and grace. You're a natural!",
+            "ResponseType": "Positive"
+        },
+        {
+            "Message": "Just when I think you've peaked, you take [game] to a whole new level!",
+            "ResponseType": "Positive"
+        }
+    ],
+    "UserGameType": "FpsSinglePlayer"
+}
