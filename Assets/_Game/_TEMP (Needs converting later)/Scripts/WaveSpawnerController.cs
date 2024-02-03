@@ -16,9 +16,11 @@ public class WaveSpawnerController : MonoBehaviour
     [field: SerializeField] public List<GameObject> EnemiesToSpawn { get; set; } = new();
     [field: SerializeField] public List<GameObject> BossesToSpawn { get; set; } = new();
     
-    [field: SerializeField] public int EnemiesPerWave { get; set; } = 2;
-    [field: SerializeField] public int BossesPerWave { get; set; } = 1;
-    
+    [field: SerializeField] public float EnemiesPerWave { get; set; } = 1f;
+    [field: SerializeField] public float BossesPerWave { get; set; } = 0.5f;
+    [field: SerializeField] public float MaxEnemiesPerWave { get; set; } = 10f;
+    [field: SerializeField] public float MaxBossesPerWave { get; set; } = 3f;
+
     [field: SerializeField] public float TimeBetweenWaves { get; set; } = 10f;
     [field: SerializeField] public float MaxTimeBetweenWaves { get; set; } = 30f;
     
@@ -29,7 +31,9 @@ public class WaveSpawnerController : MonoBehaviour
     [field: SerializeField] public float TimeBeforeFirstWave { get; set; } = 5f;
     
     [field: SerializeField] public float TimeSinceLastWave { get; set; } = 0f;
-    
+    [field: SerializeField] public bool MustDefeatEnemiesBeforeNextWave { get; set; } = true;
+
+
     //TODO: Remove this and handle with a message instead.
     protected EnemyManager EnemyManager { get; set; }
     
@@ -37,6 +41,8 @@ public class WaveSpawnerController : MonoBehaviour
     protected List<Transform> UsedBossSpawnPoints { get; set; } = new();
     
     protected PatrolPath PatrolPath { get; set; }
+    protected int CurrentEnemyCount = 0;
+    protected int CurrentBossCount = 0;
     
 
     private void Awake()
@@ -62,8 +68,8 @@ public class WaveSpawnerController : MonoBehaviour
     private void StartNextWave()
     {
         WaveNumber++;
-        EnemiesPerWave++;
-        BossesPerWave++;
+        EnemiesPerWave = Mathf.Floor(WaveNumber * EnemiesPerWave);
+        BossesPerWave = Mathf.Floor(WaveNumber * BossesPerWave);
         TimeBetweenWaves += TimeAddedBetweenWavesMultiplier;
         TimeBetweenWaves = Mathf.Clamp(TimeBetweenWaves, 0f, MaxTimeBetweenWaves);
         StartCoroutine(SpawnEnemies());
@@ -94,9 +100,23 @@ public class WaveSpawnerController : MonoBehaviour
         
         if(EnemyManager.Enemies.Count <= 0 && TimeSinceLastWave < MaxTimeBetweenWaves)
         {
+            if (EnemyManager.Enemies.Count <= 0)
+            {
+                CurrentEnemyCount = 0;
+                CurrentBossCount = 0;
+            }
+
             StartNextWave();
         }
-        else
+        else if (MustDefeatEnemiesBeforeNextWave)
+        {
+            if (EnemyManager.Enemies.Count <= 0)
+            {
+                StartNextWave();
+            }
+        }
+
+        else 
         {
             yield return new WaitForSeconds(TimeBetweenWaves);
             StartNextWave();
@@ -109,6 +129,12 @@ public class WaveSpawnerController : MonoBehaviour
         {
             return false;
         }
+
+        if (CurrentEnemyCount > MaxEnemiesPerWave)
+        {
+            return false;
+        }
+
         var spawnPoint = EnemySpawnPoints[UnityEngine.Random.Range(0, EnemySpawnPoints.Count)];
         if(UsedEnemySpawnPoints.Count < EnemySpawnPoints.Count)
         {
@@ -125,6 +151,9 @@ public class WaveSpawnerController : MonoBehaviour
         var enemy = Instantiate(EnemiesToSpawn[UnityEngine.Random.Range(0, EnemiesToSpawn.Count)]);
         enemy.transform.position = spawnPoint.position;
         enemy.GetComponent<EnemyController>().PatrolPath = PatrolPath;
+
+        CurrentEnemyCount++;
+
         return true;
     }
     
@@ -134,6 +163,12 @@ public class WaveSpawnerController : MonoBehaviour
         {
             return false;
         }
+
+        if (CurrentBossCount > MaxBossesPerWave)
+        {
+            return false;
+        }
+
         var spawnPoint = BossSpawnPoints[UnityEngine.Random.Range(0, BossSpawnPoints.Count)];
         if(UsedBossSpawnPoints.Count < BossSpawnPoints.Count)
         {
@@ -149,6 +184,9 @@ public class WaveSpawnerController : MonoBehaviour
         }
         var boss = Instantiate(BossesToSpawn[UnityEngine.Random.Range(0, BossesToSpawn.Count)]);
         boss.transform.position = spawnPoint.position;
+
+        CurrentBossCount++;
+
         return true;
     }
 }
