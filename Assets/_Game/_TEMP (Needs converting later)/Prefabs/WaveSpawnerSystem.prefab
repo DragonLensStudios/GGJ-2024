@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1022452588887251248
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9204065476309419152}
+  - component: {fileID: 1817243088988453624}
+  m_Layer: 0
+  m_Name: WaveSpawnerSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9204065476309419152
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022452588887251248}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1817243088988453624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022452588887251248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8417899f642d7234999858bc93c1dceb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <WaveNumber>k__BackingField: 0
+  <EnemySpawnPoints>k__BackingField:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  <BossSpawnPoints>k__BackingField:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  <EnemiesToSpawn>k__BackingField:
+  - {fileID: 6516798023755569216, guid: 02c1a3d5839c1ed4881b7e7e37c9c852, type: 3}
+  <BossesToSpawn>k__BackingField:
+  - {fileID: 4501946760213009051, guid: e33e06aefbed72842b73bb8440d4dc12, type: 3}
+  - {fileID: 4501946760213009051, guid: e33e06aefbed72842b73bb8440d4dc12, type: 3}
+  - {fileID: 4501946760213009051, guid: e33e06aefbed72842b73bb8440d4dc12, type: 3}
+  - {fileID: 4501946760213009051, guid: e33e06aefbed72842b73bb8440d4dc12, type: 3}
+  - {fileID: 4501946760213009051, guid: e33e06aefbed72842b73bb8440d4dc12, type: 3}
+  - {fileID: 4501946760213009051, guid: e33e06aefbed72842b73bb8440d4dc12, type: 3}
+  - {fileID: 8038047556877448432, guid: c0b41e380a4d3304581aff18a04ad61c, type: 3}
+  - {fileID: 8038047556877448432, guid: c0b41e380a4d3304581aff18a04ad61c, type: 3}
+  - {fileID: 7258691277548954654, guid: 7c721e5523b0b7d40a589de9b931883a, type: 3}
+  - {fileID: 7258691277548954654, guid: 7c721e5523b0b7d40a589de9b931883a, type: 3}
+  - {fileID: 7918221995985253696, guid: 0d2ca1e0b8e147c459427b84e9515acd, type: 3}
+  - {fileID: 7918221995985253696, guid: 0d2ca1e0b8e147c459427b84e9515acd, type: 3}
+  - {fileID: 5190805856252488194, guid: c3ef77442295d364a8e0356dba680754, type: 3}
+  - {fileID: 5190805856252488194, guid: c3ef77442295d364a8e0356dba680754, type: 3}
+  <MaxEnemiesPerWave>k__BackingField: 10
+  <MaxBossesPerWave>k__BackingField: 3
+  <EnemyScalingFactor>k__BackingField: 1
+  <BossScalingFactor>k__BackingField: 0.25
+  <TimeBetweenWaves>k__BackingField: 5
+  <MaxTimeBetweenWaves>k__BackingField: 30
+  <TimeBetweenSpawns>k__BackingField: 1
+  <TimeAddedBetweenWavesMultiplier>k__BackingField: 5
+  <TimeBeforeFirstWave>k__BackingField: 5
+  <TimeSinceLastWave>k__BackingField: 0
+  <MustDefeatEnemiesBeforeNextWave>k__BackingField: 1

@@ -12,6 +12,12 @@ namespace FPS.Scripts.AI
     [RequireComponent(typeof(Health), typeof(Actor), typeof(NavMeshAgent))]
     public class EnemyController : MonoBehaviour
     {
+        public enum EnemyType
+        {
+            NormalEnemy,
+            BossEnemy
+        }
+        
         [System.Serializable]
         public struct RendererIndexData
         {
@@ -26,6 +32,9 @@ namespace FPS.Scripts.AI
         }
 
         [Header("Parameters")]
+        [Tooltip("The Type of the enemy")]
+        public EnemyType Type = EnemyType.NormalEnemy;
+        
         [Tooltip("The Y height at which the enemy will be automatically killed (if it falls off of the level)")]
         public float SelfDestructYHeight = -20f;
 

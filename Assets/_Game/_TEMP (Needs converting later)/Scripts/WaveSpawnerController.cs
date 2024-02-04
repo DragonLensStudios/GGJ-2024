@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using FPS.Scripts.AI;
 using FPS.Scripts.Game;
 using FPS.Scripts.Game.Managers;
@@ -8,7 +9,7 @@ using UnityEngine;
 
 public class WaveSpawnerController : MonoBehaviour
 {
-    [field: SerializeField] public int WaveNumber { get; set; } = 1;
+    [field: SerializeField] public int WaveNumber { get; set; } = 0;
     
     [field: SerializeField] public List<Transform> EnemySpawnPoints { get; set; } = new();
     [field: SerializeField] public List<Transform> BossSpawnPoints { get; set; } = new();
@@ -16,11 +17,12 @@ public class WaveSpawnerController : MonoBehaviour
     [field: SerializeField] public List<GameObject> EnemiesToSpawn { get; set; } = new();
     [field: SerializeField] public List<GameObject> BossesToSpawn { get; set; } = new();
     
-    [field: SerializeField] public float EnemiesPerWave { get; set; } = 1f;
-    [field: SerializeField] public float BossesPerWave { get; set; } = 0.5f;
+
     [field: SerializeField] public float MaxEnemiesPerWave { get; set; } = 10f;
     [field: SerializeField] public float MaxBossesPerWave { get; set; } = 3f;
-
+    
+    [field: SerializeField] public float EnemyScalingFactor { get; set; } = 1f; 
+    [field: SerializeField] public float BossScalingFactor { get; set; } = 0.25f; 
     [field: SerializeField] public float TimeBetweenWaves { get; set; } = 10f;
     [field: SerializeField] public float MaxTimeBetweenWaves { get; set; } = 30f;
     
@@ -35,15 +37,15 @@ public class WaveSpawnerController : MonoBehaviour
 
 
     //TODO: Remove this and handle with a message instead.
-    protected EnemyManager EnemyManager { get; set; }
+    protected EnemyManager EnemyManager;
     
-    protected List<Transform> UsedEnemySpawnPoints { get; set; } = new();
-    protected List<Transform> UsedBossSpawnPoints { get; set; } = new();
-    
-    protected PatrolPath PatrolPath { get; set; }
-    protected int CurrentEnemyCount = 0;
-    protected int CurrentBossCount = 0;
-    
+    protected List<Transform> UsedEnemySpawnPoints  = new();
+    protected List<Transform> UsedBossSpawnPoints = new();
+
+    protected PatrolPath PatrolPath;
+
+    protected float EnemiesPerWave;
+    protected float BossesPerWave;
 
     private void Awake()
     {
@@ -53,11 +55,7 @@ public class WaveSpawnerController : MonoBehaviour
 
     private void Start()
     {
-        DisplayMessageEvent displayMessage = Events.DisplayMessageEvent;
-        displayMessage.Message = $"Wave {WaveNumber} Incoming!";
-        displayMessage.DelayBeforeDisplay = 0f;
-        EventManager.Broadcast(displayMessage);
-        StartCoroutine(SpawnEnemies());
+        StartNextWave();
     }
 
     private void Update()
@@ -68,57 +66,68 @@ public class WaveSpawnerController : MonoBehaviour
     private void StartNextWave()
     {
         WaveNumber++;
-        EnemiesPerWave = Mathf.Floor(WaveNumber * EnemiesPerWave);
-        BossesPerWave = Mathf.Floor(WaveNumber * BossesPerWave);
-        TimeBetweenWaves += TimeAddedBetweenWavesMultiplier;
-        TimeBetweenWaves = Mathf.Clamp(TimeBetweenWaves, 0f, MaxTimeBetweenWaves);
-        StartCoroutine(SpawnEnemies());
+        
+        // Adjust enemy count based on the wave number and scaling factor.
+        EnemiesPerWave = Mathf.Min(Mathf.Floor(WaveNumber * EnemyScalingFactor), MaxEnemiesPerWave);
+        // Adjust boss count based on the wave number and scaling factor.
+        BossesPerWave = Mathf.Min(Mathf.Floor(WaveNumber * BossScalingFactor), MaxBossesPerWave);
+        
+        TimeBetweenWaves = Mathf.Clamp(TimeBetweenWaves + TimeAddedBetweenWavesMultiplier, 0f, MaxTimeBetweenWaves);
+
         UsedBossSpawnPoints.Clear();
         UsedEnemySpawnPoints.Clear();
+        
         DisplayMessageEvent displayMessage = Events.DisplayMessageEvent;
         displayMessage.Message = $"Wave {WaveNumber} Incoming!";
         displayMessage.DelayBeforeDisplay = 0f;
         EventManager.Broadcast(displayMessage);
+    
         TimeSinceLastWave = 0f;
+
+        StartCoroutine(SpawnEnemies());
     }
+
+
 
     protected virtual IEnumerator SpawnEnemies()
     {
-        yield return new WaitForSeconds(TimeBeforeFirstWave);
-        
+        if (WaveNumber == 1)
+        {
+            yield return new WaitForSeconds(TimeBeforeFirstWave);
+        }
+
         for (int i = 0; i < EnemiesPerWave; i++)
         {
             SpawnEnemy();
             yield return new WaitForSeconds(TimeBetweenSpawns);
         }
-        
+
         for (int i = 0; i < BossesPerWave; i++)
         {
             SpawnBoss();
             yield return new WaitForSeconds(TimeBetweenSpawns);
         }
-        
-        if(EnemyManager.Enemies.Count <= 0 && TimeSinceLastWave < MaxTimeBetweenWaves)
-        {
-            if (EnemyManager.Enemies.Count <= 0)
-            {
-                CurrentEnemyCount = 0;
-                CurrentBossCount = 0;
-            }
 
+        StartCoroutine(CheckForNextWaveCondition());
+        yield return new WaitForSeconds(TimeBetweenWaves);
+    }
+
+    protected IEnumerator CheckForNextWaveCondition()
+    {
+        // Check if all enemies are defeated to start the next wave immediately.
+        while (EnemyManager.Enemies.Count > 0)
+        {
+            if(TimeSinceLastWave >= TimeBetweenWaves && !MustDefeatEnemiesBeforeNextWave)
+                break;
+            yield return new WaitForSeconds(1f);
+        }
+
+        if (MustDefeatEnemiesBeforeNextWave && EnemyManager.Enemies.Count == 0)
+        {
             StartNextWave();
         }
-        else if (MustDefeatEnemiesBeforeNextWave)
+        else
         {
-            if (EnemyManager.Enemies.Count <= 0)
-            {
-                StartNextWave();
-            }
-        }
-
-        else 
-        {
-            yield return new WaitForSeconds(TimeBetweenWaves);
             StartNextWave();
         }
     }
@@ -126,11 +135,6 @@ public class WaveSpawnerController : MonoBehaviour
     protected virtual bool SpawnEnemy()
     {
         if (EnemySpawnPoints.Count <= 0)
-        {
-            return false;
-        }
-
-        if (CurrentEnemyCount > MaxEnemiesPerWave)
         {
             return false;
         }
@@ -151,20 +155,13 @@ public class WaveSpawnerController : MonoBehaviour
         var enemy = Instantiate(EnemiesToSpawn[UnityEngine.Random.Range(0, EnemiesToSpawn.Count)]);
         enemy.transform.position = spawnPoint.position;
         enemy.GetComponent<EnemyController>().PatrolPath = PatrolPath;
-
-        CurrentEnemyCount++;
-
+        
         return true;
     }
     
     protected virtual bool SpawnBoss()
     {
         if (BossSpawnPoints.Count <= 0)
-        {
-            return false;
-        }
-
-        if (CurrentBossCount > MaxBossesPerWave)
         {
             return false;
         }
@@ -184,9 +181,7 @@ public class WaveSpawnerController : MonoBehaviour
         }
         var boss = Instantiate(BossesToSpawn[UnityEngine.Random.Range(0, BossesToSpawn.Count)]);
         boss.transform.position = spawnPoint.position;
-
-        CurrentBossCount++;
-
+        
         return true;
     }
 }

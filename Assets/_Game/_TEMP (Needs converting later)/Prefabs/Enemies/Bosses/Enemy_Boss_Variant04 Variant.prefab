@@ -10,6 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 114352568619201999, guid: b803d286bcaf6da49ae3e33a431346b2,
         type: 3}
+      propertyPath: Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114352568619201999, guid: b803d286bcaf6da49ae3e33a431346b2,
+        type: 3}
       propertyPath: DropRate
       value: 0.5
       objectReference: {fileID: 0}
@@ -59,6 +64,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5449808880828012920, guid: efe2a3f89a2be314a9dd41a3f25dfe1f,
         type: 3}
+    - target: {fileID: 1820332560811690771, guid: b803d286bcaf6da49ae3e33a431346b2,
+        type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7237852932878766899, guid: b803d286bcaf6da49ae3e33a431346b2,
         type: 3}
       propertyPath: m_Name

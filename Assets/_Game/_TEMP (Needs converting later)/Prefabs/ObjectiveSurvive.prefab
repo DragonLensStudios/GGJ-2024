@@ -58,8 +58,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Title: Survive
-  Description: Survive for 10 Minutes!
+  Description: Suvive for 5 Minutes
   IsOptional: 0
   DelayVisible: 0
   <CountDownTimer>k__BackingField: {fileID: 11400000, guid: d3a97a11fc561334781fd955b508b634,
     type: 2}
+  <WaveSpawner>k__BackingField: {fileID: 0}

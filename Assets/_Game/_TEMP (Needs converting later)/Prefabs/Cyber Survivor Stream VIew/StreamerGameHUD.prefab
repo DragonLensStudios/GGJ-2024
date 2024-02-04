@@ -1114,7 +1114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6df5ceb43b5e7254f90afdf178b9cc04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectivePanel: {fileID: 5005946828522995720}
+  InGameObjectivePanel: {fileID: 0}
+  StreamerGameObjectivePanel: {fileID: 5005946828522995720}
   PrimaryObjectivePrefab: {fileID: 8322339850511969721, guid: 825d6b0d7b3a7394a9f51c7b6900c135,
     type: 3}
   SecondaryObjectivePrefab: {fileID: 8322339850511969721, guid: 418abff609b9b754ba25e34faf58edf4,

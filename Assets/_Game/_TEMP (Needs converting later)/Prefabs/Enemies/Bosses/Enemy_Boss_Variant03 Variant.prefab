@@ -8,6 +8,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2507929555471247086, guid: 7b07e9392d404744184d222ed91907d4,
+        type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4186282200601221170, guid: 7b07e9392d404744184d222ed91907d4,
+        type: 3}
+      propertyPath: Type
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4186282200601221170, guid: 7b07e9392d404744184d222ed91907d4,
         type: 3}
       propertyPath: DropRate
