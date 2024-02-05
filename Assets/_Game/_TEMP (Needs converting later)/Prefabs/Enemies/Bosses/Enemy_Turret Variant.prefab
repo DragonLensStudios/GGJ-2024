@@ -68,6 +68,12 @@ PrefabInstance:
       propertyPath: m_ObstacleAvoidanceType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7060103069052348951, guid: e29d43f43cc5d82499dd9926e01847d3,
+        type: 3}
+      propertyPath: <CompassMarkerPrefab>k__BackingField
+      value: 
+      objectReference: {fileID: -6580955819471541274, guid: e890088c640bc0b4596626d50f1785b2,
+        type: 3}
     - target: {fileID: 9087143436424816424, guid: e29d43f43cc5d82499dd9926e01847d3,
         type: 3}
       propertyPath: Type
@@ -76,7 +82,7 @@ PrefabInstance:
     - target: {fileID: 9087143436424816424, guid: e29d43f43cc5d82499dd9926e01847d3,
         type: 3}
       propertyPath: DropRate
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9087143436424816424, guid: e29d43f43cc5d82499dd9926e01847d3,
         type: 3}

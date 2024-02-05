@@ -8,6 +8,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1105077494660731204, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: <CompassMarkerPrefab>k__BackingField
+      value: 
+      objectReference: {fileID: -6580955819471541274, guid: e890088c640bc0b4596626d50f1785b2,
+        type: 3}
     - target: {fileID: 4094116951752829155, guid: 340333c285c0686499a16953bdcdee19,
         type: 3}
       propertyPath: m_Name
@@ -76,7 +82,7 @@ PrefabInstance:
     - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
         type: 3}
       propertyPath: DropRate
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
         type: 3}
@@ -124,7 +130,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5449808880828012920, guid: efe2a3f89a2be314a9dd41a3f25dfe1f,
         type: 3}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

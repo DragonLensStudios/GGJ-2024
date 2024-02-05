@@ -49,10 +49,22 @@ namespace DLS.Managers
             }
             //TODO:Replace with message system handler.
             EventManager.AddListener<PlayerDeathEvent>(OnPlayerDeath);
+            EventManager.AddListener<AllObjectivesCompletedEvent>(OnAllObjectivesCompleted);
         }
 
-        private void OnPlayerDeath(PlayerDeathEvent obj)
+        private void OnAllObjectivesCompleted(AllObjectivesCompletedEvent evt)
         {
+            IsPaused = true;
+            if(CountDownTimer != null)
+            {
+                CountDownTimer.ResetFullDate();
+                CountDownTimer.Minute = CountDownMinutes;
+            }
+        }
+
+        private void OnPlayerDeath(PlayerDeathEvent evt)
+        {
+            IsPaused = true;
             if(CountDownTimer != null)
             {
                 CountDownTimer.ResetFullDate();
@@ -86,6 +98,7 @@ namespace DLS.Managers
         /// </summary>
         public virtual void Update()
         {
+            if(IsPaused) return;
             CurrentTimeObject.StartTime();
             if(CountDownTimer.Minute <= 0 && CountDownTimer.Second <= 0)
                 return;

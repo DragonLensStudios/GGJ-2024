@@ -21,7 +21,7 @@ PrefabInstance:
     - target: {fileID: 4186282200601221170, guid: 7b07e9392d404744184d222ed91907d4,
         type: 3}
       propertyPath: DropRate
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4186282200601221170, guid: 7b07e9392d404744184d222ed91907d4,
         type: 3}
@@ -124,7 +124,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Boss_Variant03 Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7528841125297702761, guid: 7b07e9392d404744184d222ed91907d4,
+        type: 3}
+      propertyPath: <CompassMarkerPrefab>k__BackingField
+      value: 
+      objectReference: {fileID: -6580955819471541274, guid: e890088c640bc0b4596626d50f1785b2,
+        type: 3}
+    m_RemovedComponents:
+    - {fileID: 0}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
