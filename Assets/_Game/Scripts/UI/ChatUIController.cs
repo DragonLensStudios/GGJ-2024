@@ -1,6 +1,7 @@
 using System;
 using DLS.Chat;
 using DLS.Enums;
+using DLS.Managers;
 using DLS.Messaging;
 using DLS.Messaging.Messages;
 using FPS.Scripts.Game;
@@ -157,6 +158,17 @@ namespace DLS.UI
                 }
 
             }
+        }
+        
+        public void PauseTime()
+        {
+            TimeManager.Instance.IsPaused = true;
+        }
+        
+        public void ResetTime()
+        {
+            //TODO: Replace with message
+            TimeManager.Instance.Reset();
         }
     }
 }

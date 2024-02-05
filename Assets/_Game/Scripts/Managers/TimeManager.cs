@@ -42,43 +42,32 @@ namespace DLS.Managers
             {
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
+                //TODO:Replace with message system handler.
+                EventManager.AddListener<PlayerDeathEvent>(OnPlayerDeath);
+                EventManager.AddListener<AllObjectivesCompletedEvent>(OnAllObjectivesCompleted);
             }
             else
             {
                 Destroy(gameObject);
             }
-            //TODO:Replace with message system handler.
-            EventManager.AddListener<PlayerDeathEvent>(OnPlayerDeath);
-            EventManager.AddListener<AllObjectivesCompletedEvent>(OnAllObjectivesCompleted);
+
         }
 
         private void OnAllObjectivesCompleted(AllObjectivesCompletedEvent evt)
         {
             IsPaused = true;
-            if(CountDownTimer != null)
-            {
-                CountDownTimer.ResetFullDate();
-                CountDownTimer.Minute = CountDownMinutes;
-            }
+            Reset();
         }
 
         private void OnPlayerDeath(PlayerDeathEvent evt)
         {
             IsPaused = true;
-            if(CountDownTimer != null)
-            {
-                CountDownTimer.ResetFullDate();
-                CountDownTimer.Minute = CountDownMinutes;
-            }
+            Reset();
         }
 
         private void Start()
         {
-            if(CountDownTimer != null)
-            {
-                CountDownTimer.ResetFullDate();
-                CountDownTimer.Minute = CountDownMinutes;
-            }
+            Reset();
         }
 
         public virtual void OnEnable()
@@ -105,20 +94,26 @@ namespace DLS.Managers
             CountDownTimer.ReverseTime();
         }
 
-        /// <summary>
-        ///  Resets the current time object if it exists on application quit.
-        /// </summary>
-        public virtual void OnApplicationQuit()
+        public virtual void Reset()
         {
             if (CurrentTimeObject != null)
             {
                 CurrentTimeObject.ResetFullDate();
             }
-            if(CountDownTimer != null)
+            
+            if (CountDownTimer != null)
             {
                 CountDownTimer.ResetFullDate();
                 CountDownTimer.Minute = CountDownMinutes;
             }
+        }
+
+        /// <summary>
+        ///  Resets the current time object if it exists on application quit.
+        /// </summary>
+        public virtual void OnApplicationQuit()
+        {
+            Reset();
         }
         
         /// <summary>
