@@ -49,11 +49,7 @@ namespace DLS.UI
             MessageSystem.MessageManager.UnregisterForChannel<AddChatMessage>(MessageChannels.UI, AddChatMessageHandler);
             MessageSystem.MessageManager.UnregisterForChannel<AddUserMessage>(MessageChannels.UI, AddUserMessageHandler);
             MessageSystem.MessageManager.UnregisterForChannel<AddSubscriberMessage>(MessageChannels.UI, AddSubscriberMessageHandler);
-
-
         }
-
-
 
         private void Update()
         {
@@ -68,23 +64,14 @@ namespace DLS.UI
         {
             if(StreamerViewUI.activeSelf)
             {
-                if (StreamerViewSettingsRoot.activeSelf)
-                {
-                    GameViewSettingsRoot.SetActive(true);
-                    StreamerViewSettingsRoot.SetActive(false);
-                }
+                GameViewSettingsRoot.SetActive(StreamerViewSettingsRoot.activeSelf);
                 StreamerViewUI.SetActive(false);
                 GameViewUI.SetActive(true);
                 MainCamera.targetTexture = null;
-
             }
             else
             {
-                if (GameViewSettingsRoot.activeSelf)
-                {
-                    StreamerViewSettingsRoot.SetActive(true);
-                    GameViewSettingsRoot.SetActive(false);
-                }
+                StreamerViewSettingsRoot.SetActive(GameViewSettingsRoot.activeSelf);
                 StreamerViewUI.SetActive(true);
                 GameViewUI.SetActive(false);
                 MainCamera.targetTexture = StreamerViewRenderTexture;
