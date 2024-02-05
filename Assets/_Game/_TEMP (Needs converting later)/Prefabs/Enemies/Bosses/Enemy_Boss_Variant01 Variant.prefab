@@ -87,13 +87,65 @@ PrefabInstance:
     - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
         type: 3}
       propertyPath: MaxLootDrops
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
+        type: 3}
+      propertyPath: MinLootDrops
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
+        type: 3}
+      propertyPath: Loot.Array.size
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
         type: 3}
       propertyPath: LootPrefabs.Array.size
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
+        type: 3}
+      propertyPath: Loot.Array.data[0].Prefab
+      value: 
+      objectReference: {fileID: 5449808880828012920, guid: efe2a3f89a2be314a9dd41a3f25dfe1f,
+        type: 3}
+    - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
+        type: 3}
+      propertyPath: Loot.Array.data[1].Prefab
+      value: 
+      objectReference: {fileID: 3284831919422975972, guid: 4c935eddc5d3c5140b3cb321fe5b57a3,
+        type: 3}
+    - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
+        type: 3}
+      propertyPath: Loot.Array.data[2].Prefab
+      value: 
+      objectReference: {fileID: 7042572536594932371, guid: 871b7fdb0598de543a6f28fa97097a49,
+        type: 3}
+    - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
+        type: 3}
+      propertyPath: Loot.Array.data[3].Prefab
+      value: 
+      objectReference: {fileID: 8292551480414258569, guid: 09531e779dddc3c4fb257c608521a827,
+        type: 3}
+    - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
+        type: 3}
+      propertyPath: Loot.Array.data[4].Prefab
+      value: 
+      objectReference: {fileID: 4697373982957776503, guid: c4f66ebc55d951b4283ced973bccafb9,
+        type: 3}
+    - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
+        type: 3}
+      propertyPath: Loot.Array.data[5].Prefab
+      value: 
+      objectReference: {fileID: 2383244083506544735, guid: 62abd6024c4b79f4d9e344ae1beae8fb,
+        type: 3}
+    - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
+        type: 3}
+      propertyPath: Loot.Array.data[6].Prefab
+      value: 
+      objectReference: {fileID: 4697373982957776503, guid: c4f66ebc55d951b4283ced973bccafb9,
+        type: 3}
     - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
         type: 3}
       propertyPath: LootPrefabs.Array.data[0]
@@ -130,6 +182,51 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5449808880828012920, guid: efe2a3f89a2be314a9dd41a3f25dfe1f,
         type: 3}
+    - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
+        type: 3}
+      propertyPath: Loot.Array.data[0].DropRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
+        type: 3}
+      propertyPath: Loot.Array.data[1].DropRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
+        type: 3}
+      propertyPath: Loot.Array.data[2].DropRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
+        type: 3}
+      propertyPath: Loot.Array.data[3].DropRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
+        type: 3}
+      propertyPath: Loot.Array.data[4].DropRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
+        type: 3}
+      propertyPath: Loot.Array.data[5].DropRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
+        type: 3}
+      propertyPath: Loot.Array.data[6].DropRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
+        type: 3}
+      propertyPath: Loot.Array.data[0].AlwaysDrop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
+        type: 3}
+      propertyPath: Loot.Array.data[1].AlwaysDrop
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
