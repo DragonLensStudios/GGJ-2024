@@ -61,7 +61,7 @@ PrefabInstance:
     - target: {fileID: 106790115311484953, guid: ad2b518eec8886c4aa1e67adbf9635cd,
         type: 3}
       propertyPath: m_Name
-      value: Projectile_PlasmaRain
+      value: Projectile_PlasmaRain Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

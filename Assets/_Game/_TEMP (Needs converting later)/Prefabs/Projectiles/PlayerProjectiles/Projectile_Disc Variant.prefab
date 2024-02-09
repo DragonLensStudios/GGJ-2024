@@ -61,7 +61,7 @@ PrefabInstance:
     - target: {fileID: 106790115311484953, guid: 0e23901b938cf4f4eb86850d912715eb,
         type: 3}
       propertyPath: m_Name
-      value: Projectile_Disc
+      value: Projectile_Disc Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

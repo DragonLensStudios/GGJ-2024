@@ -61,7 +61,7 @@ PrefabInstance:
     - target: {fileID: 3659995153115176983, guid: 1f09300285d7cda4bac714dace582dda,
         type: 3}
       propertyPath: m_Name
-      value: Projectile_Vaporizer
+      value: Projectile_Vaporizer Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

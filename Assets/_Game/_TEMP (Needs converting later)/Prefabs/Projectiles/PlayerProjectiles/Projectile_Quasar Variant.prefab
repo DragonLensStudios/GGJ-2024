@@ -61,7 +61,7 @@ PrefabInstance:
     - target: {fileID: 106790115311484953, guid: 3737b3d33622f6a4d9c6aa922bd78fc4,
         type: 3}
       propertyPath: m_Name
-      value: Projectile_Quasar
+      value: Projectile_Quasar Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

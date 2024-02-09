@@ -61,7 +61,7 @@ PrefabInstance:
     - target: {fileID: 3659995153115176983, guid: 6bcd9b6efe0196243acd73cafc63f5ef,
         type: 3}
       propertyPath: m_Name
-      value: Projectile_SniperRifle
+      value: Projectile_SniperRifle Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

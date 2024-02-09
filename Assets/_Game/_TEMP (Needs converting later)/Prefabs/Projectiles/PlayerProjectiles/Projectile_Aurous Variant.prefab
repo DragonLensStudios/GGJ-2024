@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 2252980785822672830, guid: 582a0eeafb6643d4fa34892d7c7befd2,
         type: 3}
       propertyPath: m_Name
-      value: Projectile_Aurous
+      value: Projectile_Aurous Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2252980785822672831, guid: 582a0eeafb6643d4fa34892d7c7befd2,
         type: 3}

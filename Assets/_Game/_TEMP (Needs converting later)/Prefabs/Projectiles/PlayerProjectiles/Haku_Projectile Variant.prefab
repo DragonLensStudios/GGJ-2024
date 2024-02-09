@@ -11,7 +11,7 @@ PrefabInstance:
     - target: {fileID: 5894045690727466384, guid: 7477f4a55b713404babac205850c0328,
         type: 3}
       propertyPath: m_Name
-      value: Haku_Projectile
+      value: Haku_Projectile Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6521225452408528682, guid: 7477f4a55b713404babac205850c0328,
         type: 3}

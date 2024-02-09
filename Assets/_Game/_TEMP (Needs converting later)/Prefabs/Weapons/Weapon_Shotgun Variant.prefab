@@ -61,8 +61,14 @@ PrefabInstance:
     - target: {fileID: 2225486910712267859, guid: 31d97e822763d1f4cb769f7e3f7f7333,
         type: 3}
       propertyPath: m_Name
-      value: Weapon_Shotgun
+      value: Weapon_Shotgun Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8323776800172828795, guid: 31d97e822763d1f4cb769f7e3f7f7333,
+        type: 3}
+      propertyPath: ProjectilePrefab
+      value: 
+      objectReference: {fileID: 1892284062808162769, guid: 50d67e32f6b29b84db9384c69614edfd,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -26,17 +26,21 @@ namespace FPS.Scripts.Gameplay
             PlayerWeaponsManager playerWeaponsManager = byPlayer.GetComponent<PlayerWeaponsManager>();
             if (playerWeaponsManager)
             {
-                if (playerWeaponsManager.AddWeapon(WeaponPrefab))
+                if (playerWeaponsManager.HasWeapon(WeaponPrefab) == null)
                 {
-                    // Handle auto-switching to weapon if no weapons currently
-                    if (playerWeaponsManager.GetActiveWeapon() == null)
+                    if (playerWeaponsManager.AddWeapon(WeaponPrefab))
                     {
-                        playerWeaponsManager.SwitchWeapon(true);
-                    }
+                        // Handle auto-switching to weapon if no weapons currently
+                        if (playerWeaponsManager.GetActiveWeapon() == null)
+                        {
+                            playerWeaponsManager.SwitchWeapon(true);
+                        }
 
-                    PlayPickupFeedback();
-                    Destroy(gameObject);
+                        PlayPickupFeedback();
+                        Destroy(gameObject);
+                    }
                 }
+
             }
         }
     }

@@ -21,13 +21,13 @@ namespace FPS.Scripts.UI
             DebugUtility.HandleErrorIfNullFindObject<PlayerWeaponsManager, NotificationHUDManager>(playerWeaponsManager,
                 this);
             playerWeaponsManager.OnAddedWeapon += OnPickupWeapon;
-
             Jetpack jetpack = FindObjectOfType<Jetpack>();
             DebugUtility.HandleErrorIfNullFindObject<Jetpack, NotificationHUDManager>(jetpack, this);
             jetpack.OnUnlockJetpack += OnUnlockJetpack;
 
             EventManager.AddListener<ObjectiveUpdateEvent>(OnObjectiveUpdateEvent);
         }
+        
 
         void OnObjectiveUpdateEvent(ObjectiveUpdateEvent evt)
         {

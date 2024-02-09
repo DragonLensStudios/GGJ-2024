@@ -26,6 +26,7 @@ public class NotificationHudManagerUpdated : MonoBehaviour
     private void OnEnable()
     {
         PlayerWeaponsManager.OnAddedWeapon += OnAddedWeapon;
+        PlayerWeaponsManager.OnSwitchedToWeapon += OnSwitchedToWeapon;
         Jetpack.OnUnlockJetpack += OnJetpackUnlocked;
         EventManager.AddListener<ObjectiveUpdateEvent>(OnObjectiveUpdateEvent);
     }
@@ -33,6 +34,7 @@ public class NotificationHudManagerUpdated : MonoBehaviour
     private void OnDisable()
     {
         PlayerWeaponsManager.OnAddedWeapon -= OnAddedWeapon;
+        PlayerWeaponsManager.OnSwitchedToWeapon -= OnSwitchedToWeapon;
         Jetpack.OnUnlockJetpack -= OnJetpackUnlocked;
         EventManager.RemoveListener<ObjectiveUpdateEvent>(OnObjectiveUpdateEvent);
     }
@@ -52,7 +54,12 @@ public class NotificationHudManagerUpdated : MonoBehaviour
 
     private void OnAddedWeapon(WeaponController weaponController, int index)
     {
-        CreateNotification("Picked up weapon : " + weaponController.WeaponName);
+        CreateNotification("Picked up weapon: " + weaponController.WeaponName);
+    }
+    
+    private void OnSwitchedToWeapon(WeaponController weaponController)
+    {
+        CreateNotification("Selected Weapon: " + weaponController.WeaponName);
     }
     
     private void CreateNotification(string text)
