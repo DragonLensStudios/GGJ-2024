@@ -42,31 +42,32 @@ namespace DLS.Managers
             {
                 Instance = this;
                 DontDestroyOnLoad(gameObject);
+                //TODO:Replace with message system handler.
+                EventManager.AddListener<PlayerDeathEvent>(OnPlayerDeath);
+                EventManager.AddListener<AllObjectivesCompletedEvent>(OnAllObjectivesCompleted);
             }
             else
             {
                 Destroy(gameObject);
             }
-            //TODO:Replace with message system handler.
-            EventManager.AddListener<PlayerDeathEvent>(OnPlayerDeath);
+
         }
 
-        private void OnPlayerDeath(PlayerDeathEvent obj)
+        private void OnAllObjectivesCompleted(AllObjectivesCompletedEvent evt)
         {
-            if(CountDownTimer != null)
-            {
-                CountDownTimer.ResetFullDate();
-                CountDownTimer.Minute = CountDownMinutes;
-            }
+            IsPaused = true;
+            Reset();
+        }
+
+        private void OnPlayerDeath(PlayerDeathEvent evt)
+        {
+            IsPaused = true;
+            Reset();
         }
 
         private void Start()
         {
-            if(CountDownTimer != null)
-            {
-                CountDownTimer.ResetFullDate();
-                CountDownTimer.Minute = CountDownMinutes;
-            }
+            Reset();
         }
 
         public virtual void OnEnable()
@@ -86,10 +87,25 @@ namespace DLS.Managers
         /// </summary>
         public virtual void Update()
         {
+            if(IsPaused) return;
             CurrentTimeObject.StartTime();
             if(CountDownTimer.Minute <= 0 && CountDownTimer.Second <= 0)
                 return;
             CountDownTimer.ReverseTime();
+        }
+
+        public virtual void Reset()
+        {
+            if (CurrentTimeObject != null)
+            {
+                CurrentTimeObject.ResetFullDate();
+            }
+            
+            if (CountDownTimer != null)
+            {
+                CountDownTimer.ResetFullDate();
+                CountDownTimer.Minute = CountDownMinutes;
+            }
         }
 
         /// <summary>
@@ -97,15 +113,7 @@ namespace DLS.Managers
         /// </summary>
         public virtual void OnApplicationQuit()
         {
-            if (CurrentTimeObject != null)
-            {
-                CurrentTimeObject.ResetFullDate();
-            }
-            if(CountDownTimer != null)
-            {
-                CountDownTimer.ResetFullDate();
-                CountDownTimer.Minute = CountDownMinutes;
-            }
+            Reset();
         }
         
         /// <summary>

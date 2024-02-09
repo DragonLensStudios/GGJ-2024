@@ -48,5 +48,5 @@ MonoBehaviour:
     type: 2}
   <CountDownTimer>k__BackingField: {fileID: 11400000, guid: d3a97a11fc561334781fd955b508b634,
     type: 2}
-  <CountDownMinutes>k__BackingField: 10
+  <CountDownMinutes>k__BackingField: 5
   <IsPaused>k__BackingField: 0

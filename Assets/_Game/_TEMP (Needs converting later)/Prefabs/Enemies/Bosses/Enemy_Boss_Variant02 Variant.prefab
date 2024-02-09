@@ -1,0 +1,235 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6660037625835539709
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1105077494660731204, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: <CompassMarkerPrefab>k__BackingField
+      value: 
+      objectReference: {fileID: -6580955819471541274, guid: e890088c640bc0b4596626d50f1785b2,
+        type: 3}
+    - target: {fileID: 4094116951752829155, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy_Boss_Variant02 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094116951752829167, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094116951752829167, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094116951752829167, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094116951752829167, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094116951752829167, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094116951752829167, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094116951752829167, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094116951752829167, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094116951752829167, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4094116951752829167, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5035063527038120131, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: DropRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: MaxLootDrops
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: MinLootDrops
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: Loot.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: LootPrefabs.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: Loot.Array.data[0].Prefab
+      value: 
+      objectReference: {fileID: 5449808880828012920, guid: efe2a3f89a2be314a9dd41a3f25dfe1f,
+        type: 3}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: Loot.Array.data[1].Prefab
+      value: 
+      objectReference: {fileID: 3284831919422975972, guid: 4c935eddc5d3c5140b3cb321fe5b57a3,
+        type: 3}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: Loot.Array.data[2].Prefab
+      value: 
+      objectReference: {fileID: 7042572536594932371, guid: 871b7fdb0598de543a6f28fa97097a49,
+        type: 3}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: Loot.Array.data[3].Prefab
+      value: 
+      objectReference: {fileID: 8292551480414258569, guid: 09531e779dddc3c4fb257c608521a827,
+        type: 3}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: Loot.Array.data[4].Prefab
+      value: 
+      objectReference: {fileID: 4697373982957776503, guid: c4f66ebc55d951b4283ced973bccafb9,
+        type: 3}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: Loot.Array.data[5].Prefab
+      value: 
+      objectReference: {fileID: 2383244083506544735, guid: 62abd6024c4b79f4d9e344ae1beae8fb,
+        type: 3}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: Loot.Array.data[6].Prefab
+      value: 
+      objectReference: {fileID: 4697373982957776503, guid: c4f66ebc55d951b4283ced973bccafb9,
+        type: 3}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: LootPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 3284831919422975972, guid: 4c935eddc5d3c5140b3cb321fe5b57a3,
+        type: 3}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: LootPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 5947021717687567299, guid: 697b9f6ee2043864492b59b25db42457,
+        type: 3}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: LootPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 7582278945712684513, guid: 2371045cf4445124997255f06faacb7c,
+        type: 3}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: LootPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 8292551480414258569, guid: 09531e779dddc3c4fb257c608521a827,
+        type: 3}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: LootPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 5449808880828012920, guid: efe2a3f89a2be314a9dd41a3f25dfe1f,
+        type: 3}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: LootPrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 5449808880828012920, guid: efe2a3f89a2be314a9dd41a3f25dfe1f,
+        type: 3}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: Loot.Array.data[0].DropRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: Loot.Array.data[1].DropRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: Loot.Array.data[2].DropRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: Loot.Array.data[3].DropRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: Loot.Array.data[4].DropRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: Loot.Array.data[5].DropRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: Loot.Array.data[6].DropRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: Loot.Array.data[0].AlwaysDrop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 340333c285c0686499a16953bdcdee19,
+        type: 3}
+      propertyPath: Loot.Array.data[1].AlwaysDrop
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 0}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 340333c285c0686499a16953bdcdee19, type: 3}

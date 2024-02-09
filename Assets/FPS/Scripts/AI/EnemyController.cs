@@ -1,17 +1,45 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using FPS.Scripts.Game;
 using FPS.Scripts.Game.Managers;
 using FPS.Scripts.Game.Shared;
+using FPS.Scripts.Gameplay;
+using FPS.Scripts.Gameplay.Managers;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 namespace FPS.Scripts.AI
 {
+    [Serializable]
+    public struct LootDrop
+    {
+        public GameObject Prefab;
+        [Range(0,1)]
+        public float DropRate;
+
+        public bool AlwaysDrop;
+        
+        public bool AttemptDrop()
+        {
+            if (AlwaysDrop)
+                return true;
+            
+            return Random.value <= DropRate;
+        }
+    }
+    
     [RequireComponent(typeof(Health), typeof(Actor), typeof(NavMeshAgent))]
     public class EnemyController : MonoBehaviour
     {
+        public enum EnemyType
+        {
+            NormalEnemy,
+            BossEnemy
+        }
+        
         [System.Serializable]
         public struct RendererIndexData
         {
@@ -26,6 +54,9 @@ namespace FPS.Scripts.AI
         }
 
         [Header("Parameters")]
+        [Tooltip("The Type of the enemy")]
+        public EnemyType Type = EnemyType.NormalEnemy;
+        
         [Tooltip("The Y height at which the enemy will be automatically killed (if it falls off of the level)")]
         public float SelfDestructYHeight = -20f;
 
@@ -74,12 +105,10 @@ namespace FPS.Scripts.AI
 
         //TODO: Move new functionality to my own EnemyController.
         [Header("Loot")] [Tooltip("The object this enemy can drop when dying")]
-        public List<GameObject> LootPrefabs = new();
-        public int MaxLootDrops = 3;
-
-        [Tooltip("The chance the object has to drop")] [Range(0, 1)]
-        public float DropRate = 1f;
-
+        public List<LootDrop> Loot = new();
+        public int MinLootDrops = 1;
+        public int MaxLootDrops = 2;
+        
         [Header("Debug Display")] [Tooltip("Color of the sphere gizmo representing the path reaching range")]
         public Color PathReachingRangeColor = Color.yellow;
 
@@ -122,6 +151,7 @@ namespace FPS.Scripts.AI
         WeaponController m_CurrentWeapon;
         WeaponController[] m_Weapons;
         NavigationModule m_NavigationModule;
+        PlayerWeaponsManager m_PlayerWeaponsManager;
 
         void Start()
         {
@@ -144,6 +174,9 @@ namespace FPS.Scripts.AI
 
             m_GameFlowManager = FindObjectOfType<GameFlowManager>();
             DebugUtility.HandleErrorIfNullFindObject<GameFlowManager, EnemyController>(m_GameFlowManager, this);
+            
+            m_PlayerWeaponsManager = FindObjectOfType<PlayerWeaponsManager>();
+            DebugUtility.HandleErrorIfNullFindObject<PlayerWeaponsManager, EnemyController>(m_PlayerWeaponsManager, this);
 
             // Subscribe to damage & death actions
             m_Health.OnDie += OnDie;
@@ -378,15 +411,52 @@ namespace FPS.Scripts.AI
             // tells the game flow manager to handle the enemy destuction
             m_EnemyManager.UnregisterEnemy(this);
 
-            // loot an object
-            if (TryDropItem())
+            var dropRange = Random.Range(MinLootDrops, MaxLootDrops);
+            var dropCount = 0;
+            for (int i = 0; i < dropRange; i++)
             {
-                for (int i = 0; i < Random.Range(1, MaxLootDrops); i++)
+                if(dropCount >= dropRange) break;
+                var alwaysLoot = Loot.Where(loot => loot.AlwaysDrop).ToList();
+                if (alwaysLoot.Count > 0)
                 {
-                    Instantiate(LootPrefabs[Random.Range(0, LootPrefabs.Count)], transform.position, Quaternion.identity);
+                    var alwaysLootDrop = alwaysLoot[Random.Range(0, alwaysLoot.Count)];
+                    
+                    var alwaysWepDrop = alwaysLootDrop.Prefab.GetComponent<WeaponPickup>();
+                    if (alwaysWepDrop != null)
+                    {
+                        if (m_PlayerWeaponsManager.HasWeapon(alwaysWepDrop.WeaponPrefab))
+                        {
+                            alwaysLoot.Remove(alwaysLootDrop);
+                            continue;
+                        }
+                    }
+                    
+                    Instantiate(alwaysLootDrop.Prefab, transform.position, Quaternion.identity);
+                    alwaysLoot.Remove(alwaysLootDrop);
+                    dropCount++;
+                }
+                var normalLoot = Loot.Where(loot => !loot.AlwaysDrop).ToList();
+                if (normalLoot.Count > 0)
+                {
+                    var normalLootDrop = normalLoot[Random.Range(0, normalLoot.Count)];
+                    if (normalLootDrop.AttemptDrop())
+                    {
+                        var wepDrop = normalLootDrop.Prefab.GetComponent<WeaponPickup>();
+                        if (wepDrop != null)
+                        {
+                            if (m_PlayerWeaponsManager.HasWeapon(wepDrop.WeaponPrefab))
+                            {
+                                normalLoot.Remove(normalLootDrop);
+                                continue;
+                            }
+                        }
+                        Instantiate(normalLootDrop.Prefab, transform.position, Quaternion.identity);
+                        normalLoot.Remove(normalLootDrop);
+                        dropCount++;
+                    }
                 }
             }
-
+            
             // this will call the OnDestroy function
             Destroy(gameObject, DeathDuration);
         }
@@ -444,16 +514,6 @@ namespace FPS.Scripts.AI
             }
 
             return didFire;
-        }
-
-        public bool TryDropItem()
-        {
-            if (DropRate == 0 || LootPrefabs == null)
-                return false;
-            else if (DropRate == 1)
-                return true;
-            else
-                return (Random.value <= DropRate);
         }
 
         void FindAndInitializeAllWeapons()

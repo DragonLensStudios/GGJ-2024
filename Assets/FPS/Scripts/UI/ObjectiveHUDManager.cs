@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using FPS.Scripts.Game;
 using FPS.Scripts.Game.Managers;
 using FPS.Scripts.Game.Shared;
@@ -8,9 +9,9 @@ namespace FPS.Scripts.UI
 {
     public class ObjectiveHUDManager : MonoBehaviour
     {
-        [Tooltip("UI panel containing the layoutGroup for displaying objectives")]
-        public RectTransform ObjectivePanel;
-
+        [Tooltip("In Game UI panel containing the layoutGroup for displaying objectives")]
+        public RectTransform InGameObjectivePanel;
+        
         [Tooltip("Prefab for the primary objectives")]
         public GameObject PrimaryObjectivePrefab;
 
@@ -32,22 +33,22 @@ namespace FPS.Scripts.UI
         public void RegisterObjective(Objective objective)
         {
             // instanciate the Ui element for the new objective
-            GameObject objectiveUIInstance =
-                Instantiate(objective.IsOptional ? SecondaryObjectivePrefab : PrimaryObjectivePrefab, ObjectivePanel);
+            GameObject inGameObjectiveUIInstance = Instantiate(objective.IsOptional ? SecondaryObjectivePrefab : PrimaryObjectivePrefab, InGameObjectivePanel);
 
             if (!objective.IsOptional)
-                objectiveUIInstance.transform.SetSiblingIndex(0);
+            {
+                inGameObjectiveUIInstance.transform.SetSiblingIndex(0);
+            }
 
-            ObjectiveToast toast = objectiveUIInstance.GetComponent<ObjectiveToast>();
-            DebugUtility.HandleErrorIfNullGetComponent<ObjectiveToast, ObjectiveHUDManager>(toast, this,
-                objectiveUIInstance.gameObject);
+            ObjectiveToast inGameToast = inGameObjectiveUIInstance.GetComponent<ObjectiveToast>();
+            DebugUtility.HandleErrorIfNullGetComponent<ObjectiveToast, ObjectiveHUDManager>(inGameToast, this, inGameObjectiveUIInstance.gameObject);
 
             // initialize the element and give it the objective description
-            toast.Initialize(objective.Title, objective.Description, "", objective.IsOptional, objective.DelayVisible);
+            inGameToast.Initialize(objective.Title, objective.Description, "", objective.IsOptional, objective.DelayVisible);
 
-            m_ObjectivesDictionnary.Add(objective, toast);
+            m_ObjectivesDictionnary.Add(objective, inGameToast);
 
-            UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(ObjectivePanel);
+            UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(InGameObjectivePanel);
         }
 
         public void UnregisterObjective(Objective objective)
