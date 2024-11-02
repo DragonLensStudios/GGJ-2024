@@ -1254,6 +1254,7 @@ GameObject:
   - component: {fileID: 636077819072726442}
   - component: {fileID: 8483550902466381616}
   - component: {fileID: 97443372583341359}
+  - component: {fileID: 8580617597312824202}
   m_Layer: 5
   m_Name: GameoverCanvas
   m_TagString: Untagged
@@ -1345,6 +1346,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &8580617597312824202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6812620437077049432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e7530eb28a84674da71ad41440c034a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8311529527728407870
 GameObject:
   m_ObjectHideFlags: 0
@@ -1357,7 +1370,6 @@ GameObject:
   - component: {fileID: 4372657442962242456}
   - component: {fileID: 1996157508923737925}
   - component: {fileID: 7611900427091748364}
-  - component: {fileID: 6589212390255913733}
   m_Layer: 5
   m_Name: RetryButton
   m_TagString: Untagged
@@ -1468,9 +1480,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6589212390255913733}
-        m_TargetAssemblyTypeName: FPS.Scripts.UI.LoadSceneButton, fps.UI
-        m_MethodName: LoadTargetScene
+      - m_Target: {fileID: 8580617597312824202}
+        m_TargetAssemblyTypeName: ReloadLevelController, Assembly-CSharp
+        m_MethodName: ReloadLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1480,16 +1492,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6589212390255913733
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8311529527728407870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9d73053268a2ae48bb9e7d4bf6419fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SceneName: TEMP_MainLevel

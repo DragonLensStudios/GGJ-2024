@@ -21,7 +21,6 @@ public class ScoringSystem : MonoBehaviour
     {
         ScoreText.text = $"Score: {PlayerScore}";
         //ViewersText.text = $"Viewers: {Viewers}";
-        Debug.Log("start");
         PlayerHighScore = PlayerPrefs.GetInt("PlayerHighScore");
         HighScoreText.text = $"High Score: {PlayerHighScore}";
     }

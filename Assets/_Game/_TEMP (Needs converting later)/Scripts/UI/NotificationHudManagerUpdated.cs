@@ -54,11 +54,13 @@ public class NotificationHudManagerUpdated : MonoBehaviour
 
     private void OnAddedWeapon(WeaponController weaponController, int index)
     {
+        if (weaponController == null) return;
         CreateNotification("Picked up weapon: " + weaponController.WeaponName);
     }
     
     private void OnSwitchedToWeapon(WeaponController weaponController)
     {
+        if (weaponController == null) return;
         CreateNotification("Selected Weapon: " + weaponController.WeaponName);
     }
     

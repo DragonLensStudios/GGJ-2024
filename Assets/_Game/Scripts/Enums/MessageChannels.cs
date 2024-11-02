@@ -25,7 +25,8 @@ namespace DLS.Enums
         Actors,
         AI,
         Combat,
-        Objective
+        Objective,
+        Difficulty
     }
 
 }

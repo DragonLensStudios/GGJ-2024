@@ -49,7 +49,7 @@ MonoBehaviour:
   <AvailableGuestUsers>k__BackingField: []
   <UserGameType>k__BackingField: 3
   <TimeBetweenMessagesMin>k__BackingField: 0.5
-  <TimeBetweenMessagesMax>k__BackingField: 15
+  <TimeBetweenMessagesMax>k__BackingField: 10
   <TimeBetweenAddUsersMin>k__BackingField: 0.5
-  <TimeBetweenAddUsersMax>k__BackingField: 60
-  <SubscriberUserChance>k__BackingField: 0.05
+  <TimeBetweenAddUsersMax>k__BackingField: 15
+  <SubscriberUserChance>k__BackingField: 0.25
