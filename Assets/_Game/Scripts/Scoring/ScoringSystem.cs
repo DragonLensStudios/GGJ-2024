@@ -1,3 +1,4 @@
+using System.Collections;
 using DLS.Enums;
 using DLS.Messaging;
 using Enums;
@@ -21,7 +22,7 @@ public class ScoringSystem : MonoBehaviour
         ScoreText.text = $"Score: {PlayerScore}";
         Debug.Log("start");
         PlayerHighScore = PlayerPrefs.GetInt("PlayerHighScore");
-        HighScoreText.text = $"High Score: {PlayerHighScore}";
+        //HighScoreText.text = $"High Score: {PlayerHighScore}";
     }
 
     protected void OnEnable()
@@ -32,6 +33,21 @@ public class ScoringSystem : MonoBehaviour
     protected void OnDisable()
     {
         MessageSystem.MessageManager.UnregisterForChannel<ScoreMessage>(MessageChannels.UI, ScoreMessageHandler);
+    }
+    
+    protected void Update()
+    {
+        if (Time.time % 1000 == 0)
+        {
+            StartCoroutine(AddScore(1));
+        }
+    }
+    
+    public IEnumerator AddScore(int score)
+    {
+        yield return new WaitForSeconds(1);
+        PlayerScore += score;
+        ScoreText.text = $"Score: {PlayerScore}";
     }
 
     public virtual void ScoreMessageHandler(MessageSystem.IMessageEnvelope message)
