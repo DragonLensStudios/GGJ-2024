@@ -81,7 +81,7 @@ namespace DLS.Chat
             var randomTimeBetweenUsers = UnityEngine.Random.Range(TimeBetweenAddUsersMin, TimeBetweenAddUsersMax);
             yield return new WaitForSeconds(randomTimeBetweenUsers);
 
-            ViewerUser randomUser = null;
+            ViewerUser randomUser;
             var randomSubscriberUserChance = UnityEngine.Random.Range(0f, 1f);
             var addSubscriber = randomSubscriberUserChance <= SubscriberUserChance;
             if (AvailableUsers.Count > 0 && addSubscriber)
