@@ -1,8 +1,11 @@
+using System.Collections;
 using DLS.Enums;
 using DLS.Messaging;
+using DLS.Messaging.Messages;
 using Enums;
 using Messaging;
 using Messaging.Messages;
+using Objective;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,13 +18,14 @@ public class ScoringSystem : MonoBehaviour
     [field: SerializeField] public int Viewers { get; set; }
     [field: SerializeField] public virtual TMP_Text ScoreText { get; set; }
     [field: SerializeField] public virtual TMP_Text HighScoreText { get; set; }
+    
 
     protected void Start()
     {
         ScoreText.text = $"Score: {PlayerScore}";
         Debug.Log("start");
         PlayerHighScore = PlayerPrefs.GetInt("PlayerHighScore");
-        HighScoreText.text = $"High Score: {PlayerHighScore}";
+        //HighScoreText.text = $"High Score: {PlayerHighScore}";
     }
 
     protected void OnEnable()
@@ -32,6 +36,21 @@ public class ScoringSystem : MonoBehaviour
     protected void OnDisable()
     {
         MessageSystem.MessageManager.UnregisterForChannel<ScoreMessage>(MessageChannels.UI, ScoreMessageHandler);
+    }
+    
+    protected void Update()
+    {
+        if (Time.time % 1000 == 0)
+        {
+            StartCoroutine(AddScore(1));
+        }
+    }
+    
+    public IEnumerator AddScore(int score)
+    {
+        yield return new WaitForSeconds(1);
+        PlayerScore += score;
+        ScoreText.text = $"Score: {PlayerScore}";
     }
 
     public virtual void ScoreMessageHandler(MessageSystem.IMessageEnvelope message)
@@ -131,6 +150,6 @@ public class ScoringSystem : MonoBehaviour
     public virtual void ViewersMessageHandler(MessageSystem.IMessageEnvelope message) {
 
         if (!message.Message<ViewerMessage>().HasValue) return;
-        var data = message.Message<ViewerMessage>().GetValueOrDefault();
+        //var data = message.Message<ViewerMessage>().GetValueOrDefault();
     }
 }
