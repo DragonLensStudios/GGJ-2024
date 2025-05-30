@@ -1,9 +1,11 @@
 using System.Collections;
 using DLS.Enums;
 using DLS.Messaging;
+using DLS.Messaging.Messages;
 using Enums;
 using Messaging;
 using Messaging.Messages;
+using Objective;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -16,6 +18,7 @@ public class ScoringSystem : MonoBehaviour
     [field: SerializeField] public int Viewers { get; set; }
     [field: SerializeField] public virtual TMP_Text ScoreText { get; set; }
     [field: SerializeField] public virtual TMP_Text HighScoreText { get; set; }
+    
 
     protected void Start()
     {
@@ -147,6 +150,6 @@ public class ScoringSystem : MonoBehaviour
     public virtual void ViewersMessageHandler(MessageSystem.IMessageEnvelope message) {
 
         if (!message.Message<ViewerMessage>().HasValue) return;
-        var data = message.Message<ViewerMessage>().GetValueOrDefault();
+        //var data = message.Message<ViewerMessage>().GetValueOrDefault();
     }
 }

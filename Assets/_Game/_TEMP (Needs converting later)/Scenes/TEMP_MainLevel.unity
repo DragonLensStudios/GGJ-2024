@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -38,13 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.15158603, g: 0.15147693, b: 0.1951764, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
-  m_GIWorkflowMode: 1
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -67,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -356,6 +352,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -585,6 +584,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -760,6 +762,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2286125971047457827, guid: e1fe6e094ac0f464a81ab9f37e98c86b,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7253983127304857660, guid: e1fe6e094ac0f464a81ab9f37e98c86b,
         type: 3}
       propertyPath: m_Name
@@ -878,6 +885,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -998,6 +1008,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1077,9 +1090,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426029572}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 2
-  m_Shape: 0
   m_Color: {r: 0.072806716, g: 1, b: 0, a: 1}
   m_Intensity: 1000
   m_Range: 10
@@ -1129,8 +1141,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!1 &426029572
 GameObject:
   m_ObjectHideFlags: 0
@@ -1221,6 +1237,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1427,9 +1446,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630762091}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 2
-  m_Shape: 0
   m_Color: {r: 0.072806716, g: 1, b: 0, a: 1}
   m_Intensity: 1000
   m_Range: 10
@@ -1479,8 +1497,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!4 &630762094
 Transform:
   m_ObjectHideFlags: 0
@@ -1568,6 +1590,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1632,9 +1657,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716499365}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 2
-  m_Shape: 0
   m_Color: {r: 0.072806716, g: 1, b: 0, a: 1}
   m_Intensity: 1000
   m_Range: 10
@@ -1684,8 +1708,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!1 &716499365
 GameObject:
   m_ObjectHideFlags: 0
@@ -2062,6 +2090,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2167,6 +2198,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2226,9 +2260,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1093441873}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 1
-  m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
@@ -2278,8 +2311,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!4 &1093441875
 Transform:
   m_ObjectHideFlags: 0
@@ -2548,6 +2585,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -2717,6 +2757,7 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+  m_ScrollDeltaPerTick: 6
 --- !u!114 &1404780824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2811,9 +2852,8 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406209576}
   m_Enabled: 1
-  serializedVersion: 10
+  serializedVersion: 11
   m_Type: 2
-  m_Shape: 0
   m_Color: {r: 0.072806716, g: 1, b: 0, a: 1}
   m_Intensity: 1000
   m_Range: 10
@@ -2863,8 +2903,12 @@ Light:
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
+  m_ForceVisible: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+  m_LightUnit: 1
+  m_LuxAtDistance: 1
+  m_EnableSpotReflector: 1
 --- !u!1 &1483232430
 GameObject:
   m_ObjectHideFlags: 0
@@ -2953,6 +2997,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3162,6 +3209,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3550,6 +3600,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3686,6 +3739,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3791,6 +3847,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3927,6 +3986,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4032,6 +4094,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4122,6 +4187,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4459,6 +4527,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4688,6 +4759,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5008,6 +5082,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1129771579637525424, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
         type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129771579637525424, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129771579637525424, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
+        type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -5058,6 +5142,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3013440661002343344, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
         type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013440661002343344, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013440661002343344, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
+        type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -5089,6 +5183,16 @@ PrefabInstance:
     - target: {fileID: 5442982702660663472, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
         type: 3}
       propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442982702660663472, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442982702660663472, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5442982702660663472, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
@@ -5164,6 +5268,16 @@ PrefabInstance:
     - target: {fileID: 7928032514754415380, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
         type: 3}
       propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928032514754415380, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7928032514754415380, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7928032514754415380, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
@@ -5277,107 +5391,107 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1817243088988453624, guid: 2c21ad91f4373ee4caaf67a72d53b396,
         type: 3}
-      propertyPath: <BossSpawnPoints>k__BackingField.Array.data[0]
+      propertyPath: '<BossSpawnPoints>k__BackingField.Array.data[0]'
       value: 
       objectReference: {fileID: 278058603}
     - target: {fileID: 1817243088988453624, guid: 2c21ad91f4373ee4caaf67a72d53b396,
         type: 3}
-      propertyPath: <BossSpawnPoints>k__BackingField.Array.data[1]
+      propertyPath: '<BossSpawnPoints>k__BackingField.Array.data[1]'
       value: 
       objectReference: {fileID: 172306089}
     - target: {fileID: 1817243088988453624, guid: 2c21ad91f4373ee4caaf67a72d53b396,
         type: 3}
-      propertyPath: <BossSpawnPoints>k__BackingField.Array.data[2]
+      propertyPath: '<BossSpawnPoints>k__BackingField.Array.data[2]'
       value: 
       objectReference: {fileID: 616220092}
     - target: {fileID: 1817243088988453624, guid: 2c21ad91f4373ee4caaf67a72d53b396,
         type: 3}
-      propertyPath: <BossSpawnPoints>k__BackingField.Array.data[3]
+      propertyPath: '<BossSpawnPoints>k__BackingField.Array.data[3]'
       value: 
       objectReference: {fileID: 1854412055}
     - target: {fileID: 1817243088988453624, guid: 2c21ad91f4373ee4caaf67a72d53b396,
         type: 3}
-      propertyPath: <BossSpawnPoints>k__BackingField.Array.data[4]
+      propertyPath: '<BossSpawnPoints>k__BackingField.Array.data[4]'
       value: 
       objectReference: {fileID: 1483232431}
     - target: {fileID: 1817243088988453624, guid: 2c21ad91f4373ee4caaf67a72d53b396,
         type: 3}
-      propertyPath: <BossSpawnPoints>k__BackingField.Array.data[5]
+      propertyPath: '<BossSpawnPoints>k__BackingField.Array.data[5]'
       value: 
       objectReference: {fileID: 220495531}
     - target: {fileID: 1817243088988453624, guid: 2c21ad91f4373ee4caaf67a72d53b396,
         type: 3}
-      propertyPath: <BossSpawnPoints>k__BackingField.Array.data[6]
+      propertyPath: '<BossSpawnPoints>k__BackingField.Array.data[6]'
       value: 
       objectReference: {fileID: 1569910106}
     - target: {fileID: 1817243088988453624, guid: 2c21ad91f4373ee4caaf67a72d53b396,
         type: 3}
-      propertyPath: <EnemySpawnPoints>k__BackingField.Array.data[0]
+      propertyPath: '<EnemySpawnPoints>k__BackingField.Array.data[0]'
       value: 
       objectReference: {fileID: 910468963}
     - target: {fileID: 1817243088988453624, guid: 2c21ad91f4373ee4caaf67a72d53b396,
         type: 3}
-      propertyPath: <EnemySpawnPoints>k__BackingField.Array.data[1]
+      propertyPath: '<EnemySpawnPoints>k__BackingField.Array.data[1]'
       value: 
       objectReference: {fileID: 1842342027}
     - target: {fileID: 1817243088988453624, guid: 2c21ad91f4373ee4caaf67a72d53b396,
         type: 3}
-      propertyPath: <EnemySpawnPoints>k__BackingField.Array.data[2]
+      propertyPath: '<EnemySpawnPoints>k__BackingField.Array.data[2]'
       value: 
       objectReference: {fileID: 1552680568}
     - target: {fileID: 1817243088988453624, guid: 2c21ad91f4373ee4caaf67a72d53b396,
         type: 3}
-      propertyPath: <EnemySpawnPoints>k__BackingField.Array.data[3]
+      propertyPath: '<EnemySpawnPoints>k__BackingField.Array.data[3]'
       value: 
       objectReference: {fileID: 1766520422}
     - target: {fileID: 1817243088988453624, guid: 2c21ad91f4373ee4caaf67a72d53b396,
         type: 3}
-      propertyPath: <EnemySpawnPoints>k__BackingField.Array.data[4]
+      propertyPath: '<EnemySpawnPoints>k__BackingField.Array.data[4]'
       value: 
       objectReference: {fileID: 1871088324}
     - target: {fileID: 1817243088988453624, guid: 2c21ad91f4373ee4caaf67a72d53b396,
         type: 3}
-      propertyPath: <EnemySpawnPoints>k__BackingField.Array.data[5]
+      propertyPath: '<EnemySpawnPoints>k__BackingField.Array.data[5]'
       value: 
       objectReference: {fileID: 2064211820}
     - target: {fileID: 1817243088988453624, guid: 2c21ad91f4373ee4caaf67a72d53b396,
         type: 3}
-      propertyPath: <EnemySpawnPoints>k__BackingField.Array.data[6]
+      propertyPath: '<EnemySpawnPoints>k__BackingField.Array.data[6]'
       value: 
       objectReference: {fileID: 608319014}
     - target: {fileID: 1817243088988453624, guid: 2c21ad91f4373ee4caaf67a72d53b396,
         type: 3}
-      propertyPath: <EnemySpawnPoints>k__BackingField.Array.data[7]
+      propertyPath: '<EnemySpawnPoints>k__BackingField.Array.data[7]'
       value: 
       objectReference: {fileID: 215044974}
     - target: {fileID: 1817243088988453624, guid: 2c21ad91f4373ee4caaf67a72d53b396,
         type: 3}
-      propertyPath: <EnemySpawnPoints>k__BackingField.Array.data[8]
+      propertyPath: '<EnemySpawnPoints>k__BackingField.Array.data[8]'
       value: 
       objectReference: {fileID: 210964761}
     - target: {fileID: 1817243088988453624, guid: 2c21ad91f4373ee4caaf67a72d53b396,
         type: 3}
-      propertyPath: <EnemySpawnPoints>k__BackingField.Array.data[9]
+      propertyPath: '<EnemySpawnPoints>k__BackingField.Array.data[9]'
       value: 
       objectReference: {fileID: 933036352}
     - target: {fileID: 1817243088988453624, guid: 2c21ad91f4373ee4caaf67a72d53b396,
         type: 3}
-      propertyPath: <EnemySpawnPoints>k__BackingField.Array.data[10]
+      propertyPath: '<EnemySpawnPoints>k__BackingField.Array.data[10]'
       value: 
       objectReference: {fileID: 889435918}
     - target: {fileID: 1817243088988453624, guid: 2c21ad91f4373ee4caaf67a72d53b396,
         type: 3}
-      propertyPath: <EnemySpawnPoints>k__BackingField.Array.data[11]
+      propertyPath: '<EnemySpawnPoints>k__BackingField.Array.data[11]'
       value: 
       objectReference: {fileID: 1775055335}
     - target: {fileID: 1817243088988453624, guid: 2c21ad91f4373ee4caaf67a72d53b396,
         type: 3}
-      propertyPath: <EnemySpawnPoints>k__BackingField.Array.data[12]
+      propertyPath: '<EnemySpawnPoints>k__BackingField.Array.data[12]'
       value: 
       objectReference: {fileID: 1877646328}
     - target: {fileID: 1817243088988453624, guid: 2c21ad91f4373ee4caaf67a72d53b396,
         type: 3}
-      propertyPath: <EnemySpawnPoints>k__BackingField.Array.data[13]
+      propertyPath: '<EnemySpawnPoints>k__BackingField.Array.data[13]'
       value: 
       objectReference: {fileID: 1283054783}
     - target: {fileID: 9204065476309419152, guid: 2c21ad91f4373ee4caaf67a72d53b396,
