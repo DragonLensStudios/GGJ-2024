@@ -3853,6 +3853,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f447a7ada124c179a954ce56d41ec4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <StreamerViewImage>k__BackingField: {fileID: 3079873993326353106}
   <StreamerViewUI>k__BackingField: {fileID: 6631949910672665473}
   <StreamerViewSettingsRoot>k__BackingField: {fileID: 6728779044136181470}
   <GameViewUI>k__BackingField: {fileID: 7573398975212957838}
@@ -3865,6 +3866,8 @@ MonoBehaviour:
   <ChatScrollbar>k__BackingField: {fileID: 3784746054843917272}
   <ViewerCountText>k__BackingField: {fileID: 5139630413690335759}
   <SubscriberCountText>k__BackingField: {fileID: 8966881579271592029}
+  <GameCamera>k__BackingField: {fileID: 0}
+  <StreamerOverlayCamera>k__BackingField: {fileID: 0}
 --- !u!114 &1810672800064599677
 MonoBehaviour:
   m_ObjectHideFlags: 0
