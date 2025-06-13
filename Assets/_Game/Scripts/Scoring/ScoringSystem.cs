@@ -13,9 +13,9 @@ using UnityEngine.InputSystem;
 [System.Serializable]
 public class ScoringSystem : MonoBehaviour
 {
-    [field: SerializeField] public int PlayerScore { get; set; }
-    [field: SerializeField] public int PlayerHighScore { get; set; }
-    [field: SerializeField] public int Viewers { get; set; }
+    [field: SerializeField] public long PlayerScore { get; set; }
+    [field: SerializeField] public long PlayerHighScore { get; set; }
+    [field: SerializeField] public long Viewers { get; set; }
     [field: SerializeField] public virtual TMP_Text ScoreText { get; set; }
     [field: SerializeField] public virtual TMP_Text HighScoreText { get; set; }
     
@@ -31,28 +31,25 @@ public class ScoringSystem : MonoBehaviour
     protected void OnEnable()
     {
         MessageSystem.MessageManager.RegisterForChannel<ScoreMessage>(MessageChannels.UI, ScoreMessageHandler);
+        StartCoroutine(ScoreTickCoroutine(1, 2.5f));
     }
 
     protected void OnDisable()
     {
         MessageSystem.MessageManager.UnregisterForChannel<ScoreMessage>(MessageChannels.UI, ScoreMessageHandler);
+        StopCoroutine(ScoreTickCoroutine(1, 2.5f));
     }
-    
-    protected void Update()
+
+    private IEnumerator ScoreTickCoroutine(long scoreValue, float delay = 1f)
     {
-        if (Time.time % 1000 == 0)
+        while (true)
         {
-            StartCoroutine(AddScore(1));
+            yield return new WaitForSeconds(delay);
+            //AddScore(scoreValue);
+            MessageSystem.MessageManager.SendImmediate(MessageChannels.UI,new ScoreMessage(MathOperation.Add, scoreType: ScoreType.None, value: scoreValue));
         }
     }
     
-    public IEnumerator AddScore(int score)
-    {
-        yield return new WaitForSeconds(1);
-        PlayerScore += score;
-        ScoreText.text = $"Score: {PlayerScore}";
-    }
-
     public virtual void ScoreMessageHandler(MessageSystem.IMessageEnvelope message)
     {
         if (!message.Message<ScoreMessage>().HasValue) return;
@@ -66,13 +63,13 @@ public class ScoringSystem : MonoBehaviour
                         PlayerScore += data.Value;
                         break;
                     case ScoreType.Viewer:
-                        PlayerScore += data.Value * (int)ScoreType.Viewer;
+                        PlayerScore += data.Value * (long)ScoreType.Viewer;
                         break;
                     case ScoreType.Subscriber:
-                        PlayerScore += data.Value * (int)ScoreType.Subscriber;
+                        PlayerScore += data.Value * (long)ScoreType.Subscriber;
                         break;
                     case ScoreType.Donation:
-                        PlayerScore += data.Value * (int)ScoreType.Donation;
+                        PlayerScore += data.Value * (long)ScoreType.Donation;
                         break;
                 }
                 break;
@@ -83,13 +80,13 @@ public class ScoringSystem : MonoBehaviour
                         PlayerScore -= data.Value;
                         break;
                     case ScoreType.Viewer:
-                        PlayerScore -= data.Value * (int)ScoreType.Viewer;
+                        PlayerScore -= data.Value * (long)ScoreType.Viewer;
                         break;
                     case ScoreType.Subscriber:
-                        PlayerScore -= data.Value * (int)ScoreType.Subscriber;
+                        PlayerScore -= data.Value * (long)ScoreType.Subscriber;
                         break;
                     case ScoreType.Donation:
-                        PlayerScore -= data.Value * (int)ScoreType.Donation;
+                        PlayerScore -= data.Value * (long)ScoreType.Donation;
                         break;
                 }
                 break;
@@ -100,13 +97,13 @@ public class ScoringSystem : MonoBehaviour
                         PlayerScore *= data.Value;
                         break;
                     case ScoreType.Viewer:
-                        PlayerScore *= data.Value * (int)ScoreType.Viewer;
+                        PlayerScore *= data.Value * (long)ScoreType.Viewer;
                         break;
                     case ScoreType.Subscriber:
-                        PlayerScore *= data.Value * (int)ScoreType.Subscriber;
+                        PlayerScore *= data.Value * (long)ScoreType.Subscriber;
                         break;
                     case ScoreType.Donation:
-                        PlayerScore *= data.Value * (int)ScoreType.Donation;
+                        PlayerScore *= data.Value * (long)ScoreType.Donation;
                         break;
                 }
                 break;
@@ -122,29 +119,29 @@ public class ScoringSystem : MonoBehaviour
                             PlayerScore /= data.Value;
                             break;
                         case ScoreType.Viewer:
-                            PlayerScore /= data.Value * (int)ScoreType.Viewer;
+                            PlayerScore /= data.Value * (long)ScoreType.Viewer;
                             break;
                         case ScoreType.Subscriber:
-                            PlayerScore /= data.Value * (int)ScoreType.Subscriber;
+                            PlayerScore /= data.Value * (long)ScoreType.Subscriber;
                             break;
                         case ScoreType.Donation:
-                            PlayerScore /= data.Value * (int)ScoreType.Donation;
+                            PlayerScore /= data.Value * (long)ScoreType.Donation;
                             break;
                     }
                 }
                 break;
         }
         ScoreText.text = $"Score: {PlayerScore}";
-        if (PlayerScore > PlayerHighScore)
-        {
-            PlayerHighScore = PlayerScore;
-            PlayerPrefs.SetInt("PlayerHighScore", PlayerHighScore);
-            HighScoreText.text = $"New High Score: {PlayerHighScore}";
-        }
-        else
-        {
-            HighScoreText.text = $"High Score: {PlayerHighScore}";
-        }
+        // if (PlayerScore > PlayerHighScore)
+        // {
+        //     PlayerHighScore = PlayerScore;
+        //    // PlayerPrefs.SetInt("PlayerHighScore", PlayerHighScore);
+        //     HighScoreText.text = $"New High Score: {PlayerHighScore}";
+        // }
+        // else
+        // {
+        //     HighScoreText.text = $"High Score: {PlayerHighScore}";
+        // }
     }
 
     public virtual void ViewersMessageHandler(MessageSystem.IMessageEnvelope message) {
