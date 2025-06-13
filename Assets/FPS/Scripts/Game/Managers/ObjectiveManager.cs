@@ -6,15 +6,15 @@ namespace FPS.Scripts.Game.Managers
 {
     public class ObjectiveManager : MonoBehaviour
     {
-        List<Objective> m_Objectives = new List<Objective>();
+        List<Shared.Objective> m_Objectives = new List<Shared.Objective>();
         bool m_ObjectivesCompleted = false;
 
         void Awake()
         {
-            Objective.OnObjectiveCreated += RegisterObjective;
+            Shared.Objective.OnObjectiveCreated += RegisterObjective;
         }
 
-        void RegisterObjective(Objective objective) => m_Objectives.Add(objective);
+        void RegisterObjective(Shared.Objective objective) => m_Objectives.Add(objective);
 
         void Update()
         {
@@ -37,7 +37,7 @@ namespace FPS.Scripts.Game.Managers
 
         void OnDestroy()
         {
-            Objective.OnObjectiveCreated -= RegisterObjective;
+            Shared.Objective.OnObjectiveCreated -= RegisterObjective;
         }
     }
 }

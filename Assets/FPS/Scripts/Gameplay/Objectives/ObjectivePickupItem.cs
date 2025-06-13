@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace FPS.Scripts.Gameplay.Objectives
 {
-    public class ObjectivePickupItem : Objective
+    public class ObjectivePickupItem : Game.Shared.Objective
     {
         [Tooltip("Item to pickup to complete the objective")]
         public GameObject ItemToPickup;

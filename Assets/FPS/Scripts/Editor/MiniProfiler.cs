@@ -245,7 +245,7 @@ namespace FPS.Scripts.Editor
                     if (!(mf.GetComponentInParent<PlayerCharacterController>() ||
                           mf.GetComponentInParent<EnemyController>() ||
                           mf.GetComponentInParent<Pickup>() ||
-                          mf.GetComponentInParent<Objective>()))
+                          mf.GetComponentInParent<Game.Shared.Objective>()))
                     {
                         nonCombinedMeshCount++;
                     }
