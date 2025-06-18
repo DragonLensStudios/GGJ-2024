@@ -6,7 +6,9 @@ using System.Linq;
 using DLS.Enums;
 using DLS.Messaging;
 using DLS.Messaging.Messages;
+using Enums;
 using FPS.Scripts.Game;
+using Messaging.Messages;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -98,6 +100,7 @@ namespace DLS.Chat
                     if (randomUser.UserType == UserType.Subscriber)
                     {
                         MessageSystem.MessageManager.SendImmediate(MessageChannels.UI, new AddSubscriberMessage(randomUser));
+                        MessageSystem.MessageManager.SendImmediate(MessageChannels.UI, new ScoreMessage(MathOperation.Add, ScoreType.Subscriber, 5));
                     }
                     AvailableUsers.Remove(randomUser);
                     StartCoroutine(UserAddEnumerator());
@@ -137,6 +140,7 @@ namespace DLS.Chat
             {
                 var message = randomUser.ChatMessages[UnityEngine.Random.Range(0, randomUser.ChatMessages.Count)];
                 MessageSystem.MessageManager.SendImmediate(MessageChannels.UI, new AddChatMessage(randomUser, message.Message));
+                MessageSystem.MessageManager.SendImmediate(MessageChannels.UI, new ScoreMessage(MathOperation.Add, ScoreType.Viewer, 1));
             }
             StartCoroutine(MessageAddEnumerator());
         }
