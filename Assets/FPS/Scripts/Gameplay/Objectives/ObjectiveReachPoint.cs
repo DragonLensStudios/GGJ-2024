@@ -4,7 +4,7 @@ using UnityEngine;
 namespace FPS.Scripts.Gameplay.Objectives
 {
     [RequireComponent(typeof(Collider))]
-    public class ObjectiveReachPoint : Objective
+    public class ObjectiveReachPoint : Game.Shared.Objective
     {
         [Tooltip("Visible transform that will be destroyed once the objective is completed")]
         public Transform DestroyRoot;

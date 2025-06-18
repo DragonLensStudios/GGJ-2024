@@ -1,42 +1,92 @@
 using System;
+using System.Collections;
 using DLS.Chat;
 using DLS.Enums;
 using DLS.Managers;
 using DLS.Messaging;
 using DLS.Messaging.Messages;
+using Enums;
 using FPS.Scripts.Game;
 using FPS.Scripts.Game.Managers;
+using Messaging.Messages;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace DLS.UI
 {
-    
     public class ChatUIController : MonoBehaviour
     {
+        [field: SerializeField] public RawImage StreamerViewImage { get; set; }
         [field: SerializeField] public GameObject StreamerViewUI { get; set; }
         [field: SerializeField] public GameObject StreamerViewSettingsRoot { get; set; }
         [field: SerializeField] public GameObject GameViewUI { get; set; }
         [field: SerializeField] public GameObject GameViewSettingsRoot { get; set; }
         [field: SerializeField] public RenderTexture StreamerViewRenderTexture { get; set; }
-        [field:SerializeField] public GameObject ChatMessagePrefab { get; set; }
-        [field:SerializeField] public GameObject ChatMessageContainer { get; set; }
-        [field:SerializeField] public Scrollbar ChatScrollbar { get; set; }
-        
+        [field: SerializeField] public GameObject ChatMessagePrefab { get; set; }
+        [field: SerializeField] public GameObject ChatMessageContainer { get; set; }
+        [field: SerializeField] public Scrollbar ChatScrollbar { get; set; }
         [field: SerializeField] public TMP_Text ViewerCountText { get; set; }
-        
         [field: SerializeField] public TMP_Text SubscriberCountText { get; set; }
+        
+        // NEW: Separate cameras
+        [field: SerializeField] public Camera GameCamera { get; set; }      // Your main camera (child of player)
+        [field: SerializeField] public Camera StreamerOverlayCamera { get; set; } // New camera for streamer UI only
         
         protected int CurrentViewers { get; set; }
         protected int CurrentSubscribers { get; set; }
-        
-        protected Camera MainCamera;
-
+        protected bool isStreamerViewActive = false;
 
         private void Awake()
         {
-            MainCamera = Camera.main;
+            SetupCameras();
+            SetupRenderTexture();
+        }
+
+        private void Start()
+        {
+            // Default to Game View
+            SwitchToGameView();
+        }
+
+        private void SetupCameras()
+        {
+            // Find or assign the main game camera (child of player)
+            if (GameCamera == null)
+            {
+                GameCamera = Camera.main;
+            }
+
+            // Create streamer overlay camera if it doesn't exist
+            if (StreamerOverlayCamera == null)
+            {
+                GameObject streamerCamObj = new GameObject("StreamerOverlayCamera");
+                StreamerOverlayCamera = streamerCamObj.AddComponent<Camera>();
+            }
+
+            // Setup streamer overlay camera
+            StreamerOverlayCamera.clearFlags = CameraClearFlags.SolidColor;
+            StreamerOverlayCamera.backgroundColor = Color.black;
+            StreamerOverlayCamera.cullingMask = LayerMask.GetMask("UI"); // Only render UI layer
+            StreamerOverlayCamera.depth = 1; // Higher than game camera
+            StreamerOverlayCamera.enabled = false; // Start disabled
+        }
+
+        private void SetupRenderTexture()
+        {
+            if (StreamerViewRenderTexture != null)
+            {
+                if (!StreamerViewRenderTexture.IsCreated())
+                {
+                    StreamerViewRenderTexture.Create();
+                }
+
+                // Always assign the texture to the RawImage
+                if (StreamerViewImage != null)
+                {
+                    StreamerViewImage.texture = StreamerViewRenderTexture;
+                }
+            }
         }
 
         protected void OnEnable()
@@ -45,6 +95,7 @@ namespace DLS.UI
             MessageSystem.MessageManager.RegisterForChannel<AddUserMessage>(MessageChannels.UI, AddUserMessageHandler);
             MessageSystem.MessageManager.RegisterForChannel<AddSubscriberMessage>(MessageChannels.UI, AddSubscriberMessageHandler);
         }
+
         protected void OnDisable()
         {
             MessageSystem.MessageManager.UnregisterForChannel<AddChatMessage>(MessageChannels.UI, AddChatMessageHandler);
@@ -54,31 +105,78 @@ namespace DLS.UI
 
         private void Update()
         {
-            //TODO: replace with new input system
             if (UnityEngine.Input.GetButtonDown(GameConstants.k_ButtonNameToggleView))
             {
                 ToggleView();
             }
         }
-        
+
         private void ToggleView()
         {
-            if(StreamerViewUI.activeSelf)
+            isStreamerViewActive = !isStreamerViewActive;
+            
+            if (isStreamerViewActive)
             {
-                GameViewSettingsRoot.SetActive(StreamerViewSettingsRoot.activeSelf);
-                StreamerViewUI.SetActive(false);
-                GameViewUI.SetActive(true);
-                MainCamera.targetTexture = null;
+                SwitchToStreamerView();
             }
             else
             {
-                StreamerViewSettingsRoot.SetActive(GameViewSettingsRoot.activeSelf);
-                StreamerViewUI.SetActive(true);
-                GameViewUI.SetActive(false);
-                MainCamera.targetTexture = StreamerViewRenderTexture;
+                SwitchToGameView();
             }
         }
-        
+
+        private void SwitchToStreamerView()
+        {
+            // Game camera renders to texture (continues following player)
+            GameCamera.targetTexture = StreamerViewRenderTexture;
+            
+            // Enable streamer overlay camera to render UI
+            StreamerOverlayCamera.enabled = true;
+            
+            // Switch UI
+            GameViewUI.SetActive(false);
+            StreamerViewUI.SetActive(true);
+            
+            // Set UI layer for streamer overlay camera
+            SetUILayer(StreamerViewUI, "UI");
+            
+            Debug.Log("Switched to Streamer View");
+        }
+
+        private void SwitchToGameView()
+        {
+            // Game camera renders directly to screen
+            GameCamera.targetTexture = null;
+            
+            // Disable streamer overlay camera
+            StreamerOverlayCamera.enabled = false;
+            
+            // Switch UI
+            StreamerViewUI.SetActive(false);
+            GameViewUI.SetActive(true);
+            
+            // Set UI layer back to default
+            SetUILayer(GameViewUI, "UI");
+            
+            Debug.Log("Switched to Game View");
+        }
+
+        private void SetUILayer(GameObject uiRoot, string layerName)
+        {
+            int layer = LayerMask.NameToLayer(layerName);
+            SetLayerRecursively(uiRoot, layer);
+        }
+
+        private void SetLayerRecursively(GameObject obj, int layer)
+        {
+            obj.layer = layer;
+            foreach (Transform child in obj.transform)
+            {
+                SetLayerRecursively(child.gameObject, layer);
+            }
+        }
+
+        // All your existing message handling methods remain the same...
         public virtual void AddUserMessageHandler(MessageSystem.IMessageEnvelope message)
         {
             if(!message.Message<AddUserMessage>().HasValue) return;
@@ -88,7 +186,6 @@ namespace DLS.UI
         
         public void AddUserMessage(ViewerUser user)
         {
-            //TODO:Refactor to not use hardcoded string for guest.
             if (user.UserType == UserType.Subscriber && !user.Username.Equals("Guest"))
             {
                 var chatMessage = Instantiate(ChatMessagePrefab, ChatMessageContainer.transform);
@@ -103,7 +200,6 @@ namespace DLS.UI
             if (GameViewUI.activeSelf)
             {
                 DisplayMessageEvent displayMessage = Events.DisplayMessageEvent;
-                //TODO:Refactor to not use hardcoded string for guest.
                 if (user.UserType == UserType.Subscriber && !user.Username.Equals("Guest"))
                 {
                     displayMessage.Message = $"{user.Username} has joined the chat!";
@@ -156,7 +252,6 @@ namespace DLS.UI
                     displayMessage.DelayBeforeDisplay = 0.0f;
                     EventManager.Broadcast(displayMessage);
                 }
-
             }
         }
         
@@ -167,7 +262,6 @@ namespace DLS.UI
         
         public void ResetTime()
         {
-            //TODO: Replace with message
             TimeManager.Instance.Reset();
         }
     }
