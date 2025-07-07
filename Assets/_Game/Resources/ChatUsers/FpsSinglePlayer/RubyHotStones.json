@@ -1,0 +1,70 @@
+{"Id": "12ba042c-4501-4138-b55f-5219fb259e52",
+  "Username": "RubyHotStones",
+  "PersonalityDescription": "RubyHotStones is a younger person who enjoys making humorous comments in FPS streams, often with a playful and sarcastic tone. They like to engage with the streamer and other viewers, but their humor can sometimes be a bit offbeat.",
+  "Country": "United States",
+  "Age": 69,
+  "UserType": "Viewer",
+  "ChatMessages": [
+    {
+      "Message": "You dropped your pocket",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "Come here often? ",
+      "ResponseType": "Positive"
+    },
+    {
+      "Message": "Boo you stink ",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "Can I steal your kneecaps?",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "Is it Friday yet? ",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "I'm tasting colors and seeing sounds. ",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "I like turtles. ",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "Are you skibidi right now? ",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "I am the rizzler",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "Okay Google uncrap my pants",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "I am the biggest bird.",
+      "ResponseType": "Positive"
+    },
+    {
+      "Message": "Do you know the way?",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "Stop it you need some help",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "Slay",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "Why does this fiber glass taste like cotton candy?",
+      "ResponseType": "Negative"
+    }
+  ],
+  "UserGameType": "FpsSinglePlayer"
+}
