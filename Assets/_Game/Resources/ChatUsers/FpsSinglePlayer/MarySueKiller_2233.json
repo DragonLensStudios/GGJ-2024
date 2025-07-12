@@ -1,0 +1,70 @@
+{ "Id": "84c848dd-e14f-4044-b792-8264a156f02a",
+  "Username": "MarySueKiller_2233",
+  "PersonalityDescription": "MarySueKiller_2233 is a passionate gamer who loves playing FPS single-player games, and watches streams to learn new strategies and techniques. They can be quite critical, but will genuinely be positive when things are going right.",
+  "Country": "Germany",
+  "Age": 25,
+  "UserType": "Subscriber",
+  "ChatMessages": [
+    {
+      "Message": "Well that was a great play in [game]! You're really showing your skills! 🎮",
+      "ResponseType": "Positive"
+    },
+    {
+      "Message": "Never thought of that strategy in [game]! You're really thinking outside the box! 🧠",
+      "ResponseType": "Positive"
+    },
+    {
+      "Message": "Wow, your aim in [game] is on point! I need to take notes! 📝",
+      "ResponseType": "Positive"
+    },
+    {
+      "Message": "Those robots in [game] didn't stand a chance against you! You're unstoppable! 🤖",
+      "ResponseType": "Positive"
+    },
+    {
+      "Message": "This game's aesthetics are so beautiful, and you're making it look even better! 🌌",
+      "ResponseType": "Positive"
+    },
+    {
+      "Message": "Don't forget to hide behind cover more often in [game]. It can really help you survive longer! 🛡️",
+      "ResponseType": "Positive"
+    },
+    {
+      "Message": "I love how you adapt your strategy in [game] based on the situation. You're a true tactician! 🎯",
+      "ResponseType": "Positive"
+    },
+    {
+      "Message": "Ugh, if I wanted to see someone die in [game], I would just watch a bot play! You can do better than that! 😠",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "So you're like every other player in [game], just running around and dying? How original! 🙄",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "This is funny in a way, watching you struggle in [game]. I guess not everyone can be a pro! 😂",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "This is the best I've seen in [game], and I've seen a lot of players! Keep it up! 👏",
+      "ResponseType": "Positive"
+    },
+    {
+      "Message": "This is trash gameplay in [game]. I could do better with my eyes closed! 😒",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "Wow, that was a terrible move in [game]. I hope you learn from it! 😅",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "Why didn't you use that weapon in [game]? It would have been so much more effective! 🔫",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "LOL, you really just didn't use cover in [game]? That's a rookie mistake! 😂",
+      "ResponseType": "Negative"
+    }
+  ],
+  "UserGameType": "FpsSinglePlayer"
+}

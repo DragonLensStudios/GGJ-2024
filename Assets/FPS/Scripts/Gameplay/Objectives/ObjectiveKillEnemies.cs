@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace FPS.Scripts.Gameplay.Objectives
 {
-    public class ObjectiveKillEnemies : Objective
+    public class ObjectiveKillEnemies : Game.Shared.Objective
     {
         [Tooltip("Chose whether you need to kill every enemies or only a minimum amount")]
         public bool MustKillAllEnemies = true;

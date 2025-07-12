@@ -1,0 +1,70 @@
+{"Id": "12ba042c-4501-4138-b55f-5219fb259e52",
+  "Username": "XxShadowFox_420xX",
+  "PersonalityDescription": "XxShadowFox_420xX is a hater of the FPS and gets on streams to criticize gameplay, and the streamers for playing the game.",
+  "Country": "United States",
+  "Age": 16,
+  "UserType": "Viewer",
+  "ChatMessages": [
+    {
+      "Message": "This game is so overrated, and you're not even playing it right! 😒",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "You're taste in games is terrible! Why would you even play [game]? 🙄",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "You're a good little streaming cadet at Vive, but your gameplay in [game] is just sad. 😢",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "I truly hope you're competition wins over you in the stream-off. Your gameplay in [game] is just embarrassing. 😬",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "I don't know why you even bother playing [game]. You're just making a fool of yourself! 😂",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "This is the worst gameplay I've seen in [game]. I could do better with my eyes closed! 😒",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "You call that a strategy in [game]? I've seen better moves from a toddler! 🤦‍♂️",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "Come to [competitor]'s stream if you want to see real gameplay. This is just pathetic! 😤",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "Lol, you're just running around in [game] like a headless chicken! Where's the skill? 🐔",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "Why can't people just play good games like [competitor] does? This is just a waste of time! 😩",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "Army of one? More like army of zero! Your gameplay in [game] is just sad. 😢",
+      "ResponseType": "Positive"
+    },
+    {
+      "Message": "You're ruining the cyberpunk aesthetic with your terrible gameplay in [game]. It's just embarrassing! 😬",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "Haha, you're just a wannabe gamer in [game]. I've seen better players in my sleep! 😴",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "You think you're a pro in [game]? I've seen better players in my grandma's basement! 😂",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "You should really take some lessons in [game]. Your gameplay is just a joke! 🤣",
+      "ResponseType": "Negative"
+    }
+  ],
+  "UserGameType": "FpsSinglePlayer"
+}

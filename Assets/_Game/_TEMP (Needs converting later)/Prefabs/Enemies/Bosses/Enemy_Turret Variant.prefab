@@ -86,6 +86,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9087143436424816424, guid: e29d43f43cc5d82499dd9926e01847d3,
         type: 3}
+      propertyPath: ScoreOnKill
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 9087143436424816424, guid: e29d43f43cc5d82499dd9926e01847d3,
+        type: 3}
       propertyPath: MaxLootDrops
       value: 2
       objectReference: {fileID: 0}
@@ -130,25 +135,25 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 9087143436424816424, guid: e29d43f43cc5d82499dd9926e01847d3,
         type: 3}
-      propertyPath: LootPrefabs.Array.data[0]
+      propertyPath: 'LootPrefabs.Array.data[0]'
       value: 
       objectReference: {fileID: 7650312994010890478, guid: 7954920477595f943a831460ed556506,
         type: 3}
     - target: {fileID: 9087143436424816424, guid: e29d43f43cc5d82499dd9926e01847d3,
         type: 3}
-      propertyPath: LootPrefabs.Array.data[1]
+      propertyPath: 'LootPrefabs.Array.data[1]'
       value: 
       objectReference: {fileID: 153932754601344323, guid: 90fd4e4875bd067418331fc439715164,
         type: 3}
     - target: {fileID: 9087143436424816424, guid: e29d43f43cc5d82499dd9926e01847d3,
         type: 3}
-      propertyPath: LootPrefabs.Array.data[2]
+      propertyPath: 'LootPrefabs.Array.data[2]'
       value: 
       objectReference: {fileID: 1385027662242639973, guid: ba59b5c2f0ae0f3428f8991d8b9f0740,
         type: 3}
     - target: {fileID: 9087143436424816424, guid: e29d43f43cc5d82499dd9926e01847d3,
         type: 3}
-      propertyPath: LootPrefabs.Array.data[3]
+      propertyPath: 'LootPrefabs.Array.data[3]'
       value: 
       objectReference: {fileID: 2999087251435811793, guid: ebfd83d78e18b5d4b805fa824a771bb1,
         type: 3}

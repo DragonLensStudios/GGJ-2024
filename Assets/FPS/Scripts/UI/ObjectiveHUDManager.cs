@@ -18,19 +18,19 @@ namespace FPS.Scripts.UI
         [Tooltip("Prefab for the primary objectives")]
         public GameObject SecondaryObjectivePrefab;
 
-        Dictionary<Objective, ObjectiveToast> m_ObjectivesDictionnary;
+        Dictionary<Game.Shared.Objective, ObjectiveToast> m_ObjectivesDictionnary;
 
         void Awake()
         {
-            m_ObjectivesDictionnary = new Dictionary<Objective, ObjectiveToast>();
+            m_ObjectivesDictionnary = new Dictionary<Game.Shared.Objective, ObjectiveToast>();
 
             EventManager.AddListener<ObjectiveUpdateEvent>(OnUpdateObjective);
 
-            Objective.OnObjectiveCreated += RegisterObjective;
-            Objective.OnObjectiveCompleted += UnregisterObjective;
+            Game.Shared.Objective.OnObjectiveCreated += RegisterObjective;
+            Game.Shared.Objective.OnObjectiveCompleted += UnregisterObjective;
         }
 
-        public void RegisterObjective(Objective objective)
+        public void RegisterObjective(Game.Shared.Objective objective)
         {
             // instanciate the Ui element for the new objective
             GameObject inGameObjectiveUIInstance = Instantiate(objective.IsOptional ? SecondaryObjectivePrefab : PrimaryObjectivePrefab, InGameObjectivePanel);
@@ -51,7 +51,7 @@ namespace FPS.Scripts.UI
             UnityEngine.UI.LayoutRebuilder.ForceRebuildLayoutImmediate(InGameObjectivePanel);
         }
 
-        public void UnregisterObjective(Objective objective)
+        public void UnregisterObjective(Game.Shared.Objective objective)
         {
             // if the objective if in the list, make it fade out, and remove it from the list
             if (m_ObjectivesDictionnary.TryGetValue(objective, out ObjectiveToast toast) && toast != null)
@@ -85,8 +85,8 @@ namespace FPS.Scripts.UI
         {
             EventManager.AddListener<ObjectiveUpdateEvent>(OnUpdateObjective);
 
-            Objective.OnObjectiveCreated -= RegisterObjective;
-            Objective.OnObjectiveCompleted -= UnregisterObjective;
+            Game.Shared.Objective.OnObjectiveCreated -= RegisterObjective;
+            Game.Shared.Objective.OnObjectiveCompleted -= UnregisterObjective;
         }
     }
 }

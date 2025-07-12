@@ -86,6 +86,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
         type: 3}
+      propertyPath: ScoreOnKill
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
+        type: 3}
       propertyPath: MaxLootDrops
       value: 2
       objectReference: {fileID: 0}
@@ -148,37 +153,37 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
         type: 3}
-      propertyPath: LootPrefabs.Array.data[0]
+      propertyPath: 'LootPrefabs.Array.data[0]'
       value: 
       objectReference: {fileID: 3284831919422975972, guid: 4c935eddc5d3c5140b3cb321fe5b57a3,
         type: 3}
     - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
         type: 3}
-      propertyPath: LootPrefabs.Array.data[1]
+      propertyPath: 'LootPrefabs.Array.data[1]'
       value: 
       objectReference: {fileID: 5947021717687567299, guid: 697b9f6ee2043864492b59b25db42457,
         type: 3}
     - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
         type: 3}
-      propertyPath: LootPrefabs.Array.data[2]
+      propertyPath: 'LootPrefabs.Array.data[2]'
       value: 
       objectReference: {fileID: 7582278945712684513, guid: 2371045cf4445124997255f06faacb7c,
         type: 3}
     - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
         type: 3}
-      propertyPath: LootPrefabs.Array.data[3]
+      propertyPath: 'LootPrefabs.Array.data[3]'
       value: 
       objectReference: {fileID: 8292551480414258569, guid: 09531e779dddc3c4fb257c608521a827,
         type: 3}
     - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
         type: 3}
-      propertyPath: LootPrefabs.Array.data[4]
+      propertyPath: 'LootPrefabs.Array.data[4]'
       value: 
       objectReference: {fileID: 5449808880828012920, guid: efe2a3f89a2be314a9dd41a3f25dfe1f,
         type: 3}
     - target: {fileID: 6716413259434462751, guid: 39ef422616f16334f8d6423075cf10c1,
         type: 3}
-      propertyPath: LootPrefabs.Array.data[5]
+      propertyPath: 'LootPrefabs.Array.data[5]'
       value: 
       objectReference: {fileID: 5449808880828012920, guid: efe2a3f89a2be314a9dd41a3f25dfe1f,
         type: 3}

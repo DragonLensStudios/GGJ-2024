@@ -1,0 +1,70 @@
+{"Id": "7aaf540b-850d-4724-b449-83a000d9ede6",
+  "Username": "NyanNyanGirl",
+  "PersonalityDescription": "NyanNyanGirl is an attention seeking person who wants people to notice her. She likes to try to flirt with the streamer.",
+  "Country": "United States",
+  "Age": 18,
+  "UserType": "Donor",
+  "ChatMessages": [
+    {
+      "Message": "NGL! I love watching you play [game]! You're so good at it! 😍",
+      "ResponseType": "Positive"
+    },
+    {
+      "Message": "You sound very hot when you play [game]! I can't take my eyes off you! 😘",
+      "ResponseType": "Positive"
+    },
+    {
+      "Message": "Think you could send me a dm after the stream? I would love to chat more about [game]! 💌",
+      "ResponseType": "Positive"
+    },
+    {
+      "Message": "I love how you play [game]! It's like you're dancing with the game! 💃",
+      "ResponseType": "Positive"
+    },
+    {
+      "Message": "Your skills in [game] are unmatched! I wish I could be as good as you! 😻",
+      "ResponseType": "Positive"
+    },
+    {
+      "Message": "I can't believe how well you're doing in [game]! You're like a pro! 🏆",
+      "ResponseType": "Positive"
+    },
+    {
+      "Message": "I love your energy while playing [game]! It's so contagious! Keep it up! 🎉",
+      "ResponseType": "Positive"
+    },
+    {
+      "Message": "Babe, why didn't you tell me you were playing [game] today? I would have loved to watch you! 😘",
+      "ResponseType": "Positive"
+    },
+    {
+      "Message": "I'll be giving you some extra love today because you're playing [game]! You're amazing! 💖",
+      "ResponseType": "Positive"
+    },
+    {
+      "Message": "I love how you handle the challenges in [game]! You're so brave and skilled! 💪",
+      "ResponseType": "Positive"
+    },
+    {
+      "Message": "I can't get enough of your gameplay in [game]! You're so entertaining to watch! 😍",
+      "ResponseType": "Positive"
+    },
+    {
+      "Message": "Ugh, I can't believe you just did that in [game]! But I still love you! 😘",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "That was a bit of a fail in [game], but don't worry, we all have those moments! You're still my favorite! 😅",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "I guess I'll take my money elsewhere if you keep playing like that in [game]! Just kidding, I still love you! 😜",
+      "ResponseType": "Negative"
+    },
+    {
+      "Message": "Don't forget baby I'm rich! I can afford to watch you play [game] even if you mess up sometimes! 💸",
+      "ResponseType": "Negative"
+    }
+  ],
+  "UserGameType": "FpsSinglePlayer"
+}

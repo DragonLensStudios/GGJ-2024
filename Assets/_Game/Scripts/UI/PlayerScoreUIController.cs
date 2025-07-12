@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class PlayerScoreUIController : MonoBehaviour
 {
-    [field: SerializeField] public int PlayerScore { get; set; }
+    [field: SerializeField] public long PlayerScore { get; set; }
     [field: SerializeField] public TMP_Text ScoreText { get; set; }
     private void OnEnable()
     {

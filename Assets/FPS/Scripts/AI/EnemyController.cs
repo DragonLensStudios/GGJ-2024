@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using DLS.Messaging;
+using Enums;
 using FPS.Scripts.Game;
 using FPS.Scripts.Game.Managers;
 using FPS.Scripts.Game.Shared;
 using FPS.Scripts.Gameplay;
 using FPS.Scripts.Gameplay.Managers;
+using Messaging.Messages;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -108,6 +111,9 @@ namespace FPS.Scripts.AI
         public List<LootDrop> Loot = new();
         public int MinLootDrops = 1;
         public int MaxLootDrops = 2;
+
+        [Tooltip("Score given to the player when this enemy is killed")]
+        public long ScoreOnKill = 5;
         
         [Header("Debug Display")] [Tooltip("Color of the sphere gizmo representing the path reaching range")]
         public Color PathReachingRangeColor = Color.yellow;
@@ -457,6 +463,7 @@ namespace FPS.Scripts.AI
                 }
             }
             
+            MessageSystem.MessageManager.BroadcastImmediate(new ScoreMessage(MathOperation.Add, ScoreType.None, ScoreOnKill));
             // this will call the OnDestroy function
             Destroy(gameObject, DeathDuration);
         }
