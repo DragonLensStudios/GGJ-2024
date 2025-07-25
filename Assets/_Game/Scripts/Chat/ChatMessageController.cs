@@ -37,20 +37,50 @@ namespace DLS.Chat
 
             AvailableUsers.Clear(); // Clear the list to avoid duplicates
 
-            foreach (var folder in userGameTypeFolders)
+            try
             {
-                // Load all TextAsset objects from the specific folder
-                var users = Resources.LoadAll<TextAsset>($"{basePath}{folder}");
-                foreach (var userTextAsset in users)
+                foreach (var folder in userGameTypeFolders)
                 {
-                    // Deserialize the JSON text to a ViewerUser object
-                    var viewerUser = JsonConvert.DeserializeObject<ViewerUser>(userTextAsset.text);
-                    if (viewerUser != null)
+
+                    // Load all TextAsset objects from the specific folder
+                    var users = Resources.LoadAll<TextAsset>($"{basePath}{folder}");
+                    foreach (var userTextAsset in users)
                     {
-                        AvailableUsers.Add(viewerUser);
+                        var settings = new JsonSerializerSettings();
+                        settings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+                        ViewerUser viewerUser = null;
+                        try
+                        {
+                            viewerUser = JsonConvert.DeserializeObject<ViewerUser>(userTextAsset.text, settings);
+                        }
+                        catch (JsonSerializationException ex)
+                        {
+                            Debug.LogWarning($"Failed to deserialize user: {ex.Message}\n {userTextAsset.name}");
+                        }
+                        catch (JsonReaderException ex) 
+                        {
+                            Debug.LogWarning($"JSON Reader error for user: {ex.Message}");
+                        }
+                        catch (Exception ex)
+                        {
+                            Debug.LogError($"Unexpected error while deserializing user: {ex.Message}");
+                        }
+                        // if (viewerUser != null)
+                            
+                        // Deserialize the JSON text to a ViewerUser object
+                        // var viewerUser = JsonConvert.DeserializeObject<ViewerUser>(userTextAsset.text);
+                        if (viewerUser != null)
+                        {
+                            AvailableUsers.Add(viewerUser);
+                        }
                     }
-                }
+                }      
             }
+            catch (Exception e)
+            {
+                Debug.LogError($"Error loading users: {e.Message}");
+            }
+
         }
         
         private void Start()

@@ -161,10 +161,14 @@ namespace DLS.Messaging
             {
                 var channels = _channels.Keys.ToList();
 
-                Parallel.ForEach(channels, channel =>
+                foreach (var channel in channels)
                 {
                     SendImmediate(channel, message);
-                });
+                }
+                // Parallel.ForEach(channels, channel =>
+                // {
+                //     SendImmediate(channel, message);
+                // });
 
                 Console.WriteLine($"Message of type {typeof(T).Name} broadcasted immediately");
             }

@@ -762,6 +762,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1661717823, guid: e1fe6e094ac0f464a81ab9f37e98c86b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2286125971047457827, guid: e1fe6e094ac0f464a81ab9f37e98c86b,
         type: 3}
       propertyPath: m_ClearFlags
@@ -771,6 +775,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerUpdated
+      objectReference: {fileID: 0}
+    - target: {fileID: 7267769575523271762, guid: e1fe6e094ac0f464a81ab9f37e98c86b,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7491190654590824519, guid: e1fe6e094ac0f464a81ab9f37e98c86b,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8746678193447392789, guid: e1fe6e094ac0f464a81ab9f37e98c86b,
         type: 3}
@@ -4990,20 +5004,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 394746082099228342, guid: f354d7e048f03a94dba5947b353d05b8,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1870052022272443003, guid: f354d7e048f03a94dba5947b353d05b8,
         type: 3}
       propertyPath: m_Name
       value: ChatController
-      objectReference: {fileID: 0}
-    - target: {fileID: 1870052022272443003, guid: f354d7e048f03a94dba5947b353d05b8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3251062197532297665, guid: f354d7e048f03a94dba5947b353d05b8,
         type: 3}
@@ -5068,6 +5072,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1129771579637525424, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129771579637525424, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129771579637525424, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1129771579637525424, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1429397780177181451, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
         type: 3}
       propertyPath: <GameCamera>k__BackingField
@@ -5094,6 +5118,26 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3013440661002343344, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442982702660663472, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442982702660663472, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442982702660663472, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5442982702660663472, guid: d6c913d0f2a898a4d930b6ccfb1283d2,
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
