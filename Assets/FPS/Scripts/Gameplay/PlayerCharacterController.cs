@@ -1,4 +1,7 @@
-﻿using FPS.Scripts.Game;
+﻿using DLS.Enums;
+using DLS.Messaging;
+using DLS.Messaging.Messages;
+using FPS.Scripts.Game;
 using FPS.Scripts.Game.Managers;
 using FPS.Scripts.Game.Shared;
 using FPS.Scripts.Gameplay.Managers;
@@ -227,6 +230,7 @@ namespace FPS.Scripts.Gameplay
             m_WeaponsManager.SwitchToWeaponIndex(-1, true);
 
             EventManager.Broadcast(Events.PlayerDeathEvent);
+            MessageSystem.MessageManager.SendImmediate(MessageChannels.Player, new PlayerDeathMessage());
         }
 
         void GroundCheck()

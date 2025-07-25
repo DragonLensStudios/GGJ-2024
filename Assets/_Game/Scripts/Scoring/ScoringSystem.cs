@@ -3,6 +3,8 @@ using DLS.Enums;
 using DLS.Messaging;
 using DLS.Messaging.Messages;
 using Enums;
+using FPS.Scripts.Gameplay;
+using FPS.Scripts.UI;
 using Messaging;
 using Messaging.Messages;
 using Objective;
@@ -19,30 +21,48 @@ public class ScoringSystem : MonoBehaviour
     [field: SerializeField] public virtual TMP_Text ScoreText { get; set; }
     [field: SerializeField] public virtual TMP_Text HighScoreText { get; set; }
     
+    protected bool _isGameOver = false;
+
+    protected Coroutine _scoreCoroutine;
+    
 
     protected void Start()
     {
         ScoreText.text = $"Score: {PlayerScore}";
         Debug.Log("start");
-        PlayerHighScore = PlayerPrefs.GetInt("PlayerHighScore");
+        // PlayerHighScore = PlayerPrefs.GetInt("PlayerHighScore");
         //HighScoreText.text = $"High Score: {PlayerHighScore}";
+        _scoreCoroutine = StartCoroutine(ScoreTickCoroutine(1, 2.5f));
     }
 
     protected void OnEnable()
     {
         MessageSystem.MessageManager.RegisterForChannel<ScoreMessage>(MessageChannels.UI, ScoreMessageHandler);
-        StartCoroutine(ScoreTickCoroutine(1, 2.5f));
+        MessageSystem.MessageManager.RegisterForChannel<PlayerDeathMessage>(MessageChannels.Player, PlayerDeathMessageHandler);
+    }
+
+    private void PlayerDeathMessageHandler(MessageSystem.IMessageEnvelope message)
+    {
+        if(!message.Message<PlayerDeathMessage>().HasValue) return;
+        var data = message.Message<PlayerDeathMessage>().GetValueOrDefault();
+        if (_scoreCoroutine != null)
+        {
+            StopCoroutine(_scoreCoroutine);
+        }
+        // StopCoroutine(ScoreTickCoroutine(1, 2.5f));
+        _isGameOver = true;
     }
 
     protected void OnDisable()
     {
         MessageSystem.MessageManager.UnregisterForChannel<ScoreMessage>(MessageChannels.UI, ScoreMessageHandler);
-        StopCoroutine(ScoreTickCoroutine(1, 2.5f));
+        MessageSystem.MessageManager.UnregisterForChannel<PlayerDeathMessage>(MessageChannels.Player, PlayerDeathMessageHandler);
+        // StopCoroutine(ScoreTickCoroutine(1, 2.5f));
     }
 
     private IEnumerator ScoreTickCoroutine(long scoreValue, float delay = 1f)
     {
-        while (true)
+        while (!_isGameOver)
         {
             yield return new WaitForSeconds(delay);
             //AddScore(scoreValue);
